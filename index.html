@@ -4,14 +4,15 @@ layout: default
 <main>
 
   <section id="about" class="hero">
-    <div class="terminal" id="terminal" aria-label="Interactive terminal">
+    <div class="terminal terminal--booting" id="terminal" aria-label="Interactive terminal">
       <div class="terminal__bar" aria-hidden="true">
         <span class="terminal__dots"><i></i><i></i><i></i></span>
         <span>zyyz@arch: ~</span>
         <span class="terminal__status">interactive</span>
       </div>
       <div class="terminal__body" id="terminal-output" aria-live="polite">
-        <p><span class="terminal__prompt">zyyz@arch <b>~</b> $</span> fastfetch</p>
+        <p class="terminal__boot-line"><span class="terminal__dim">[ok]</span> secure shell established <span class="terminal__boot-cursor" aria-hidden="true">_</span></p>
+        <p class="terminal__fetch-line"><span class="terminal__prompt">zyyz@arch <b>~</b> $</span> fastfetch</p>
         <div class="fastfetch">
           <svg class="arch-logo" viewBox="0 0 120 120" role="img" aria-label="Arch Linux logo">
             <path d="M60 7 9 111l18-10 12-23h42l12 23 18 10L60 7Zm0 25 14 34H46L60 32Zm0 18-5 12h10L60 50Z" />
@@ -25,7 +26,7 @@ layout: default
             <p><span>location</span>   Tunis, Tunisia</p>
           </div>
         </div>
-        <p>Type <span class="terminal__command">help</span> to explore.</p>
+        <p class="terminal__hint">Type <span class="terminal__command">help</span> to explore.</p>
       </div>
       <form class="terminal__form" id="terminal-form">
         <label class="sr-only" for="terminal-input">Terminal command</label>
@@ -134,6 +135,10 @@ layout: default
           '  <span class="terminal__command">blog</span>       jump to field notes\n' +
           '  <span class="terminal__command">contact</span>    find me online\n' +
           '  <span class="terminal__command">skills</span>     current research areas\n' +
+          '  <span class="terminal__command">fastfetch</span>  show system profile\n' +
+          '  <span class="terminal__command">date</span>       print local time\n' +
+          '  <span class="terminal__command">uptime</span>     session uptime\n' +
+          '  <span class="terminal__command">matrix</span>     enter the green room\n' +
           '  <span class="terminal__command">clear</span>      clear the terminal';
       },
       about: function () {
@@ -149,6 +154,23 @@ layout: default
       contact: function () { document.getElementById('contact').scrollIntoView({ behavior: 'smooth' }); return 'Jumping to <span class="terminal__accent">contact</span>...'; },
       skills: function () {
         return 'web exploitation · active directory · binary exploitation · mobile reversing';
+      },
+      fastfetch: function () {
+        return '<span class="terminal__accent">Zyyz</span>@arch · Penetration Tester\n' +
+          'Digital Forensics &amp; Incident Response · Tunis, Tunisia';
+      },
+      neofetch: function () { return commands.fastfetch(); },
+      date: function () { return new Date().toLocaleString([], { dateStyle: 'full', timeStyle: 'medium' }); },
+      uptime: function () { return 'online since the first packet. still curious.'; },
+      matrix: function () {
+        var glyphs = '01アイウエオカキクケコ$#@%&*';
+        var rows = [];
+        for (var row = 0; row < 7; row++) {
+          var text = '';
+          for (var col = 0; col < 42; col++) text += glyphs[Math.floor(Math.random() * glyphs.length)];
+          rows.push(text);
+        }
+        return '<span class="terminal__matrix">' + rows.join('\n') + '</span>';
       },
       clear: function () { output.innerHTML = ''; return null; }
     };
