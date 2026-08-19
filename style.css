@@ -387,6 +387,10 @@ code {
 .tick-list li::marker { color: var(--accent-alt); }
 
 /* ---- achievements ---- */
+.achievement-groups { display: grid; gap: 2.5rem; }
+.achievement-group__heading { display: flex; align-items: center; gap: 0.7rem; margin: 0 0 1rem; }
+.achievement-group__heading > span { color: var(--accent-alt); font: 0.72rem var(--mono); }
+.achievement-group__heading h3 { margin: 0; font: 600 0.95rem var(--mono); text-transform: uppercase; letter-spacing: 0.06em; }
 .achievement-timeline { position: relative; margin: 0; padding: 0; list-style: none; }
 .achievement-timeline::before { position: absolute; top: 0.75rem; bottom: 0.75rem; left: 5.25rem; width: 1px; content: ''; background: var(--line); }
 .achievement-timeline li { position: relative; display: grid; grid-template-columns: 4rem 2.5rem 1fr; gap: 0.65rem; align-items: start; padding: 0 0 1.6rem; }
