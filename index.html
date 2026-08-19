@@ -15,7 +15,7 @@
 <div class="scanline" aria-hidden="true"></div>
 
 <header class="route">
-  <div class="route__self">bnjr@zyyz</div>
+  <div class="route__self">zyyz@arch</div>
   <nav class="route__hops" aria-label="Section navigation">
     <a href="#whoami"><span class="hop">01</span>whoami</a>
     <a href="#arsenal"><span class="hop">02</span>arsenal</a>
@@ -23,6 +23,10 @@
     <a href="#writeups"><span class="hop">04</span>writeups</a>
     <a href="#contact"><span class="hop">05</span>contact</a>
   </nav>
+  <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle light and dark theme">
+    <span class="theme-toggle__led" aria-hidden="true"></span>
+    <span class="theme-toggle__label">dark</span>
+  </button>
 </header>
 
 <main>
@@ -121,6 +125,29 @@ focus       : web exploitation · AD pentesting · binary exploitation · mobile
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  (function () {
+    var root = document.documentElement;
+    var btn = document.getElementById('theme-toggle');
+    var label = btn.querySelector('.theme-toggle__label');
+    var stored = localStorage.getItem('theme');
+    var prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+    var theme = stored || (prefersLight ? 'light' : 'dark');
+
+    function applyTheme(t) {
+      root.setAttribute('data-theme', t);
+      label.textContent = t;
+      btn.setAttribute('aria-pressed', t === 'light');
+    }
+
+    applyTheme(theme);
+
+    btn.addEventListener('click', function () {
+      theme = theme === 'dark' ? 'light' : 'dark';
+      localStorage.setItem('theme', theme);
+      applyTheme(theme);
+    });
+  })();
 </script>
 </body>
 </html>
