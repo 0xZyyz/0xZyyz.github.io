@@ -11,19 +11,17 @@
   </head>
   <body>
     <header class="waybar" id="waybar">
-      <div class="waybar__left">
-        <a class="waybar__logo" href="{{ '/' | relative_url }}" aria-label="Zyyz — home">
-          <svg class="waybar__arch" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M11.392 0c.347.276 1.222 1.613 1.693 2.191a7.9 7.9 0 0 0-.056 15.713 11.698 11.698 0 0 1 .105-2.034 5.86 5.86 0 0 1-6.16-8.906c1.653-1.75 6.354-3.417 7.479-2.115-1.183-3.022-1.918-4.958-1.918-5.537C12.172 1.585 12.222 1.11 12.7 0Zm3.46 6.077c.214 1.907.807 5.05 1.437 6.784.567 1.562 1.009 1.988 1.009 2.5 0 .808-.743 1.79-1.2 1.79-.335 0-.48-.257-.63-.835-.225-.874-.34-2.471-.877-3.587-1.262 2.516-2.696 3.303-3.977 3.303-1.698 0-2.853-1.568-2.853-3.297 0-3.89 4.22-4.854 6.09-7.657Z"/></svg>
-          <span>Zyyz</span>
-        </a>
-        <nav class="waybar__nav" aria-label="Site sections">
-          <a href="#about" class="waybar__item" data-label="about" aria-label="About">1</a>
-          <a href="#arsenal" class="waybar__item" data-label="arsenal" aria-label="Arsenal">2</a>
-          <a href="#experience" class="waybar__item" data-label="experience" aria-label="Experience">3</a>
-          <a href="#achievements" class="waybar__item" data-label="achievements" aria-label="Achievements">4</a>
-          <a href="#writeups" class="waybar__item" data-label="field-notes" aria-label="Field notes">5</a>
-        </nav>
-      </div>
+      <a class="waybar__logo" href="{{ '/' | relative_url }}" aria-label="Zyyz — home">
+        <svg class="waybar__arch" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M11.392 0c.347.276 1.222 1.613 1.693 2.191a7.9 7.9 0 0 0-.056 15.713 11.698 11.698 0 0 1 .105-2.034 5.86 5.86 0 0 1-6.16-8.906c1.653-1.75 6.354-3.417 7.479-2.115-1.183-3.022-1.918-4.958-1.918-5.537C12.172 1.585 12.222 1.11 12.7 0Zm3.46 6.077c.214 1.907.807 5.05 1.437 6.784.567 1.562 1.009 1.988 1.009 2.5 0 .808-.743 1.79-1.2 1.79-.335 0-.48-.257-.63-.835-.225-.874-.34-2.471-.877-3.587-1.262 2.516-2.696 3.303-3.977 3.303-1.698 0-2.853-1.568-2.853-3.297 0-3.89 4.22-4.854 6.09-7.657Z"/></svg>
+        <span>Zyyz</span>
+      </a>
+      <nav class="waybar__nav" aria-label="Site sections">
+        <a href="#about">about</a><span class="waybar__dot" aria-hidden="true">·</span>
+        <a href="#arsenal">arsenal</a><span class="waybar__dot" aria-hidden="true">·</span>
+        <a href="#experience">experience</a><span class="waybar__dot" aria-hidden="true">·</span>
+        <a href="#achievements">achievements</a><span class="waybar__dot" aria-hidden="true">·</span>
+        <a href="#writeups">writeups</a>
+      </nav>
       <div class="waybar__right">
         <span class="waybar__mod" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1.4" fill="currentColor" stroke="none"/></svg>
@@ -37,29 +35,16 @@
 
     {{ content }}
 
-    <nav class="dock" id="dock" aria-label="Launcher">
-      <a href="#about" class="dock__item" title="Home" id="dock-home">
-        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-      </a>
-      <a href="#arsenal" class="dock__item" title="Arsenal" id="dock-arsenal">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1" fill="currentColor" stroke="none"/></svg>
-      </a>
-      <a href="#experience" class="dock__item" title="Experience" id="dock-experience">
-        <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="12.01"/></svg>
-      </a>
-      <a href="#achievements" class="dock__item" title="Achievements" id="dock-achievements">
-        <svg viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21 1.18.54 2.03 2.03 2.03 3.79"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
-      </a>
-      <a href="#writeups" class="dock__item" title="Field notes" id="dock-notes">
-        <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-      </a>
-      <div class="dock__sep" aria-hidden="true"></div>
-      <a href="https://github.com/Zyyz2" target="_blank" rel="noopener" class="dock__item" title="GitHub" id="dock-github">
-        <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-      </a>
-      <a href="https://medium.com/@Zyyz" target="_blank" rel="noopener" class="dock__item" title="Medium" id="dock-medium">
-        <svg viewBox="0 0 24 24"><path d="M13.54 12a6.8 6.8 0 0 1-6.77 6.82A6.8 6.8 0 0 1 0 12a6.8 6.8 0 0 1 6.77-6.82A6.8 6.8 0 0 1 13.54 12zm7.42 0c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42zM24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
-      </a>
+    <nav class="dockbar" id="dockbar" aria-label="Launcher">
+      <span class="dockbar__prompt" aria-hidden="true">❯</span>
+      <a href="#about">home</a><span class="dockbar__dot" aria-hidden="true">·</span>
+      <a href="#arsenal">arsenal</a><span class="dockbar__dot" aria-hidden="true">·</span>
+      <a href="#experience">experience</a><span class="dockbar__dot" aria-hidden="true">·</span>
+      <a href="#achievements">achievements</a><span class="dockbar__dot" aria-hidden="true">·</span>
+      <a href="#writeups">writeups</a>
+      <span class="dockbar__sep" aria-hidden="true"></span>
+      <a href="https://github.com/Zyyz2" target="_blank" rel="noopener">github</a><span class="dockbar__dot" aria-hidden="true">·</span>
+      <a href="https://medium.com/@Zyyz" target="_blank" rel="noopener">medium</a>
     </nav>
 
     <script>

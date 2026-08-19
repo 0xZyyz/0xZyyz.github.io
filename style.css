@@ -89,37 +89,35 @@ code {
   color: var(--brand-3);
 }
 
-/* ---- waybar (HyDE-style floating top bar) ---- */
+/* ---- waybar (floating top pill) ---- */
 .waybar {
   position: fixed;
   top: 6px;
-  left: 6px;
-  right: 6px;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 1000;
-  height: 30px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  height: 32px;
+  padding: 0 14px;
   background: var(--bar-bg);
   backdrop-filter: blur(24px) saturate(160%);
   -webkit-backdrop-filter: blur(24px) saturate(160%);
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  padding: 0 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
   font-family: var(--mono);
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   color: var(--text-secondary);
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+  white-space: nowrap;
 }
-
-.waybar__left { display: flex; align-items: center; gap: 12px; }
 
 .waybar__logo {
   display: flex;
   align-items: center;
   gap: 6px;
-  padding: 2px 8px;
-  border-radius: 5px;
   color: var(--accent-hover);
-  background: var(--accent-dim);
   font-weight: 600;
   letter-spacing: 0.02em;
   text-decoration: none;
@@ -128,50 +126,16 @@ code {
 .waybar__logo:hover { color: var(--text-heading); text-decoration: none; }
 .waybar__arch { width: 12px; height: 12px; display: block; }
 
-.waybar__nav { display: flex; gap: 4px; align-items: center; }
-
-.waybar__item {
-  width: 22px;
-  height: 22px;
-  border-radius: 4px;
-  background: rgba(255, 255, 255, 0.05);
-  color: var(--muted);
-  font-family: var(--mono);
-  font-size: 0.74rem;
-  font-weight: 600;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  position: relative;
-  transition: background 0.12s ease, color 0.12s ease, transform 0.12s ease;
+.waybar__nav {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
 }
 
-.waybar__item:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: var(--text-heading);
-  transform: translateY(-1px);
-}
+.waybar__nav a { color: var(--muted); text-decoration: none; }
+.waybar__nav a:hover { color: var(--text-heading); text-decoration: none; }
 
-.waybar__item::after {
-  content: attr(data-label);
-  position: absolute;
-  top: 28px;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 2px 7px;
-  background: var(--bg-0);
-  color: var(--text);
-  font-family: var(--mono);
-  font-size: 0.66rem;
-  border-radius: 4px;
-  white-space: nowrap;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.15s ease;
-}
-
-.waybar__item:hover::after { opacity: 1; }
+.waybar__dot { color: rgba(239, 232, 225, 0.22); }
 
 .waybar__right {
   margin-left: auto;
@@ -193,76 +157,48 @@ code {
 
 .waybar__clock {
   color: var(--text-secondary);
-  font: 600 0.74rem var(--mono);
-  padding: 0 6px;
+  font-weight: 600;
+  padding: 0 2px;
 }
 
-/* ---- launcher dock ---- */
-.dock {
+/* ---- bottom launcher (terminal-style text bar) ---- */
+.dockbar {
   position: fixed;
   bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 1000;
   display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 10px;
-  background: rgba(33, 28, 25, 0.68);
+  align-items: baseline;
+  gap: 9px;
+  max-width: calc(100vw - 24px);
+  padding: 6px 14px;
+  background: rgba(33, 28, 25, 0.72);
   backdrop-filter: blur(24px) saturate(160%);
   -webkit-backdrop-filter: blur(24px) saturate(160%);
-  border-radius: 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--text-secondary);
   box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
+  white-space: nowrap;
+  overflow-x: auto;
 }
 
-.dock__item {
-  --dock-color: var(--text-secondary);
-  width: 40px;
-  height: 40px;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--dock-color);
-  background: color-mix(in srgb, var(--dock-color) 14%, transparent);
-  text-decoration: none;
-  position: relative;
-  transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1),
-              background 0.12s ease,
-              color 0.12s ease,
-              box-shadow 0.12s ease;
-}
+.dockbar__prompt { color: var(--accent); font-weight: 700; }
 
-.dock__item:hover {
-  transform: translateY(-6px) scale(1.05);
-  background: var(--dock-color);
-  color: #141110 !important;
-  box-shadow:
-    0 10px 24px rgba(0, 0, 0, 0.45),
-    0 0 22px color-mix(in srgb, var(--dock-color) 55%, transparent);
-}
+.dockbar a { color: var(--muted); text-decoration: none; }
+.dockbar a:hover { color: var(--text-heading); text-decoration: none; }
 
-.dock__item svg {
-  width: 20px;
-  height: 20px;
-  stroke: currentColor;
-  fill: none;
-  stroke-width: 1.6;
-}
+.dockbar__dot { color: rgba(239, 232, 225, 0.22); }
 
-#dock-home         { --dock-color: var(--accent); }
-#dock-arsenal      { --dock-color: var(--gold); }
-#dock-experience   { --dock-color: var(--accent); }
-#dock-achievements { --dock-color: var(--gold); }
-#dock-notes        { --dock-color: var(--accent); }
-#dock-github       { --dock-color: #b48cff; }
-#dock-medium       { --dock-color: #4bd373; }
-
-.dock__sep {
+.dockbar__sep {
   width: 1px;
-  height: 26px;
-  background: rgba(255, 255, 255, 0.08);
-  margin: 0 3px;
+  height: 14px;
+  background: rgba(239, 232, 225, 0.12);
+  margin: 0 4px;
+  align-self: center;
 }
 
 /* ---- layout ---- */
@@ -823,8 +759,9 @@ body { padding-top: 42px; }
   .captures { grid-template-columns: 1fr; gap: 2.2rem; }
   .capture { grid-template-columns: 48px 1fr; gap: 10px; }
   .capture-quiet { grid-template-columns: 48px 1fr; }
-  .waybar { padding: 0 8px; }
+  .waybar { padding: 0 10px; }
   .waybar__mod { display: none; }
+  .dockbar { gap: 7px; padding: 5px 11px; font-size: 0.72rem; }
   .layout { padding: 2rem 1.1rem 7rem; }
   .hero { padding: 1.5rem 0 2.5rem; }
   .neofetch { grid-template-columns: 1fr; gap: 1.2rem; padding: 0 1.1rem 1.3rem; }
@@ -832,10 +769,7 @@ body { padding-top: 42px; }
   .neofetch-avatar { gap: 0.5rem; }
   .arch-logo { width: 84px; height: 84px; padding: 0.5rem; }
   .nf-fields { gap: 2px 12px; font-size: 0.78rem; }
-  .dock { gap: 4px; padding: 5px 8px; border-radius: 11px; }
-  .dock__item { width: 34px; height: 34px; }
-  .dock__item svg { width: 18px; height: 18px; }
-  .dock__sep { height: 22px; }
+
   .note { padding: 1.75rem 1.25rem; margin: 2rem 0 1.5rem; }
   .footer { flex-direction: column; }
 }
