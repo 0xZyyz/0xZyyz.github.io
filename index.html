@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bnjr — Offensive Security</title>
+<meta name="description" content="Mohamed Aziz Rahmouni (Bnjr) — offensive security researcher, CTF player, and trainer.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="scanline" aria-hidden="true"></div>
+
+<header class="route">
+  <div class="route__self">bnjr@zyyz</div>
+  <nav class="route__hops" aria-label="Section navigation">
+    <a href="#whoami"><span class="hop">01</span>whoami</a>
+    <a href="#arsenal"><span class="hop">02</span>arsenal</a>
+    <a href="#engagements"><span class="hop">03</span>engagements</a>
+    <a href="#writeups"><span class="hop">04</span>writeups</a>
+    <a href="#contact"><span class="hop">05</span>contact</a>
+  </nav>
+</header>
+
+<main>
+
+  <section id="whoami" class="hero">
+    <pre class="log" aria-label="Session summary"><span class="log__prompt">$</span> whoami --verbose
+target      : Mohamed Aziz Rahmouni
+alias       : Bnjr <span class="log__dim">(Zyyz)</span>
+role        : Offensive Security Trainer, Securinets INSAT
+status      : 4th-year Networks &amp; Telecommunications Eng., INSAT
+base        : Tunis, TN
+focus       : web exploitation · AD pentesting · binary exploitation · mobile RE
+<span class="log__cursor">_</span></pre>
+    <p class="hero__tag">Breaking things on purpose, then writing down how.</p>
+  </section>
+
+  <section id="arsenal" class="section">
+    <h2 class="section__title"><span class="offset">0x01</span>Arsenal</h2>
+    <p class="section__lede">Areas I actively work in and train others on — from web app auditing to low-level exploitation.</p>
+    <div class="grid">
+      <article class="card">
+        <h3>Web &amp; Bug Bounty</h3>
+        <p>Authorized vulnerability research across web applications — JS bundle analysis on Angular SPAs, IDOR and LDAP injection hunting, and plugin auditing (WordPress ecosystem).</p>
+      </article>
+      <article class="card">
+        <h3>Binary Exploitation</h3>
+        <p>Working through pwn.college and ROP Emporium, building toward CTF pwn and real-world memory-corruption research.</p>
+      </article>
+      <article class="card">
+        <h3>Active Directory</h3>
+        <p>AD attack paths in GOAD, working toward CRTP — ACL abuse, delegation, lateral movement, privilege escalation chains.</p>
+      </article>
+      <article class="card">
+        <h3>Mobile RE</h3>
+        <p>Android APK reverse engineering with jadx, apktool, Frida, and objection — including Flutter/Dart AOT snapshot analysis.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="engagements" class="section">
+    <h2 class="section__title"><span class="offset">0x02</span>Engagements</h2>
+
+    <div class="log-entry">
+      <h3>CTF — Team FL1TZ</h3>
+      <p class="log-entry__meta">competitive play &amp; challenge authoring</p>
+      <ul class="tick-list">
+        <li>Competed internationally: CSAW Abu Dhabi, Tech Olympics Tokyo, Black Hat Saudi Arabia, ASCWG Egypt, CyberTek 3.0</li>
+        <li>HTB solves — <code>facts.htb</code> (Camaleon CMS CVE + MinIO S3 + facter privesc), <code>monitorsfour</code> (Cacti RCE), <code>logging.htb</code> (AD WriteDacl/GenericAll chain)</li>
+        <li>Authored forensics &amp; reverse engineering challenges for Securinets — CyberSphere, TCO CTF</li>
+      </ul>
+    </div>
+
+    <div class="log-entry">
+      <h3>Vulnerability Research</h3>
+      <p class="log-entry__meta">authorized disclosure &amp; bug bounty</p>
+      <ul class="tick-list">
+        <li>Confirmed IDOR / mass assignment vulnerability — Hydra Booking WordPress plugin</li>
+        <li>Plugin audits — nd-booking, name-directory, easy-hotel</li>
+        <li>Research threads — traceroute out-of-bounds read, net-snmp &amp; BusyBox CVE hunting</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="writeups" class="section">
+    <h2 class="section__title"><span class="offset">0x03</span>Writeups</h2>
+    <p class="section__lede">Notes from the field — replace these with your own posts, or link out to Medium.</p>
+    <div class="grid grid--posts">
+      <a class="card card--post" href="https://medium.com/@Zyyz" target="_blank" rel="noopener">
+        <span class="card--post__eyebrow">medium · @Zyyz</span>
+        <h3>Read the full archive →</h3>
+        <p>Longer-form writeups and research notes live on Medium for now.</p>
+      </a>
+      <article class="card card--post card--placeholder">
+        <span class="card--post__eyebrow">draft</span>
+        <h3>[ Post title ]</h3>
+        <p>Drop a new post here — copy this card, point it at <code>/posts/your-slug.html</code>, and fill in the summary.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="contact" class="section section--contact">
+    <h2 class="section__title"><span class="offset">0x04</span>Contact</h2>
+    <p class="section__lede">Open to collaboration, bug bounty leads, and CTF invites.</p>
+    <ul class="link-list">
+      <li><a href="https://github.com/Zyyz2" target="_blank" rel="noopener">github.com/Zyyz2</a></li>
+      <li><a href="https://medium.com/@Zyyz" target="_blank" rel="noopener">medium.com/@Zyyz</a></li>
+    </ul>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <span>© <span id="year"></span> Bnjr</span>
+  <span class="footer__dim">built on GitHub Pages</span>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
