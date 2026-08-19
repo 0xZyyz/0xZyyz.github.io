@@ -338,16 +338,16 @@ code {
 
 .arsenal-card__icon {
   display: inline-flex;
-  width: 2.6rem;
-  height: 2.6rem;
+  width: 1.9rem;
+  height: 1.9rem;
   align-items: center;
   justify-content: center;
-  border-radius: 12px;
+  border-radius: 9px;
   color: #fff;
-  margin-bottom: 0.9rem;
+  margin-bottom: 0.75rem;
 }
 
-.arsenal-card__icon svg { width: 1.35rem; height: 1.35rem; }
+.arsenal-card__icon svg { width: 1rem; height: 1rem; }
 
 .arsenal-card--blue .arsenal-card__icon { background: linear-gradient(135deg, #49b1f5, #2a7fd4); box-shadow: 0 6px 16px rgba(73, 177, 245, 0.35); }
 .arsenal-card--violet .arsenal-card__icon { background: linear-gradient(135deg, #a49cfd, #7c6cf0); box-shadow: 0 6px 16px rgba(164, 156, 253, 0.35); }
@@ -627,7 +627,7 @@ code {
 .footer b { color: var(--text); }
 
 /* ---- responsive ---- */
-@media (max-width: 720px) {
+@media (max-width: 640px) {
   .achievement-groups { grid-template-columns: 1fr; gap: 2rem; }
   .nav__inner { flex-wrap: wrap; padding: 0.7rem 1rem; }
   .nav__links { order: 3; width: 100%; justify-content: flex-start; gap: 0.5rem 1rem; }
