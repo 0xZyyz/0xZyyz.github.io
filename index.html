@@ -1,9 +1,12 @@
 ---
 layout: default
 ---
-<main>
+<main class="layout">
 
   <section id="about" class="hero">
+    <h1 class="hero__title">🔱 Zyyz</h1>
+    <p class="hero__role">Security researcher · Penetration tester · Digital forensics</p>
+    <p class="hero__tag">A security research log, digital forensics notes, and the occasional rabbit hole.</p>
     <div class="terminal terminal--booting" id="terminal" aria-label="Interactive terminal">
       <div class="terminal__bar" aria-hidden="true">
         <span class="terminal__dots"><i></i><i></i><i></i></span>
@@ -36,13 +39,12 @@ layout: default
         <input id="terminal-input" class="terminal__input" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" autofocus>
       </form>
     </div>
-    <p class="hero__tag">A security research log, digital forensics notes, and the occasional rabbit hole.</p>
   </section>
 
   <section id="arsenal" class="section">
     <h2 class="section__title"><span class="offset">0x01</span>Arsenal</h2>
     <p class="section__lede">Areas I actively work in and train others on — from incident response to Android security.</p>
-    <div class="grid">
+    <div class="cards">
       <article class="card">
         <h3>Digital Forensics &amp; IR</h3>
         <p>Windows, Linux, memory, and network forensics — artifact triage, event-log analysis, timeline building, and incident response.</p>
