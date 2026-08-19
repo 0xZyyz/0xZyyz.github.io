@@ -1,5 +1,5 @@
-title: Bnjr — Offensive Security
-description: Research notes, CTF writeups, and offensive-security field notes by Mohamed Aziz Rahmouni.
+title: Zyyz
+description: Penetration testing, digital forensics, and mobile-security field notes by Mohamed Aziz Rahmouni.
 url: "https://zyyz2.github.io"
 baseurl: ""
 theme: jekyll-theme-hacker
@@ -8,7 +8,7 @@ author:
   name: Mohamed Aziz Rahmouni
   github: Zyyz2
 
-permalink: /blog/:title/
+permalink: /:title/
 markdown: kramdown
 
 exclude:

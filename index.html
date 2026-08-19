@@ -3,7 +3,7 @@ layout: default
 ---
 <main>
 
-  <section id="whoami" class="hero">
+  <section id="about" class="hero">
     <div class="terminal" id="terminal" aria-label="Interactive terminal">
       <div class="terminal__bar" aria-hidden="true">
         <span class="terminal__dots"><i></i><i></i><i></i></span>
@@ -11,8 +11,23 @@ layout: default
         <span class="terminal__status">interactive</span>
       </div>
       <div class="terminal__body" id="terminal-output" aria-live="polite">
-        <p><span class="terminal__accent">Welcome to Bnjr's corner of the internet.</span></p>
-        <p>Type <span class="terminal__command">help</span> to see available commands.</p>
+        <p><span class="terminal__prompt">zyyz@arch <b>~</b> $</span> fastfetch</p>
+        <div class="fastfetch">
+          <pre class="fastfetch__mark" aria-hidden="true">  /\\
+ /  \\
+| () |
+ \\  /
+  \\/</pre>
+          <div class="fastfetch__info">
+            <p><span class="terminal__accent">Zyyz</span>@arch</p>
+            <p class="fastfetch__rule">────────────</p>
+            <p><span>role</span>       Penetration Tester</p>
+            <p><span>specialty</span>  Digital Forensics &amp; Incident Response</p>
+            <p><span>focus</span>      Digital forensics · Penetration testing · Mobile security</p>
+            <p><span>location</span>   Tunis, Tunisia</p>
+          </div>
+        </div>
+        <p>Type <span class="terminal__command">help</span> to explore.</p>
       </div>
       <form class="terminal__form" id="terminal-form">
         <label class="sr-only" for="terminal-input">Terminal command</label>
@@ -20,7 +35,7 @@ layout: default
         <input id="terminal-input" class="terminal__input" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" autofocus>
       </form>
     </div>
-    <p class="hero__tag">A security research log, CTF field notes, and the occasional rabbit hole.</p>
+    <p class="hero__tag">A security research log, digital forensics notes, and the occasional rabbit hole.</p>
   </section>
 
   <section id="arsenal" class="section">
@@ -36,12 +51,12 @@ layout: default
         <p>Working through pwn.college and ROP Emporium, building toward CTF pwn and real-world memory-corruption research.</p>
       </article>
       <article class="card">
-        <h3>Active Directory</h3>
-        <p>AD attack paths in GOAD, working toward CRTP — ACL abuse, delegation, lateral movement, privilege escalation chains.</p>
+        <h3>Digital Forensics &amp; IR</h3>
+        <p>Windows, Linux, memory, and network forensics — artifact triage, event-log analysis, timeline building, and incident response.</p>
       </article>
       <article class="card">
         <h3>Mobile RE</h3>
-        <p>Android APK reverse engineering with jadx, apktool, Frida, and objection — including Flutter/Dart AOT snapshot analysis.</p>
+        <p>Android security and APK reverse engineering with jadx, apktool, Frida, and objection — including Flutter/Dart AOT snapshot analysis.</p>
       </article>
     </div>
   </section>
@@ -116,20 +131,21 @@ layout: default
     var commands = {
       help: function () {
         return '<span class="terminal__accent">available commands</span>\n' +
-          '  <span class="terminal__command">whoami</span>     a short introduction\n' +
+          '  <span class="terminal__command">about</span>      a short introduction\n' +
           '  <span class="terminal__command">ls</span>         explore this site\n' +
           '  <span class="terminal__command">blog</span>       jump to field notes\n' +
           '  <span class="terminal__command">contact</span>    find me online\n' +
           '  <span class="terminal__command">skills</span>     current research areas\n' +
           '  <span class="terminal__command">clear</span>      clear the terminal';
       },
-      whoami: function () {
-        return 'Mohamed Aziz Rahmouni <span class="terminal__dim">(Bnjr / Zyyz)</span>\n' +
-          'Offensive Security Trainer at Securinets INSAT\n' +
-          'Tunis, TN · Networks &amp; Telecommunications Engineering';
+      about: function () {
+        return 'Mohamed Aziz Rahmouni <span class="terminal__dim">(Zyyz)</span>\n' +
+          'Penetration Tester · Digital Forensics &amp; Incident Response Specialist\n' +
+          'Tunis, Tunisia';
       },
+      whoami: function () { return commands.about(); },
       ls: function () {
-        return '<a href="#whoami">./whoami</a>\n<a href="#arsenal">./arsenal</a>\n<a href="#engagements">./engagements</a>\n<a href="#writeups">./field-notes/</a>\n<a href="#contact">./contact</a>';
+        return '<a href="#about">./about</a>\n<a href="#arsenal">./arsenal</a>\n<a href="#engagements">./engagements</a>\n<a href="#writeups">./field-notes/</a>\n<a href="#contact">./contact</a>';
       },
       blog: function () { document.getElementById('writeups').scrollIntoView({ behavior: 'smooth' }); return 'Jumping to <span class="terminal__accent">field notes</span>...'; },
       contact: function () { document.getElementById('contact').scrollIntoView({ behavior: 'smooth' }); return 'Jumping to <span class="terminal__accent">contact</span>...'; },

@@ -170,6 +170,11 @@ code {
 
 .terminal__body { min-height: 9.5rem; padding: 1.35rem 1.5rem 0.45rem; }
 .terminal__body p { margin: 0 0 0.35rem; }
+.fastfetch { display: flex; align-items: center; gap: 1.5rem; margin: 0.25rem 0 0.8rem; }
+.fastfetch__mark { margin: 0; color: var(--accent-alt); font: 600 1.25rem/1.08 var(--mono); }
+.fastfetch__info p { margin: 0; }
+.fastfetch__info span { display: inline-block; min-width: 10ch; color: var(--text-dim); }
+.fastfetch__info .fastfetch__rule { color: var(--accent); }
 .terminal__line { white-space: pre-wrap; margin: 0 0 0.35rem; }
 .terminal__entered { color: var(--text); }
 .terminal__accent, .terminal__command { color: var(--accent); }
@@ -383,6 +388,9 @@ code {
   .terminal__body { padding: 1.15rem 1rem 0.4rem; }
   .terminal__form { padding: 0.15rem 1rem 1.15rem; }
   .terminal__prompt { font-size: 0.72rem; }
+  .fastfetch { gap: 0.9rem; }
+  .fastfetch__mark { font-size: 1rem; }
+  .fastfetch__info span { min-width: 8.5ch; }
   .post-shell { padding-top: 3rem; }
 }
 
