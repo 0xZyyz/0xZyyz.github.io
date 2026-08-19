@@ -1,0 +1,17 @@
+title: Bnjr — Offensive Security
+description: Research notes, CTF writeups, and offensive-security field notes by Mohamed Aziz Rahmouni.
+url: "https://zyyz2.github.io"
+baseurl: ""
+theme: jekyll-theme-hacker
+
+author:
+  name: Mohamed Aziz Rahmouni
+  github: Zyyz2
+
+permalink: /blog/:title/
+markdown: kramdown
+
+exclude:
+  - README.md
+  - vendor
+  - .bundle
