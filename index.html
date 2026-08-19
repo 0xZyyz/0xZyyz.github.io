@@ -11,7 +11,6 @@ layout: default
         <span class="terminal__status">interactive</span>
       </div>
       <div class="terminal__body" id="terminal-output" aria-live="polite">
-        <p class="terminal__boot-line"><span class="terminal__dim">[ok]</span> secure shell established <span class="terminal__boot-cursor" aria-hidden="true">_</span></p>
         <p class="terminal__fetch-line"><span class="terminal__prompt">zyyz@arch <b>~</b> $</span> fastfetch</p>
         <div class="fastfetch">
           <svg class="arch-logo" viewBox="0 0 120 120" role="img" aria-label="Arch Linux logo">
@@ -20,13 +19,17 @@ layout: default
           <div class="fastfetch__info">
             <p><span class="terminal__accent">Zyyz</span>@arch</p>
             <p class="fastfetch__rule">────────────</p>
-            <p><span>role</span>       Penetration Tester</p>
-            <p><span>specialty</span>  Digital Forensics &amp; Incident Response</p>
-            <p><span>focus</span>      Digital forensics · Penetration testing · Mobile security</p>
-            <p><span>location</span>   Tunis, Tunisia</p>
+            <p><span>os</span>   Arch Linux</p>
+            <p><span>host</span> zyyz.github.io</p>
           </div>
         </div>
-        <p class="terminal__hint">Type <span class="terminal__command">help</span> to explore.</p>
+        <p class="terminal__whoami-line"><span class="terminal__prompt">zyyz@arch <b>~</b> $</span> whoami</p>
+        <div class="terminal__identity">
+          <p><span>name</span>  Mohamed Aziz Rahmouni</p>
+          <p><span>alias</span> Zyyz</p>
+          <p><span>role</span>  Penetration Tester</p>
+          <p><span>focus</span> Digital forensics · Penetration testing · Mobile security</p>
+        </div>
       </div>
       <form class="terminal__form" id="terminal-form">
         <label class="sr-only" for="terminal-input">Terminal command</label>
@@ -130,7 +133,7 @@ layout: default
     var commands = {
       help: function () {
         return '<span class="terminal__accent">available commands</span>\n' +
-          '  <span class="terminal__command">about</span>      a short introduction\n' +
+          '  <span class="terminal__command">whoami</span>     a short introduction\n' +
           '  <span class="terminal__command">ls</span>         explore this site\n' +
           '  <span class="terminal__command">blog</span>       jump to field notes\n' +
           '  <span class="terminal__command">contact</span>    find me online\n' +
@@ -142,9 +145,10 @@ layout: default
           '  <span class="terminal__command">clear</span>      clear the terminal';
       },
       about: function () {
-        return 'Mohamed Aziz Rahmouni <span class="terminal__dim">(Zyyz)</span>\n' +
-          'Penetration Tester · Digital Forensics &amp; Incident Response Specialist\n' +
-          'Tunis, Tunisia';
+        return 'name   Mohamed Aziz Rahmouni\n' +
+          'alias  <span class="terminal__dim">Zyyz</span>\n' +
+          'role   Penetration Tester\n' +
+          'focus  Digital forensics · Penetration testing · Mobile security';
       },
       whoami: function () { return commands.about(); },
       ls: function () {
