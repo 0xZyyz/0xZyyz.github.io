@@ -2,6 +2,7 @@ title: Zyyz
 description: ""
 url: "https://zyyz2.github.io"
 baseurl: ""
+theme: jekyll-theme-hacker
 
 author:
   name: Mohamed Aziz Rahmouni
