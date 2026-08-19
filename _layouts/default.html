@@ -4,18 +4,21 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% seo %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
   </head>
   <body>
     <header class="nav">
       <div class="nav__inner">
-        <a class="nav__brand" href="{{ '/' | relative_url }}"><span class="nav__logo" aria-hidden="true">🔱</span><span class="nav__brand-text">Zyyz</span></a>
+        <a class="nav__brand" href="{{ '/' | relative_url }}">Zyyz</a>
         <nav class="nav__links" aria-label="Site sections">
-          <a href="#about">about</a>
-          <a href="#arsenal">arsenal</a>
-          <a href="#experience">experience</a>
-          <a href="#achievements">achievements</a>
-          <a href="#writeups">field-notes</a>
+          <a href="#about">About</a>
+          <a href="#arsenal">Arsenal</a>
+          <a href="#experience">Experience</a>
+          <a href="#achievements">Achievements</a>
+          <a href="#writeups">Field-notes</a>
         </nav>
       </div>
     </header>
