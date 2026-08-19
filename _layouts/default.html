@@ -14,14 +14,13 @@
 
     <header class="nav">
       <div class="nav__inner">
-        <a class="nav__brand" href="{{ '/' | relative_url }}"><span class="nav__logo" aria-hidden="true">🔱</span> Zyyz</a>
+        <a class="nav__brand" href="{{ '/' | relative_url }}"><span class="nav__logo" aria-hidden="true">🔱</span><span class="nav__brand-text">Zyyz</span></a>
         <nav class="nav__links" aria-label="Site sections">
           <a href="#about">about</a>
           <a href="#arsenal">arsenal</a>
-          <a href="#engagements">engagements</a>
+          <a href="#experience">experience</a>
           <a href="#achievements">achievements</a>
           <a href="#writeups">field-notes</a>
-          <a href="#contact">contact</a>
         </nav>
         <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle color theme">
           <span class="theme-toggle__icon" id="theme-toggle-icon" aria-hidden="true">🌙</span>
@@ -32,7 +31,7 @@
     {{ content }}
 
     <footer class="footer">
-      <span>© {{ site.time | date: "%Y" }} <b>🔱 Zyyz</b> — Mohamed Aziz Rahmouni</span>
+      <span>© {{ site.time | date: "%Y" }} <b>Zyyz</b> — Mohamed Aziz Rahmouni</span>
       <span>crafted with jekyll · styled after butterfly · <a href="https://github.com/Zyyz2" target="_blank" rel="noopener">github</a></span>
     </footer>
 

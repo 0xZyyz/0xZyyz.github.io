@@ -4,79 +4,159 @@ layout: default
 <main class="layout">
 
   <section id="about" class="hero">
-    <h1 class="hero__title">🔱 Zyyz</h1>
-    <p class="hero__role">Security researcher · Penetration tester · Digital forensics</p>
+    <p class="hero__role">Penetration tester · Digital forensics</p>
     <p class="hero__tag">A security research log, digital forensics notes, and the occasional rabbit hole.</p>
-    <div class="terminal terminal--booting" id="terminal" aria-label="Interactive terminal">
+
+    <div class="terminal" id="terminal" aria-label="System profile">
       <div class="terminal__bar" aria-hidden="true">
         <span class="terminal__dots"><i></i><i></i><i></i></span>
-        <span>zyyz@arch: ~</span>
-        <span class="terminal__status">interactive</span>
+        <span class="terminal__title">zyyz@arch: ~</span>
+        <span class="terminal__status">fastfetch</span>
       </div>
-      <div class="terminal__body" id="terminal-output" aria-live="polite">
-        <p class="terminal__fetch-line"><span class="terminal__prompt">zyyz@arch <b>~</b> $</span> fastfetch</p>
+      <div class="terminal__body">
+        <p class="terminal__cmd"><span class="terminal__prompt">zyyz@arch <b>~</b> $</span> fastfetch</p>
         <div class="fastfetch">
           <svg class="arch-logo" viewBox="0 0 120 120" role="img" aria-label="Arch Linux logo">
             <path d="M60 7 9 111l18-10 12-23h42l12 23 18 10L60 7Zm0 25 14 34H46L60 32Zm0 18-5 12h10L60 50Z" />
           </svg>
           <div class="fastfetch__info">
-            <p><span class="terminal__accent">Zyyz</span>@arch</p>
+            <p class="fastfetch__user"><span class="terminal__accent">Zyyz</span>@arch</p>
             <p class="fastfetch__rule">────────────</p>
-            <p><span>os</span>   Arch Linux</p>
+            <p><span>os</span>Arch Linux</p>
           </div>
         </div>
-        <p class="terminal__whoami-line"><span class="terminal__prompt">zyyz@arch <b>~</b> $</span> whoami</p>
+        <p class="terminal__sep" aria-hidden="true">─────────────────────────────</p>
         <div class="terminal__identity">
-          <p><span>name</span>  Mohamed Aziz Rahmouni</p>
+          <p><span>whoami</span> Mohamed Aziz Rahmouni</p>
           <p><span>alias</span> Zyyz</p>
-          <p><span>role</span>  Penetration Tester</p>
+          <p><span>role</span> Penetration Tester</p>
           <p><span>focus</span> Digital forensics · Penetration testing · Mobile security</p>
         </div>
       </div>
-      <form class="terminal__form" id="terminal-form">
-        <label class="sr-only" for="terminal-input">Terminal command</label>
-        <span class="terminal__prompt">zyyz@arch <b>~</b> $</span>
-        <input id="terminal-input" class="terminal__input" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" autofocus>
-      </form>
     </div>
   </section>
 
   <section id="arsenal" class="section">
     <h2 class="section__title"><span class="offset">0x01</span>Arsenal</h2>
     <p class="section__lede">Areas I actively work in and train others on — from incident response to Android security.</p>
-    <div class="cards">
-      <article class="card">
+    <div class="arsenal">
+      <article class="arsenal-card arsenal-card--blue">
+        <span class="arsenal-card__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </span>
         <h3>Digital Forensics &amp; IR</h3>
         <p>Windows, Linux, memory, and network forensics — artifact triage, event-log analysis, timeline building, and incident response.</p>
+        <ul class="arsenal-card__tags">
+          <li>volatility</li><li>plaso</li><li>autopsy</li><li>wireshark</li>
+        </ul>
       </article>
-      <article class="card">
+      <article class="arsenal-card arsenal-card--violet">
+        <span class="arsenal-card__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="7" y="2" width="10" height="20" rx="2"></rect><line x1="11" y1="18" x2="13" y2="18"></line>
+          </svg>
+        </span>
         <h3>Mobile RE</h3>
-        <p>Android security and APK reverse engineering with jadx, apktool, Frida, and objection — including Flutter/Dart AOT snapshot analysis.</p>
+        <p>Android security and APK reverse engineering — static and dynamic analysis, up to Flutter/Dart AOT snapshot inspection.</p>
+        <ul class="arsenal-card__tags">
+          <li>jadx</li><li>apktool</li><li>frida</li><li>objection</li>
+        </ul>
+      </article>
+      <article class="arsenal-card arsenal-card--coral">
+        <span class="arsenal-card__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-3.5 8-10V5l-8-3-8 3v7c0 6.5 8 10 8 10z"></path><circle cx="12" cy="11" r="2.5"></circle>
+          </svg>
+        </span>
+        <h3>Penetration Testing</h3>
+        <p>Active Directory attack paths and web application assessments — OWASP Top 10, lateral movement, and domain dominance.</p>
+        <ul class="arsenal-card__tags">
+          <li>bloodhound</li><li>burp suite</li><li>metasploit</li><li>impacket</li>
+        </ul>
       </article>
     </div>
   </section>
 
-  <section id="engagements" class="section">
-    <h2 class="section__title"><span class="offset">0x02</span>Engagements</h2>
+  <section id="experience" class="section">
+    <h2 class="section__title"><span class="offset">0x02</span>Experience</h2>
+    <div class="exp-list">
 
-    <div class="log-entry">
-      <h3>CTF — Team FL1TZ</h3>
-      <p class="log-entry__meta">competitive play &amp; challenge authoring</p>
-      <ul class="tick-list">
-        <li>Competed internationally: CSAW Abu Dhabi, Tech Olympics Tokyo, Black Hat Saudi Arabia, ASCWG Egypt, CyberTek 3.0</li>
-        <li>HTB solves — <code>facts.htb</code> (Camaleon CMS CVE + MinIO S3 + facter privesc), <code>monitorsfour</code> (Cacti RCE), <code>logging.htb</code> (AD WriteDacl/GenericAll chain)</li>
-        <li>Authored forensics &amp; reverse engineering challenges for Securinets — CyberSphere, TCO CTF</li>
-      </ul>
-    </div>
+      <article class="exp">
+        <div class="exp__logo"><img src="{{ '/assets/logos/insat.png' | relative_url }}" alt="INSAT logo"></div>
+        <div class="exp__body">
+          <div class="exp__head">
+            <div>
+              <h3>ICT Engineering Student</h3>
+              <p class="exp__org">INSAT — Institut National des Sciences Appliquées et de Technologie</p>
+            </div>
+            <span class="exp__when">Tunis, TN</span>
+          </div>
+          <p class="exp__desc">ICT engineering program covering computer networks, operating systems and kernel-level internals, distributed systems, software and systems engineering, embedded systems, and information systems security — the full stack between the silicon and the network edge.</p>
+        </div>
+      </article>
 
-    <div class="log-entry">
-      <h3>Vulnerability Research</h3>
-      <p class="log-entry__meta">authorized disclosure &amp; bug bounty</p>
-      <ul class="tick-list">
-        <li>Confirmed IDOR / mass assignment vulnerability — Hydra Booking WordPress plugin</li>
-        <li>Plugin audits — nd-booking, name-directory, easy-hotel</li>
-        <li>Research threads — traceroute out-of-bounds read, net-snmp &amp; BusyBox CVE hunting</li>
-      </ul>
+      <article class="exp">
+        <div class="exp__logo"><img src="{{ '/assets/logos/fl1tz.jpg' | relative_url }}" alt="FL1TZ logo"></div>
+        <div class="exp__body">
+          <div class="exp__head">
+            <div>
+              <h3>CTF Player</h3>
+              <p class="exp__org">FL1TZ — Securinets INSAT tech team</p>
+            </div>
+            <span class="exp__when">2024 — present</span>
+          </div>
+          <p class="exp__desc">Competitive team play and challenge authoring — podiums, international finals, and everything in between.</p>
+          <ul class="exp__points">
+            <li><b>1st</b> — CyberTEK 3.0, Securinets TEKUP · 2026</li>
+            <li><b>1st</b> — Securinets TEKUP Spooky CTF · 2026</li>
+            <li><b>4th</b> — Brunner CTF · 2025</li>
+            <li><b>5th</b> — Securinets Finals · 2025</li>
+            <li>International finals — CSAW (NYU Abu Dhabi), Black Hat MEA, ASCWG (Egypt), Tech Olympics (Tokyo)</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="exp">
+        <div class="exp__logo"><img src="{{ '/assets/logos/securinets.jpg' | relative_url }}" alt="Securinets logo"></div>
+        <div class="exp__body">
+          <div class="exp__head">
+            <div>
+              <h3>Technical Instructor — Digital Forensics</h3>
+              <p class="exp__org">Securinets — first national cybersecurity association in Tunisia</p>
+            </div>
+            <span class="exp__when">Sep 2024 — present</span>
+          </div>
+          <p class="exp__desc">Teaching and building the community, one artifact at a time.</p>
+          <ul class="exp__points">
+            <li>Designed and operated containerized challenge infrastructure sustaining <b>100% uptime</b> for <b>400+ participants</b> per event.</li>
+            <li>Delivered hands-on secure-coding and binary exploitation workshops to students from <b>10+ universities</b>.</li>
+            <li>Authored exploitation and reverse engineering challenges modeling real-world memory-safety and logic flaws.</li>
+            <li>Led the digital forensics track — workshops, CTF authoring, and everything in between.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="exp">
+        <div class="exp__logo"><img src="{{ '/assets/logos/smartskills.png' | relative_url }}" alt="Smart Skills logo"></div>
+        <div class="exp__body">
+          <div class="exp__head">
+            <div>
+              <h3>Penetration Tester</h3>
+              <p class="exp__org">Smart Skills — cybersecurity division of TAC TIC Group</p>
+            </div>
+            <span class="exp__when">2022 — present</span>
+          </div>
+          <p class="exp__desc">Offensive security for enterprise clients — from reconnaissance to exploitation to evidence-backed reporting.</p>
+          <ul class="exp__points">
+            <li><b>Active Directory:</b> mapped attack paths across enterprise forests — Kerberoasting, AS-REP roasting, constrained and Resource-Based delegation abuse, ACL and GPO exploitation, silver and golden ticket scenarios, and lateral movement chains (WinRM, PsExec, RDP hops) up to domain dominance.</li>
+            <li><b>Web applications:</b> assessed APIs and web apps against the OWASP Top 10 — SQLi/NoSQLi, XSS, CSRF, SSRF, IDOR and broken access control, JWT flaws, insecure deserialization, upload validation bypasses, and logic flaws in auth and checkout flows.</li>
+            <li>Validated impact with proof-of-concept exploitation, then translated findings into prioritized, client-ready reports with reproduction steps and hardening guidance.</li>
+          </ul>
+        </div>
+      </article>
+
     </div>
   </section>
 
@@ -128,113 +208,4 @@ layout: default
     </div>
   </section>
 
-  <section id="contact" class="section section--contact">
-    <h2 class="section__title"><span class="offset">0x05</span>Contact</h2>
-    <p class="section__lede">Open to collaboration, bug bounty leads, and CTF invites.</p>
-    <ul class="link-list">
-      <li><a href="https://github.com/Zyyz2" target="_blank" rel="noopener">github.com/Zyyz2</a></li>
-      <li><a href="https://medium.com/@Zyyz" target="_blank" rel="noopener">medium.com/@Zyyz</a></li>
-    </ul>
-  </section>
-
 </main>
-
-<script>
-  (function () {
-    var terminal = document.getElementById('terminal');
-    var output = document.getElementById('terminal-output');
-    var form = document.getElementById('terminal-form');
-    var input = document.getElementById('terminal-input');
-    var history = [];
-    var historyIndex = 0;
-
-    var commands = {
-      help: function () {
-        return '<span class="terminal__accent">available commands</span>\n' +
-          '  <span class="terminal__command">whoami</span>     a short introduction\n' +
-          '  <span class="terminal__command">ls</span>         explore this site\n' +
-          '  <span class="terminal__command">blog</span>       jump to field notes\n' +
-          '  <span class="terminal__command">contact</span>    find me online\n' +
-          '  <span class="terminal__command">skills</span>     current research areas\n' +
-          '  <span class="terminal__command">fastfetch</span>  show system profile\n' +
-          '  <span class="terminal__command">date</span>       print local time\n' +
-          '  <span class="terminal__command">uptime</span>     session uptime\n' +
-          '  <span class="terminal__command">matrix</span>     enter the green room\n' +
-          '  <span class="terminal__command">clear</span>      clear the terminal';
-      },
-      about: function () {
-        return 'name   Mohamed Aziz Rahmouni\n' +
-          'alias  <span class="terminal__dim">Zyyz</span>\n' +
-          'role   Penetration Tester\n' +
-          'focus  Digital forensics · Penetration testing · Mobile security';
-      },
-      whoami: function () { return commands.about(); },
-      ls: function () {
-        return '<a href="#about">./about</a>\n<a href="#arsenal">./arsenal</a>\n<a href="#engagements">./engagements</a>\n<a href="#writeups">./field-notes/</a>\n<a href="#contact">./contact</a>';
-      },
-      blog: function () { document.getElementById('writeups').scrollIntoView({ behavior: 'smooth' }); return 'Jumping to <span class="terminal__accent">field notes</span>...'; },
-      contact: function () { document.getElementById('contact').scrollIntoView({ behavior: 'smooth' }); return 'Jumping to <span class="terminal__accent">contact</span>...'; },
-      skills: function () {
-        return 'web exploitation · active directory · binary exploitation · mobile reversing';
-      },
-      fastfetch: function () {
-        return '<span class="terminal__accent">Zyyz</span>@arch · Penetration Tester\n' +
-          'Digital Forensics &amp; Incident Response · Tunis, Tunisia';
-      },
-      neofetch: function () { return commands.fastfetch(); },
-      date: function () { return new Date().toLocaleString([], { dateStyle: 'full', timeStyle: 'medium' }); },
-      uptime: function () { return 'online since the first packet. still curious.'; },
-      matrix: function () {
-        var glyphs = '01アイウエオカキクケコ$#@%&*';
-        var rows = [];
-        for (var row = 0; row < 7; row++) {
-          var text = '';
-          for (var col = 0; col < 42; col++) text += glyphs[Math.floor(Math.random() * glyphs.length)];
-          rows.push(text);
-        }
-        return '<span class="terminal__matrix">' + rows.join('\n') + '</span>';
-      },
-      clear: function () { output.innerHTML = ''; return null; }
-    };
-
-    function write(content, className) {
-      var line = document.createElement('div');
-      line.className = 'terminal__line' + (className ? ' ' + className : '');
-      line.innerHTML = content;
-      output.appendChild(line);
-      terminal.scrollTop = terminal.scrollHeight;
-    }
-
-    form.addEventListener('submit', function (event) {
-      event.preventDefault();
-      var raw = input.value.trim();
-      if (!raw) return;
-      write('<span class="terminal__prompt">zyyz@arch <b>~</b> $</span> ' + raw.replace(/</g, '&lt;').replace(/>/g, '&gt;'), 'terminal__entered');
-      history.push(raw);
-      historyIndex = history.length;
-      input.value = '';
-      var name = raw.toLowerCase().split(/\s+/)[0];
-      if (commands[name]) {
-        var result = commands[name]();
-        if (result) write(result);
-      } else {
-        write('command not found: <span class="terminal__error">' + name + '</span> — try <span class="terminal__command">help</span>');
-      }
-    });
-
-    input.addEventListener('keydown', function (event) {
-      if (event.key === 'ArrowUp' && history.length) {
-        event.preventDefault();
-        historyIndex = Math.max(0, historyIndex - 1);
-        input.value = history[historyIndex];
-      }
-      if (event.key === 'ArrowDown' && history.length) {
-        event.preventDefault();
-        historyIndex = Math.min(history.length, historyIndex + 1);
-        input.value = history[historyIndex] || '';
-      }
-    });
-
-    terminal.addEventListener('click', function () { input.focus(); });
-  })();
-</script>
