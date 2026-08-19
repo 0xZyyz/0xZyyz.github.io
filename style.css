@@ -339,16 +339,16 @@ code {
 
 .arsenal-card__icon {
   display: inline-flex;
-  width: 1.6rem;
-  height: 1.6rem;
+  width: 1.35rem;
+  height: 1.35rem;
   align-items: center;
   justify-content: center;
-  border-radius: 7px;
+  border-radius: 5px;
   color: #fff;
   margin-bottom: 0.45rem;
 }
 
-.arsenal-card__icon svg { width: 0.85rem; height: 0.85rem; }
+.arsenal-card__icon svg { width: 0.7rem; height: 0.7rem; }
 
 .arsenal-card--blue .arsenal-card__icon { background: linear-gradient(135deg, #49b1f5, #2a7fd4); box-shadow: 0 6px 16px rgba(73, 177, 245, 0.35); }
 .arsenal-card--violet .arsenal-card__icon { background: linear-gradient(135deg, #a49cfd, #7c6cf0); box-shadow: 0 6px 16px rgba(164, 156, 253, 0.35); }
@@ -396,12 +396,12 @@ code {
 
 .exp__logo {
   flex: 0 0 auto;
-  width: 2.4rem;
-  height: 2.4rem;
-  border-radius: 7px;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 5px;
   background: #fff;
   border: 1px solid var(--line);
-  padding: 0.22rem;
+  padding: 0.15rem;
   display: flex;
   align-items: center;
   justify-content: center;
