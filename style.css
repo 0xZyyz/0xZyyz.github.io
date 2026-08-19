@@ -579,7 +579,19 @@ code {
 
 .achievement-timeline h3 { margin: 0.3rem 0 0.1rem; font: 600 0.92rem var(--mono); }
 .achievement-timeline p { margin: 0; color: var(--muted); font-size: 0.84rem; }
-.achievement-timeline p span { color: var(--brand); }
+
+.ach-team {
+  display: inline-block;
+  margin-left: 0.35rem;
+  padding: 0 0.45rem;
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--brand) 14%, transparent);
+  color: var(--brand);
+  font: 500 0.78rem var(--mono);
+  vertical-align: baseline;
+}
+
+.ach-loc { color: var(--muted); font-style: italic; }
 
 /* ---- field notes ---- */
 .post-feed { display: grid; gap: 1.2rem; }
