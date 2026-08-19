@@ -235,8 +235,8 @@ code {
 }
 
 .arch-logo {
-  width: 4.4rem;
-  height: 4.4rem;
+  width: 3.2rem;
+  height: 3.2rem;
   fill: #79c0ff;
   filter: drop-shadow(0 0 0.55rem rgba(121, 192, 255, 0.5));
 }
@@ -339,16 +339,16 @@ code {
 
 .arsenal-card__icon {
   display: inline-flex;
-  width: 1.9rem;
-  height: 1.9rem;
+  width: 1.6rem;
+  height: 1.6rem;
   align-items: center;
   justify-content: center;
-  border-radius: 9px;
+  border-radius: 7px;
   color: #fff;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.6rem;
 }
 
-.arsenal-card__icon svg { width: 1rem; height: 1rem; }
+.arsenal-card__icon svg { width: 0.85rem; height: 0.85rem; }
 
 .arsenal-card--blue .arsenal-card__icon { background: linear-gradient(135deg, #49b1f5, #2a7fd4); box-shadow: 0 6px 16px rgba(73, 177, 245, 0.35); }
 .arsenal-card--violet .arsenal-card__icon { background: linear-gradient(135deg, #a49cfd, #7c6cf0); box-shadow: 0 6px 16px rgba(164, 156, 253, 0.35); }
@@ -396,12 +396,12 @@ code {
 
 .exp__logo {
   flex: 0 0 auto;
-  width: 3rem;
-  height: 3rem;
-  border-radius: 10px;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 7px;
   background: #fff;
   border: 1px solid var(--line);
-  padding: 0.3rem;
+  padding: 0.22rem;
   display: flex;
   align-items: center;
   justify-content: center;
