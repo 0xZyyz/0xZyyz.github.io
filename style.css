@@ -175,7 +175,7 @@ code {
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  padding: 1.1rem;
+  padding: 0.8rem;
   fill: var(--accent);
   background: var(--bg-2);
   box-shadow:
