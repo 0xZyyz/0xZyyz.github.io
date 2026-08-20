@@ -246,7 +246,7 @@ code {
 
 .waybar-toast__foot { color: var(--muted); line-height: 1.6; }
 
-/* ---- boot splash ---- */
+/* ---- boot splash (arch flash) ---- */
 .boot {
   position: fixed;
   inset: 0;
@@ -255,48 +255,44 @@ code {
   align-items: center;
   justify-content: center;
   padding: 1rem;
-  background: linear-gradient(180deg, #141110, #17120f);
+  background: #141110;
   opacity: 1;
-  transition: opacity 0.5s ease;
+  transition: opacity 0.35s ease;
 }
 
 .boot.is-hidden { opacity: 0; pointer-events: none; }
 
 .boot__inner {
-  max-width: 560px;
-  font-family: var(--mono);
+  text-align: center;
+  font-family: var(--sans);
+}
+
+.boot__arch {
+  width: 76px;
+  height: 76px;
+  margin: 0 auto 1.2rem;
+  display: block;
+  fill: var(--accent);
+  filter: drop-shadow(0 0 22px var(--accent-dim));
+  animation: boot-pop 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .boot__title {
-  font: 700 1.8rem var(--sans);
+  font-weight: 700;
+  font-size: 1.25rem;
   letter-spacing: -0.02em;
   color: var(--text-heading);
-  margin-bottom: 1.3rem;
-  animation: boot-line 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: boot-pop 0.4s 0.1s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-.boot__mark { color: var(--accent); margin-right: 10px; }
-
-.boot__cursor { animation: nf-blink 1.1s steps(1) infinite; }
-
-.boot__log {
-  margin: 0;
-  color: var(--muted);
-  font-size: 0.78rem;
-  line-height: 1.95;
-}
-
-.boot__line {
-  display: inline-block;
-  animation: boot-line 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
-@keyframes boot-line {
-  from { opacity: 0; transform: translateY(6px); }
-  to   { opacity: 1; transform: translateY(0); }
+@keyframes boot-pop {
+  from { opacity: 0; transform: translateY(10px) scale(0.96); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 /* ---- neofetch (floating terminal window) ---- */
+
+.waybar__mod svg { width: 13px; height: 13px; }
 
 .waybar__clock {
   color: var(--text-secondary);
@@ -409,14 +405,25 @@ body { padding-top: 42px; }
   gap: 1rem;
 }
 
-.arch-art {
+.arch-logo {
+  width: 108px;
+  height: 108px;
+  border-radius: 50%;
+  padding: 0.6rem;
+  fill: var(--accent);
+  background: var(--bg-2);
+  box-shadow:
+    0 6px 24px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(239, 232, 225, 0.06),
+    0 0 36px var(--accent-dim);
+}
+
+.arch-tag {
   font-family: var(--mono);
-  font-size: 0.3rem;
-  line-height: 1.15;
-  margin: 0;
-  color: var(--accent);
-  text-shadow: 0 0 12px var(--accent-dim);
-  user-select: none;
+  font-size: 0.68rem;
+  color: var(--muted);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
 }
 
 .neofetch-info {
