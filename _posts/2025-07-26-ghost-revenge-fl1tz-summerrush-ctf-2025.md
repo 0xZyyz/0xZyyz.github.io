@@ -11,11 +11,13 @@ role: author
 **Hi ! I’m Mohamed Aziz Rahmouni also known as Zyyz . Recently, I authored all the Forensics tasks for FL1TZ SummerRush CTF, and honestly, Ghost Revenge is one of my favorites so far. It’s a challenge that pushed me to mix different techniques and layers, making it really fun and tricky. In this writeup, I’ll walk you through how to solve it step-by-step.**
 
 ![](/assets/posts/ghost-revenge/13KlMmn3vcfHKtExLsyYBQ.png)
+
 Forensics — FL1TZ SummerRush CTF 2025
 
 So what’s the wait for, let’s get it !
 
 ![](/assets/posts/ghost-revenge/r-ljxXFYoo2o1iH2pmjWfw.png)
+
 Ghost Revenge
 
 We got a MEGA link, and after downloading it, found two files waiting to be explored .

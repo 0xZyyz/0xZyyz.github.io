@@ -9,6 +9,7 @@ role: author
 This write-up covers **Death Box Forensics**, a series of challenges I authored for **Darkest Hour CTF 2026 — Eclipse Edition **hosted by Securinets INSAT. The series consists of 26 interconnected tasks that blend a wide range of forensic techniques, reverse engineering concepts, network analysis, and exploitation scenarios into a cohesive investigative storyline.
 
 ![](/assets/posts/death-box/xEaeSRfbFBu08XJ6_DXxjQ.png)
+
 Forensic — Darkest Hour CTF 2026
 
 **Now, let’s dive in.**
@@ -16,6 +17,7 @@ Forensic — Darkest Hour CTF 2026
 - Death Box 0
 
 ![](/assets/posts/death-box/yT9lZn9j4NdKSl4MFwmCrA.png)
+
 Death Box 0
 
 The opening task simply marks the start of the **Death Box Forensics** series. No analysis is required — just submit the welcome flag.
@@ -23,6 +25,7 @@ The opening task simply marks the start of the **Death Box Forensics** series. N
 - Death Box 1
 
 ![](/assets/posts/death-box/ktfwsDCT7oj3cfVfUM3e-A.png)
+
 Death box 1
 
 ```
@@ -53,6 +56,7 @@ So the flag will be Securinets{zyyz-VMware-Virtual-Platform_Ubuntu_24.04}
 - Death Box 3
 
 ![](/assets/posts/death-box/6Sk1Ux3lzx9imY7dqOuqyA.png)
+
 Death Box 3
 
 From server1.pcapng, we extracted the host’s IP and MAC address. The flag is : Securinets{192.168.255.137_00:0c:29:08:36:60}
@@ -60,6 +64,7 @@ From server1.pcapng, we extracted the host’s IP and MAC address. The flag is :
 - Death Box 4
 
 ![](/assets/posts/death-box/Bpw_r_L5UlYcyleFRZ8TVg.png)
+
 Death Box 4
 
 ```
@@ -73,6 +78,7 @@ So the flag is Securinets{Apache Tomcat}
 - Death Box 5
 
 ![](/assets/posts/death-box/umu5m4UnKr156pMRShYoCA.png)
+
 Death Box 5
 
 The host Ip has several inforation chnage between the ip 192.168.255.1 in the server1.pcapng so the flag is : Securinets{192.168.255.1}
@@ -80,6 +86,7 @@ The host Ip has several inforation chnage between the ip 192.168.255.1 in the se
 - Death Box 6
 
 ![](/assets/posts/death-box/MOngL-0KbVMWZ5ilVFDhZQ.png)
+
 Death Box 6
 
 By filtering for HTTP traffic in server1.pcapng, we can see that the attacker attempted to request /shell from the host.
@@ -158,6 +165,7 @@ So the flag is Securinets{m3ssy_d0cker_c0nta1n3r}
 - Death Box 8
 
 ![](/assets/posts/death-box/iCawsYvab4mujymRk3EHvA.png)
+
 Death Box 8
 
 For this task, I used a **Wireshark feature that can reveal credentials**. You can access it by navigating to **Tools → Credentials**.
@@ -169,6 +177,7 @@ From this view, we could read the credentials used so the flag is : Securinets{Z
 - Death Box 9
 
 ![](/assets/posts/death-box/1LgqFO0Dpq1gaLBrFE7jBg.png)
+
 Death Box 9
 
 After uploading the malicious shell, the attacker obtained a reverse shell on the host. They executed several commands and eventually invoked a command to upgrade it to an interactive shell.
@@ -186,6 +195,7 @@ Then our flag is Securinets{13e5b4b56447415508ee7288c003711b40b23c635bd79853f134
 - Death Box 10
 
 ![](/assets/posts/death-box/sQ2DTwL4OyC22tJDf5iLmQ.png)
+
 Death Box 10
 
 So this is about apache tomcat 7.0.79 file upload vulnerability
@@ -197,6 +207,7 @@ Then our flag is Securinets{CVE-2017–12615}
 - Death Box 11
 
 ![](/assets/posts/death-box/6PNaVPm-nOfpRqxhvBUl4g.png)
+
 Death Box 11
 
 From the first tcp stream upon obtaining the reverse shell :
@@ -208,6 +219,7 @@ Then our flag is : Securinets{id}
 - Death Box 12
 
 ![](/assets/posts/death-box/KJJ2B6XlKGTT-bMLl5nmEQ.png)
+
 Death Box 12
 
 We can simply use the **timestamp of the packet** to determine this. So the flag is Securinets{2026–02–12 21:31:17}
@@ -231,6 +243,7 @@ Then the flag is : Securinets{c1d7b4fa2d47ddb90bb5956f03ab4bfa188edb6974cc84b65f
 - Death Box 14
 
 ![](/assets/posts/death-box/BgbSZspcTWQTHaKJ6jaLsw.png)
+
 Death Box 14
 
 We can quickly identify relevant entries by **grepping for ****"sudo"** in the linpeas output.
@@ -242,6 +255,7 @@ So the flag is : Securinets{1.9.17}
 - Death Box 15
 
 ![](/assets/posts/death-box/zH2gMl67XxHbkd-6yozARA.png)
+
 Death Box 15
 
 Inside the server1.pcapng we found this :
@@ -259,6 +273,7 @@ So the flag is Securinets{dev.test.local_SERVERS}
 - Death Box 16
 
 ![](/assets/posts/death-box/Sf9ZnYos_iTyJrT_boSl0Q.png)
+
 Death Box 16
 
 From the earlier stream ,we could see the executed command is :
@@ -272,6 +287,7 @@ Then the flag is : Securinets{21ffc73dc9052e36e9e50190142b09d2b4ccb140985d729a5d
 - Death Box 17
 
 ![](/assets/posts/death-box/ZMt0egUEEWW5LI-ABrAgTw.png)
+
 Death Box 17
 
 Obviously , the flag will be Securinets{CVE-2025–32462}
@@ -279,6 +295,7 @@ Obviously , the flag will be Securinets{CVE-2025–32462}
 - Death Box 18
 
 ![](/assets/posts/death-box/QwcECTiQf4yFBBCsHFiXdg.png)
+
 Death Box 18
 
 ```
@@ -318,6 +335,7 @@ So the flag is : Securinets{b3f4743f68af9bb213057c81d066670cdee6513038fde235b136
 - Death Box 19
 
 ![](/assets/posts/death-box/UtCRf8zWDc2SUmU0S1Vkcw.png)
+
 Death Box 19
 
 After gaining root access, the attacker downloaded the encryptor binary and attempted to load a kernel module named lkm_rootkit.ko :
@@ -333,6 +351,7 @@ Then the flag is : Securinets{lkm_rootkit.ko}
 - Death Box 20
 
 ![](/assets/posts/death-box/oh989Giutw14iOXSBgPiLQ.png)
+
 Death Box 20*We now shift our focus to R****everse Engineering****.*
 
 ![](/assets/posts/death-box/o_o_D0ijhBVgdgQz9hr14Q.png)
@@ -631,6 +650,7 @@ Then the flag is Securinets{C0ngrats_Pack3ts_Int3rc3pt3d_Succ3ssfully_84920}
 - Death Box 21
 
 ![](/assets/posts/death-box/QftBW_xs0zVzOc3KDUXk6g.png)
+
 Death Box 21
 
 Earlier we saw that the attacker tried to clone a repo
@@ -862,6 +882,7 @@ So the flag is : Securinets{Mirai_824904182e863288f24a2d13273a3122bd8fef73fe6ae1
 - Death Box 22
 
 ![](/assets/posts/death-box/Grh_4RPE3KgLnad_GYXruw.png)
+
 Death Box 22
 
 Moving now to server2.pcap . We can find the flag by filtering with http.
@@ -873,6 +894,7 @@ FLAG > Securinets{146.190.198.112_185.133.121.127}
 - Death Box 23
 
 ![](/assets/posts/death-box/QuO1nwhQ4jT7qegg1A6HUg.png)
+
 Death Box 23
 
 The first server was a honeypot.
@@ -886,6 +908,7 @@ then the flag is Securinets{uc-httpd 1.0.0}
 - Death Box 24
 
 ![](/assets/posts/death-box/BDQZqmaE_g7g1EyPEeKI9g.png)
+
 Death Box 24
 
 Analysis of the previous screenshot indicates that the attacker attempted a buffer overflow via the username field, suggesting that the login endpoint may be vulnerable. Capture and extract the relevant payload from Wireshark for further investigation.
@@ -895,6 +918,7 @@ Luckily , we got our flag : Securinets{hxxp://185[.]133.121[.]127:8099/Login[.]h
 - Death Box 25
 
 ![](/assets/posts/death-box/D8sgHFdtpZWdsKAeiNdfmw.png)
+
 Death Box 25
 
 This question also involves reverse engineering the Go (Golang) malware to fully understand its behavior and functionality.
@@ -909,6 +933,7 @@ Then our flag is Securinets{ucSofiaCheck}
 - Death Box 26
 
 ![](/assets/posts/death-box/y9HhaUwrtm8v3XOIzrYJIQ.png)
+
 Death Box 26
 
 Just search for this vulnerability online.
