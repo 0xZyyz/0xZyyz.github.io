@@ -1087,12 +1087,15 @@ body { padding-top: 42px; }
 }
 
 .site-footer {
-  position: sticky;
-  bottom: 24px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
   z-index: 50;
   display: flex;
   justify-content: center;
-  margin-top: 3rem;
+  padding: 0.9rem 1rem;
+  background: linear-gradient(180deg, transparent, color-mix(in srgb, var(--bg) 88%, transparent) 45%);
   pointer-events: none;
 }
 
@@ -1101,12 +1104,6 @@ body { padding-top: 42px; }
   color: var(--muted);
   text-align: center;
   letter-spacing: 0.06em;
-}
-
-.site-footer__line::before {
-  content: '#';
-  color: var(--terminal-green);
-  margin-right: 0.45rem;
 }
 
 @media (prefers-reduced-motion: reduce) {
