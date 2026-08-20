@@ -521,6 +521,48 @@ body { padding-top: 42px; }
 
 .nf-bio p { margin: 0; }
 
+.nf-env {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--line);
+  display: grid;
+  gap: 7px;
+}
+
+.nf-env__label {
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.nf-env__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.nf-env__chip {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text);
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--ec) 16%, transparent);
+  border: 1px solid color-mix(in srgb, var(--ec) 45%, transparent);
+  transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.nf-env__chip:hover {
+  transform: translateY(-2px);
+  background: color-mix(in srgb, var(--ec) 32%, transparent);
+  box-shadow: 0 4px 14px color-mix(in srgb, var(--ec) 40%, transparent);
+  color: #fff;
+  text-decoration: none;
+}
+
 .nf-social {
   display: flex;
   gap: 10px;
