@@ -372,8 +372,6 @@ body { padding-top: 42px; }
 
 .hero__head {
   margin-bottom: 1.4rem;
-  padding-bottom: 1.2rem;
-  border-bottom: 1px solid var(--line);
 }
 
 .hero__name {
@@ -649,14 +647,6 @@ body { padding-top: 42px; }
   font-size: 1.35em;
   line-height: 1;
   transform: translateY(-1px);
-}
-
-.section__title::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: linear-gradient(90deg, var(--accent-dim), transparent);
-  min-width: 2rem;
 }
 
 .section__lede { margin: 0 0 1.75rem; color: var(--text-secondary); max-width: 60ch; }
