@@ -628,8 +628,6 @@ body { padding-top: 42px; }
   padding: 2.75rem 0;
 }
 
-.section + .section { border-top: 1px solid var(--line); }
-
 .section__title {
   display: flex;
   align-items: center;
