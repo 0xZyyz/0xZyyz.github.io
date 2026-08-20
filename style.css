@@ -267,14 +267,6 @@ body { padding-top: 42px; }
 .nf-dot--minimize { background: #ffbd2e; }
 .nf-dot--maximize { background: #28c840; }
 
-.nf-title {
-  margin-left: 8px;
-  font-family: var(--mono);
-  font-size: 0.72rem;
-  color: var(--muted);
-  letter-spacing: 0.03em;
-}
-
 .neofetch-avatar {
   display: flex;
   flex-direction: column;
