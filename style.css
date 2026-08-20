@@ -561,7 +561,7 @@ body { padding-top: 42px; }
 
 /* ---- social dock (left sidebar) ---- */
 .social-dock {
-  position: absolute;
+  position: sticky;
   top: 48px;
   left: 0;
   transform: translateX(-110%);
