@@ -10,6 +10,16 @@
     <link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
   </head>
   <body>
+    <div class="boot" id="boot" aria-hidden="true">
+      <div class="boot__inner">
+        <div class="boot__title"><span class="boot__mark" aria-hidden="true">▍</span>Zyyz - Personal blog<span class="boot__cursor" aria-hidden="true">▌</span></div>
+        <pre class="boot__log"><span class="boot__line" style="animation-delay:.4s">[  OK  ] init: loading kernel modules</span>
+<span class="boot__line" style="animation-delay:.58s">[  OK  ] init: mounting efivars</span>
+<span class="boot__line" style="animation-delay:.76s">[  OK  ] init: Reached target Graphical Interface</span>
+<span class="boot__line" style="animation-delay:.94s">[  OK  ] started user@0x1f - zyyz.github.io</span></pre>
+      </div>
+    </div>
+
     <header class="waybar" id="waybar">
       <a class="waybar__logo" href="{{ '/' | relative_url }}" aria-label="Zyyz · home">
         <svg class="waybar__arch" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M11.392 0c.347.276 1.222 1.613 1.693 2.191a7.9 7.9 0 0 0-.056 15.713 11.698 11.698 0 0 1 .105-2.034 5.86 5.86 0 0 1-6.16-8.906c1.653-1.75 6.354-3.417 7.479-2.115-1.183-3.022-1.918-4.958-1.918-5.537C12.172 1.585 12.222 1.11 12.7 0Zm3.46 6.077c.214 1.907.807 5.05 1.437 6.784.567 1.562 1.009 1.988 1.009 2.5 0 .808-.743 1.79-1.2 1.79-.335 0-.48-.257-.63-.835-.225-.874-.34-2.471-.877-3.587-1.262 2.516-2.696 3.303-3.977 3.303-1.698 0-2.853-1.568-2.853-3.297 0-3.89 4.22-4.854 6.09-7.657Z"/></svg>
@@ -35,26 +45,25 @@
     </header>
 
     <div class="waybar-toast" id="waybar-toast" role="status" aria-live="polite">
-      <div class="waybar-toast__head">
-        <span class="waybar-toast__dot" id="speed-dot" aria-hidden="true"></span>
-        <span class="waybar-toast__label" id="speed-label">initializing</span>
-        <span class="waybar-toast__cursor" aria-hidden="true">▌</span>
+      <div class="waybar-toast__head" aria-hidden="true">
+        <span class="waybar-toast__prompt">$</span> speedtest --simple<span class="waybar-toast__cursor">▌</span>
       </div>
-      <div class="waybar-toast__bar"><i id="speed-bar"></i></div>
-      <div class="waybar-toast__rows">
-        <div class="waybar-toast__row">
-          <span class="waybar-toast__row-key">ping</span>
-          <span class="waybar-toast__row-val" id="speed-ping">—</span>
-        </div>
-        <div class="waybar-toast__row">
-          <span class="waybar-toast__row-key">down</span>
-          <span class="waybar-toast__row-val" id="speed-down">—</span>
-        </div>
-        <div class="waybar-toast__row">
-          <span class="waybar-toast__row-key">up</span>
-          <span class="waybar-toast__row-val" id="speed-up">—</span>
-        </div>
+      <div class="waybar-toast__row">
+        <span class="waybar-toast__key">ping</span>
+        <span class="waybar-toast__ascii" id="speed-bar-ping" aria-hidden="true"></span>
+        <span class="waybar-toast__val" id="speed-ping">—</span>
       </div>
+      <div class="waybar-toast__row">
+        <span class="waybar-toast__key">download</span>
+        <span class="waybar-toast__ascii" id="speed-bar-down" aria-hidden="true"></span>
+        <span class="waybar-toast__val" id="speed-down">—</span>
+      </div>
+      <div class="waybar-toast__row">
+        <span class="waybar-toast__key">upload</span>
+        <span class="waybar-toast__ascii" id="speed-bar-up" aria-hidden="true"></span>
+        <span class="waybar-toast__val" id="speed-up">—</span>
+      </div>
+      <div class="waybar-toast__foot" id="speed-foot"></div>
     </div>
 
     {{ content }}
@@ -80,11 +89,13 @@
         var kbLabel = document.getElementById('waybar-kb-label');
         var wifi = document.getElementById('waybar-wifi');
         var toast = document.getElementById('waybar-toast');
-        var bar = document.getElementById('speed-bar');
-        var label = document.getElementById('speed-label');
         var pingEl = document.getElementById('speed-ping');
         var downEl = document.getElementById('speed-down');
         var upEl = document.getElementById('speed-up');
+        var barPing = document.getElementById('speed-bar-ping');
+        var barDown = document.getElementById('speed-bar-down');
+        var barUp = document.getElementById('speed-bar-up');
+        var foot = document.getElementById('speed-foot');
 
         if (clock) {
           function tick() {
@@ -108,30 +119,37 @@
           var dl = 75 + Math.random() * 110;
           var up = 20 + Math.random() * 50;
           var ping = 4 + Math.round(Math.random() * 30);
+          var t0 = performance.now();
 
           toast.classList.add('is-visible');
           toast.classList.remove('is-done');
-          bar.style.width = '0%';
-          label.textContent = 'initializing';
+          foot.textContent = '';
           [pingEl, downEl, upEl].forEach(function (el) {
-            el.classList.remove('is-live', 'is-final');
+            el.classList.remove('is-final');
             el.textContent = '—';
           });
+          [barPing, barDown, barUp].forEach(function (b) { b.textContent = ''; });
 
-          function phase(name, target, el, dur, unit, isInt, next) {
-            label.textContent = name;
-            el.classList.add('is-live');
+          var SEGS = 12;
+          function asciiBar(n) {
+            return '\u2588'.repeat(n) + '\u2591'.repeat(SEGS - n);
+          }
+
+          function phase(el, barEl, target, dur, unit, isInt, next) {
+            var keyEl = el.parentNode.querySelector('.waybar-toast__key');
+            keyEl.classList.add('is-active');
             var t0 = performance.now();
             function step(now) {
               var p = Math.min(1, (now - t0) / dur);
-              var eased = 1 - Math.pow(1 - p, 2);
-              bar.style.width = (eased * 100) + '%';
+              var n = Math.round(p * SEGS);
+              barEl.textContent = asciiBar(n);
               el.textContent = isInt ? Math.round(p * target) : (p * target).toFixed(1);
               if (p < 1) {
                 requestAnimationFrame(step);
               } else {
+                barEl.textContent = '';
+                keyEl.classList.remove('is-active');
                 el.textContent = (isInt ? Math.round(target) : target.toFixed(1)) + unit;
-                el.classList.remove('is-live');
                 el.classList.add('is-final');
                 next();
               }
@@ -139,21 +157,26 @@
             requestAnimationFrame(step);
           }
 
-          phase('measuring downlink', dl, downEl, 1500, ' Mbps', false, function () {
-            phase('measuring uplink', up, upEl, 1300, ' Mbps', false, function () {
-              phase('measuring latency', ping, pingEl, 900, ' ms', true, function () {
-                bar.style.width = '100%';
-                label.textContent = 'complete';
+          phase(pingEl, barPing, ping, 700, ' ms', true, function () {
+            phase(downEl, barDown, dl, 1500, ' Mbps', false, function () {
+              phase(upEl, barUp, up, 1300, ' Mbps', false, function () {
+                foot.textContent = 'done in ' + ((performance.now() - t0) / 1000).toFixed(1) + 's';
                 toast.classList.add('is-done');
                 setTimeout(function () {
                   toast.classList.remove('is-visible');
-                }, 1400);
+                }, 1600);
               });
             });
           });
         }
 
         if (wifi) wifi.addEventListener('click', runSpeedtest);
+
+        var boot = document.getElementById('boot');
+        if (boot) {
+          setTimeout(function () { boot.classList.add('is-hidden'); }, 2100);
+          setTimeout(function () { if (boot.parentNode) boot.parentNode.removeChild(boot); }, 2800);
+        }
       })();
     </script>
   </body>
