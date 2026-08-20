@@ -381,12 +381,6 @@ body { padding-top: 42px; }
   color: var(--text-heading);
 }
 
-.hero__sub {
-  margin: 0.55rem 0 0;
-  font-size: 1.05rem;
-  color: var(--muted);
-}
-
 .hero__tag {
   margin: 0 0 1.6rem;
   color: var(--muted);
