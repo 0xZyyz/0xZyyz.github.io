@@ -1086,6 +1086,29 @@ body { padding-top: 42px; }
   .footer { flex-direction: column; }
 }
 
+.site-footer {
+  position: sticky;
+  bottom: 24px;
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+  pointer-events: none;
+}
+
+.site-footer__line {
+  font: 500 0.78rem var(--mono);
+  color: var(--muted);
+  text-align: center;
+  letter-spacing: 0.06em;
+}
+
+.site-footer__line::before {
+  content: '#';
+  color: var(--terminal-green);
+  margin-right: 0.45rem;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .arsenal-card, .post-preview, .exp, .nf-social-btn { transition: none; }
