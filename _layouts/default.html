@@ -35,9 +35,26 @@
     </header>
 
     <div class="waybar-toast" id="waybar-toast" role="status" aria-live="polite">
-      <span class="waybar-toast__label" id="speed-label">speedtest</span>
-      <span class="waybar-toast__bar"><i id="speed-bar"></i></span>
-      <span class="waybar-toast__val" id="speed-val">—</span>
+      <div class="waybar-toast__head">
+        <span class="waybar-toast__dot" id="speed-dot" aria-hidden="true"></span>
+        <span class="waybar-toast__label" id="speed-label">initializing</span>
+        <span class="waybar-toast__cursor" aria-hidden="true">▌</span>
+      </div>
+      <div class="waybar-toast__bar"><i id="speed-bar"></i></div>
+      <div class="waybar-toast__rows">
+        <div class="waybar-toast__row">
+          <span class="waybar-toast__row-key">ping</span>
+          <span class="waybar-toast__row-val" id="speed-ping">—</span>
+        </div>
+        <div class="waybar-toast__row">
+          <span class="waybar-toast__row-key">down</span>
+          <span class="waybar-toast__row-val" id="speed-down">—</span>
+        </div>
+        <div class="waybar-toast__row">
+          <span class="waybar-toast__row-key">up</span>
+          <span class="waybar-toast__row-val" id="speed-up">—</span>
+        </div>
+      </div>
     </div>
 
     {{ content }}
@@ -64,8 +81,10 @@
         var wifi = document.getElementById('waybar-wifi');
         var toast = document.getElementById('waybar-toast');
         var bar = document.getElementById('speed-bar');
-        var val = document.getElementById('speed-val');
         var label = document.getElementById('speed-label');
+        var pingEl = document.getElementById('speed-ping');
+        var downEl = document.getElementById('speed-down');
+        var upEl = document.getElementById('speed-up');
 
         if (clock) {
           function tick() {
@@ -86,41 +105,52 @@
 
         function runSpeedtest() {
           if (!toast) return;
-          toast.classList.add('is-visible');
-          toast.classList.remove('is-done');
-          label.textContent = 'speedtest';
-          bar.style.width = '0%';
-          val.textContent = '0.0';
           var dl = 75 + Math.random() * 110;
           var up = 20 + Math.random() * 50;
           var ping = 4 + Math.round(Math.random() * 30);
-          var t0 = performance.now();
-          var dur = 1800;
-          function step(now) {
-            var p = Math.min(1, (now - t0) / dur);
-            bar.style.width = (p * 100) + '%';
-            val.textContent = (p * dl).toFixed(1);
-            if (p < 1) {
-              requestAnimationFrame(step);
-            } else {
-              bar.style.width = '100%';
-              label.textContent = 'download';
-              val.textContent = dl.toFixed(1) + ' Mbps';
-              toast.classList.add('is-done');
-              setTimeout(function () {
-                label.textContent = 'upload';
-                val.textContent = up.toFixed(1) + ' Mbps';
-              }, 1100);
-              setTimeout(function () {
-                label.textContent = 'ping';
-                val.textContent = ping + ' ms';
-              }, 2300);
-              setTimeout(function () {
-                toast.classList.remove('is-visible');
-              }, 3600);
+
+          toast.classList.add('is-visible');
+          toast.classList.remove('is-done');
+          bar.style.width = '0%';
+          label.textContent = 'initializing';
+          [pingEl, downEl, upEl].forEach(function (el) {
+            el.classList.remove('is-live', 'is-final');
+            el.textContent = '—';
+          });
+
+          function phase(name, target, el, dur, unit, isInt, next) {
+            label.textContent = name;
+            el.classList.add('is-live');
+            var t0 = performance.now();
+            function step(now) {
+              var p = Math.min(1, (now - t0) / dur);
+              var eased = 1 - Math.pow(1 - p, 2);
+              bar.style.width = (eased * 100) + '%';
+              el.textContent = isInt ? Math.round(p * target) : (p * target).toFixed(1);
+              if (p < 1) {
+                requestAnimationFrame(step);
+              } else {
+                el.textContent = (isInt ? Math.round(target) : target.toFixed(1)) + unit;
+                el.classList.remove('is-live');
+                el.classList.add('is-final');
+                next();
+              }
             }
+            requestAnimationFrame(step);
           }
-          requestAnimationFrame(step);
+
+          phase('measuring downlink', dl, downEl, 1500, ' Mbps', false, function () {
+            phase('measuring uplink', up, upEl, 1300, ' Mbps', false, function () {
+              phase('measuring latency', ping, pingEl, 900, ' ms', true, function () {
+                bar.style.width = '100%';
+                label.textContent = 'complete';
+                toast.classList.add('is-done');
+                setTimeout(function () {
+                  toast.classList.remove('is-visible');
+                }, 1400);
+              });
+            });
+          });
         }
 
         if (wifi) wifi.addEventListener('click', runSpeedtest);
