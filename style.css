@@ -509,11 +509,6 @@ body { padding-top: 42px; }
   margin-right: 7px;
 }
 
-.nf-wm {
-  margin: 5px 0 10px;
-  font-size: 0.78rem;
-}
-
 .nf-dim { color: var(--muted); }
 
 .nf-bio {
