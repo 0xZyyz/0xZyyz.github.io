@@ -1043,23 +1043,10 @@ body { padding-top: 42px; }
 .note__content > :first-child { margin-top: 0; }
 .note__content h2, .note__content h3 { margin-top: 2.2rem; font-family: var(--mono); }
 .note__content h2.challenge-title {
-  display: flex;
-  align-items: baseline;
-  gap: 0.6rem;
-  padding: 0.5rem 0.9rem;
   margin-top: 2.8rem;
-  border: 1px solid color-mix(in srgb, var(--gold) 38%, transparent);
-  border-left: 3px solid var(--gold);
-  border-radius: var(--radius);
-  background: color-mix(in srgb, var(--gold) 6%, transparent);
-  font-size: 1.2rem;
+  font-size: 1.32rem;
   color: var(--gold);
   letter-spacing: 0.02em;
-}
-.note__content h2.challenge-title::before {
-  content: '▍';
-  color: var(--terminal-green);
-  font-weight: 700;
 }
 .note__content img {
   display: block;
