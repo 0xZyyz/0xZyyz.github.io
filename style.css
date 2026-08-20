@@ -338,7 +338,16 @@ body { padding-top: 42px; }
   padding: 2rem 1.5rem 4rem;
 }
 
-.waybar, .layout {
+.waybar {
+  animation: waybar-in 0.5s 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes waybar-in {
+  from { opacity: 0; top: 0px; }
+  to   { opacity: 1; top: 6px; }
+}
+
+.layout {
   animation: page-in 0.5s 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
