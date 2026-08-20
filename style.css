@@ -109,8 +109,8 @@ code {
   font-family: var(--mono);
   font-size: 0.76rem;
   color: var(--text-secondary);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
   white-space: nowrap;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
 .waybar__logo {
@@ -128,16 +128,23 @@ code {
 }
 
 .waybar__logo:hover { color: var(--text-heading); text-decoration: none; }
-.waybar__arch { width: 12px; height: 12px; display: block; }
+.waybar__arch { width: 13px; height: 13px; display: block; }
 
 .waybar__nav {
   display: flex;
   align-items: baseline;
-  gap: 8px;
+  gap: 6px;
 }
 
-.waybar__nav a { color: var(--muted); text-decoration: none; }
-.waybar__nav a:hover { color: var(--text-heading); text-decoration: none; }
+.waybar__nav a {
+  color: var(--muted);
+  text-decoration: none;
+  padding: 4px 9px;
+  border-radius: 6px;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+
+.waybar__nav a:hover { color: var(--text-heading); background: rgba(239, 232, 225, 0.06); text-decoration: none; }
 
 .waybar__dot { color: rgba(239, 232, 225, 0.22); }
 
@@ -148,16 +155,25 @@ code {
   transform: translateY(-50%);
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
+}
+
+.waybar__right::before {
+  content: '';
+  width: 1px;
+  height: 14px;
+  background: rgba(239, 232, 225, 0.12);
+  margin-right: 6px;
 }
 
 .waybar__mod {
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   color: var(--muted);
+  border-radius: 6px;
 }
 
 .waybar__btn {
@@ -166,16 +182,16 @@ code {
   padding: 0;
   cursor: pointer;
   color: var(--muted);
-  transition: color 0.12s ease;
+  transition: color 0.12s ease, background 0.12s ease;
 }
 
-.waybar__btn:hover { color: var(--text-heading); }
+.waybar__btn:hover { color: var(--text-heading); background: rgba(239, 232, 225, 0.07); }
 
 .waybar__key {
-  margin-left: 5px;
-  font: 600 0.68rem var(--mono);
+  margin-left: 4px;
+  font: 700 0.66rem var(--sans);
   color: var(--accent-hover);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
 }
 
 /* ---- speedtest toast (terminal window) ---- */
@@ -318,7 +334,10 @@ code {
 .waybar__clock {
   color: var(--text-secondary);
   font-weight: 600;
-  padding: 0 2px;
+  padding: 2px 9px;
+  background: rgba(239, 232, 225, 0.05);
+  border-radius: 999px;
+  letter-spacing: 0.02em;
 }
 
 /* ---- layout ---- */
