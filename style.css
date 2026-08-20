@@ -26,7 +26,7 @@
   --shadow: 0 4px 16px rgba(0, 0, 0, 0.28);
   --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.45);
 
-  --mono: ui-monospace, 'JetBrains Mono', 'Cascadia Code', 'SF Mono', Menlo, Consolas, monospace;
+  --mono: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
   --sans: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
 
   --bar-bg: rgba(20, 17, 15, 0.72);
@@ -98,8 +98,8 @@ code {
   z-index: 1000;
   display: flex;
   align-items: center;
-  gap: 18px;
-  height: 32px;
+  justify-content: center;
+  height: 30px;
   padding: 0 14px;
   background: var(--bar-bg);
   backdrop-filter: blur(24px) saturate(160%);
@@ -114,6 +114,10 @@ code {
 }
 
 .waybar__logo {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
   display: flex;
   align-items: center;
   gap: 6px;
@@ -138,7 +142,10 @@ code {
 .waybar__dot { color: rgba(239, 232, 225, 0.22); }
 
 .waybar__right {
-  margin-left: auto;
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
   display: flex;
   align-items: center;
   gap: 8px;
@@ -314,72 +321,22 @@ code {
   padding: 0 2px;
 }
 
-/* ---- bottom launcher (terminal-style text bar) ---- */
-.dockbar {
-  position: fixed;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1000;
-  display: flex;
-  align-items: baseline;
-  gap: 9px;
-  max-width: calc(100vw - 24px);
-  padding: 6px 14px;
-  background: rgba(33, 28, 25, 0.72);
-  backdrop-filter: blur(24px) saturate(160%);
-  -webkit-backdrop-filter: blur(24px) saturate(160%);
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  color: var(--text-secondary);
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
-  white-space: nowrap;
-  overflow-x: auto;
-}
-
-.dockbar__prompt { color: var(--accent); font-weight: 700; }
-
-.dockbar a { color: var(--muted); text-decoration: none; }
-.dockbar a:hover { color: var(--text-heading); text-decoration: none; }
-
-.dockbar__dot { color: rgba(239, 232, 225, 0.22); }
-
-.dockbar__sep {
-  width: 1px;
-  height: 14px;
-  background: rgba(239, 232, 225, 0.12);
-  margin: 0 4px;
-  align-self: center;
-}
-
 /* ---- layout ---- */
 body { padding-top: 42px; }
 
 .layout {
   max-width: 980px;
   margin: 0 auto;
-  padding: 2rem 1.5rem 6rem;
+  padding: 2rem 1.5rem 4rem;
 }
 
-.waybar, .layout, .dockbar {
+.waybar, .layout {
   animation: page-in 0.5s 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 @keyframes page-in {
   from { opacity: 0; transform: translateY(14px); }
   to   { opacity: 1; transform: translateY(0); }
-}
-
-.site-footer {
-  text-align: center;
-  font-family: var(--mono);
-  font-size: 0.72rem;
-  color: var(--muted);
-  letter-spacing: 0.02em;
-  padding: 0 1rem 5.2rem;
-  user-select: none;
 }
 
 .hero {
@@ -987,8 +944,7 @@ body { padding-top: 42px; }
   .capture-quiet { grid-template-columns: 48px 1fr; }
   .waybar { padding: 0 10px; }
   .waybar__mod { display: none; }
-  .dockbar { gap: 7px; padding: 5px 11px; font-size: 0.72rem; }
-  .layout { padding: 2rem 1.1rem 7rem; }
+  .layout { padding: 2rem 1.1rem 4rem; }
   .hero { padding: 1.5rem 0 2.5rem; }
   .neofetch { grid-template-columns: 1fr; gap: 1.2rem; padding: 0 1.1rem 1.3rem; }
   .nf-titlebar { margin: 0 -1.1rem 1rem; }
