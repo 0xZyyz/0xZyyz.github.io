@@ -503,7 +503,7 @@ body { padding-top: 42px; }
 }
 
 .nf-cmd-inline::before {
-  content: '>>>';
+  content: '>>';
   color: var(--terminal-green);
   font-weight: 700;
   margin-right: 7px;
