@@ -86,7 +86,7 @@
 
         var wm = document.getElementById('wm-cmd');
         if (wm) {
-          var cmd = '"hyperland"';
+          var cmd = '"hyperland".replace("e","")';
           var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
           if (reduce) {
             wm.textContent = cmd;
