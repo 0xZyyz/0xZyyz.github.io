@@ -69,18 +69,6 @@ body::before {
     linear-gradient(rgba(20, 17, 15, 0.38), rgba(16, 13, 12, 0.62));
 }
 
-body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  background:
-    radial-gradient(28rem 20rem at 12% 18%, rgba(137, 180, 250, 0.10), transparent 65%),
-    radial-gradient(24rem 16rem at 85% 32%, rgba(245, 194, 231, 0.09), transparent 65%),
-    radial-gradient(30rem 18rem at 60% 88%, rgba(250, 179, 135, 0.08), transparent 65%);
-}
-
 a { color: var(--brand); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
@@ -94,12 +82,12 @@ button:focus-visible {
 ::-webkit-scrollbar { width: 10px; }
 ::-webkit-scrollbar-track { background: var(--bg-0); }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #89b4fa, #f5c2e7, #fab387);
+  background: linear-gradient(180deg, var(--accent), var(--gold));
   border-radius: 8px;
   border: 2px solid var(--bg-0);
 }
-::-webkit-scrollbar-thumb:hover { background: linear-gradient(180deg, #a6c8fb, #f8d2ec, #fbc59c); }
-html { scrollbar-width: thin; scrollbar-color: #89b4fa var(--bg-0); }
+::-webkit-scrollbar-thumb:hover { background: linear-gradient(180deg, var(--accent-hover), var(--gold)); }
+html { scrollbar-width: thin; scrollbar-color: var(--accent) var(--bg-0); }
 
 code {
   font-family: var(--mono);
@@ -397,7 +385,7 @@ body { padding-top: 42px; }
   background: rgba(20, 17, 15, 0.6);
   border: 1px solid rgba(239, 232, 225, 0.08);
   border-radius: 10px;
-  box-shadow: var(--shadow-lg), 0 0 32px rgba(137, 180, 250, 0.10);
+  box-shadow: var(--shadow-lg), 0 0 32px var(--accent-dim);
   backdrop-filter: blur(24px) saturate(160%);
   -webkit-backdrop-filter: blur(24px) saturate(160%);
   padding: 0 1.4rem 1.4rem;
@@ -645,11 +633,9 @@ body { padding-top: 42px; }
 .section__title::after {
   content: '';
   flex: 1;
-  height: 2px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--accent-dim), transparent);
   min-width: 2rem;
-  border-radius: 2px;
-  background: linear-gradient(90deg, #89b4fa, #f5c2e7, #fab387, transparent);
-  box-shadow: 0 0 12px rgba(137, 180, 250, 0.35);
 }
 
 .section__lede { margin: 0 0 1.75rem; color: var(--text-secondary); max-width: 60ch; }
