@@ -705,6 +705,11 @@ body { padding-top: 42px; }
 .exp__logo--smart { padding: 0; }
 .exp__logo--smart img { max-width: 7rem; }
 
+.exp__logo--dark {
+  background: var(--bg-2);
+  padding: 0.15rem;
+}
+
 .exp__body { flex: 1; min-width: 0; }
 
 .exp__head {
