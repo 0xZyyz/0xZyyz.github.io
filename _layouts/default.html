@@ -75,6 +75,8 @@
 
     <script>
       (function () {
+        if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+        window.scrollTo(0, 0);
         var clock = document.getElementById('waybar-clock');
         var wifi = document.getElementById('waybar-wifi');
         var toast = document.getElementById('waybar-toast');
