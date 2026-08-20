@@ -389,12 +389,6 @@ body { padding-top: 42px; }
   color: var(--muted);
 }
 
-.hero__sub::before {
-  content: '❯ ';
-  color: var(--terminal-green);
-  font-weight: 700;
-}
-
 .hero__tag {
   margin: 0 0 1.6rem;
   color: var(--muted);
