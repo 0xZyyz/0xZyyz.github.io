@@ -277,12 +277,22 @@ code {
 
 .boot.is-hidden .boot__inner { transform: scale(1.25); }
 
+.boot__arch {
+  width: 84px;
+  height: 84px;
+  display: block;
+  margin: 0 auto 1.4rem;
+  fill: var(--accent);
+  filter: drop-shadow(0 0 24px var(--accent-dim));
+  animation: boot-flash 0.6s ease both;
+}
+
 .boot__title {
   font-weight: 700;
   font-size: 2rem;
   letter-spacing: -0.02em;
   color: var(--text-heading);
-  animation: boot-flash 0.6s ease both;
+  animation: boot-flash 0.6s 0.15s ease both;
 }
 
 @keyframes boot-flash {
