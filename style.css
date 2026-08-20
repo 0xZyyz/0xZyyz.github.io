@@ -980,6 +980,14 @@ body { padding-top: 42px; }
   font-weight: 700;
 }
 
+.post-preview__meta .post-preview__role {
+  border: 1px solid color-mix(in srgb, var(--terminal-green) 40%, transparent);
+  border-radius: 999px;
+  padding: 1px 9px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
 .post-preview h3 { margin: 0; font: 600 1.15rem var(--mono); }
 .post-preview h3 a { color: var(--text); }
 .post-preview h3 a:hover { color: var(--brand); text-decoration: none; }
