@@ -660,12 +660,13 @@ body { padding-top: 42px; }
 
 .exp__logo {
   flex: 0 0 auto;
-  width: 1.75rem;
-  height: 1.75rem;
+  height: 2rem;
+  width: auto;
+  min-width: 2rem;
   border-radius: 5px;
   background: #fff;
   border: 1px solid var(--line);
-  padding: 0.15rem;
+  padding: 0.2rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -673,9 +674,16 @@ body { padding-top: 42px; }
 }
 
 .exp__logo img {
-  max-width: 100%;
-  max-height: 100%;
+  height: 100%;
+  width: auto;
+  max-width: 8rem;
   object-fit: contain;
+}
+
+.exp__logo--clear {
+  background: transparent;
+  border-color: rgba(239, 232, 225, 0.14);
+  padding: 0;
 }
 
 .exp__body { flex: 1; min-width: 0; }
