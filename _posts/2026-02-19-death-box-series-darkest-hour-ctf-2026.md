@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Writeup for Death Box series — Darkest Hour CTF 2026"
-date: 2026-08-20 14:00:00 +0100
+date: 2026-02-19 19:37:00 +0100
 categories: [ctf, forensics]
 ---
 
