@@ -8,7 +8,8 @@ role: player
 
 Full forensics writeups from my Hack The Box University CTF 2024 run — three challenges, three infection chains, zero quiet moments. All the artifacts and scripts I used are in the repo: [github.com/Zyyz2/Hack-The-Box-University-CTF-2024](https://github.com/Zyyz2/Hack-The-Box-University-CTF-2024).
 
-## Frontier Exposed {: .challenge-title}
+## Frontier Exposed
+{: .challenge-title}
 
 ### Description
 
@@ -64,7 +65,8 @@ echo "SFRCe0MyX2NyM2QzbnQxNGxzXzN4cDBzM2R9" | base64 --decode
 
 Morale of the story: don't keep your C2 credentials in your bash history — or, you know, on a publicly listed directory.
 
-## Wanter Alive {: .challenge-title}
+## Wanter Alive
+{: .challenge-title}
 
 ### Description
 
@@ -130,7 +132,8 @@ And there it is:
 
 Five layers of URL-encoding, nesting VBS→PowerShell→PowerShell, all to deliver one evil lasso. Classic.
 
-## Binary Badresources {: .challenge-title}
+## Binary Badresources
+{: .challenge-title}
 
 ### Challenge Overview
 
