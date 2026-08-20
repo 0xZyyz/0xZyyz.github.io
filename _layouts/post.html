@@ -2,7 +2,7 @@
 layout: default
 ---
 <article class="note">
-  <a class="note__back" href="{{ '/#writeups' | relative_url }}">← back to field notes</a>
+  <a class="note__back" href="{{ '/#writeups' | relative_url }}">← back to posts</a>
   <header class="note__header">
     <p class="note__meta"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y.%m.%d" }}</time>{% if page.categories.size > 0 %} · {{ page.categories | join: " · " }}{% endif %}</p>
     <h1>{{ page.title }}</h1>
