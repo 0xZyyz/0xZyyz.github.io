@@ -644,8 +644,8 @@ body { padding-top: 42px; }
 .section__title::after {
   content: '';
   flex: 1;
-  height: 1px;
-  background: linear-gradient(90deg, var(--accent-dim), transparent);
+  height: 2px;
+  background: linear-gradient(90deg, rgba(224, 169, 92, 0.55), rgba(224, 169, 92, 0));
   min-width: 2rem;
 }
 
