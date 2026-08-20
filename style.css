@@ -760,7 +760,7 @@ body { padding-top: 42px; }
 
 .exp__logo img.exp__logo--fit {
   object-fit: contain;
-  padding: 8%;
+  padding: 18%;
 }
 
 .exp__body { flex: 1; min-width: 0; }
