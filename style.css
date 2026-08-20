@@ -1022,6 +1022,10 @@ body { padding-top: 42px; }
 .footer b { color: var(--text); }
 
 /* ---- responsive ---- */
+@media (max-width: 1200px) {
+  .social-dock { display: none; }
+}
+
 @media (max-width: 640px) {
   .captures { grid-template-columns: 1fr; gap: 2.2rem; padding: 1rem 1.1rem 1.2rem; }
   .capture { grid-template-columns: 48px 1fr; gap: 10px; }
