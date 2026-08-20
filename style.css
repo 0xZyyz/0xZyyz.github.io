@@ -408,14 +408,6 @@ body { padding-top: 42px; }
     0 0 36px var(--accent-dim);
 }
 
-.arch-tag {
-  font-family: var(--mono);
-  font-size: 0.68rem;
-  color: var(--muted);
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-}
-
 .neofetch-info {
   font-family: var(--mono);
   font-size: 0.8rem;
