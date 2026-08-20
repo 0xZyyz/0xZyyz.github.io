@@ -265,7 +265,7 @@ code {
 }
 
 #speed-ping.is-final { color: var(--gold); }
-#speed-down.is-final { color: #5aa7ff; }
+#speed-down.is-final { color: var(--accent-hover); }
 #speed-up.is-final  { color: var(--terminal-green); }
 
 .waybar-toast__foot { color: var(--muted); line-height: 1.6; }
@@ -488,7 +488,7 @@ body { padding-top: 42px; }
 }
 
 .nf-fields dt {
-  color: #66c2ff;
+  color: var(--accent);
   font-weight: 700;
   white-space: nowrap;
 }
@@ -506,7 +506,7 @@ body { padding-top: 42px; }
 }
 
 .nf-tag {
-  color: #ffd866;
+  color: var(--gold);
   font-weight: 600;
 }
 
@@ -519,7 +519,7 @@ body { padding-top: 42px; }
 
 .nf-cmd-inline {
   font-size: 0.8rem;
-  color: #ffd866;
+  color: var(--gold);
   white-space: nowrap;
 }
 
