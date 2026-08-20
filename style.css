@@ -1020,9 +1020,13 @@ body { padding-top: 42px; }
   box-shadow: var(--shadow);
 }
 
-.note__content img + p {
-  max-width: 460px;
-  margin: -1rem auto 1.75rem;
+.note__content p:has(> img:only-child) {
+  text-align: center;
+}
+
+.note__content p:has(> img) + p {
+  max-width: 420px;
+  margin: -0.7rem auto 1.75rem;
   text-align: center;
   font: 500 0.8rem var(--mono);
   color: var(--muted);
