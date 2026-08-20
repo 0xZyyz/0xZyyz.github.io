@@ -69,6 +69,18 @@ body::before {
     linear-gradient(rgba(20, 17, 15, 0.38), rgba(16, 13, 12, 0.62));
 }
 
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(28rem 20rem at 12% 18%, rgba(137, 180, 250, 0.10), transparent 65%),
+    radial-gradient(24rem 16rem at 85% 32%, rgba(245, 194, 231, 0.09), transparent 65%),
+    radial-gradient(30rem 18rem at 60% 88%, rgba(250, 179, 135, 0.08), transparent 65%);
+}
+
 a { color: var(--brand); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
@@ -78,6 +90,16 @@ button:focus-visible {
   outline-offset: 3px;
   border-radius: 4px;
 }
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--bg-0); }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #89b4fa, #f5c2e7, #fab387);
+  border-radius: 8px;
+  border: 2px solid var(--bg-0);
+}
+::-webkit-scrollbar-thumb:hover { background: linear-gradient(180deg, #a6c8fb, #f8d2ec, #fbc59c); }
+html { scrollbar-width: thin; scrollbar-color: #89b4fa var(--bg-0); }
 
 code {
   font-family: var(--mono);
@@ -375,7 +397,7 @@ body { padding-top: 42px; }
   background: rgba(20, 17, 15, 0.6);
   border: 1px solid rgba(239, 232, 225, 0.08);
   border-radius: 10px;
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-lg), 0 0 32px rgba(137, 180, 250, 0.10);
   backdrop-filter: blur(24px) saturate(160%);
   -webkit-backdrop-filter: blur(24px) saturate(160%);
   padding: 0 1.4rem 1.4rem;
@@ -503,7 +525,7 @@ body { padding-top: 42px; }
 }
 
 .nf-cmd-inline::before {
-  content: '>>';
+  content: '>>>';
   color: var(--terminal-green);
   font-weight: 700;
   margin-right: 7px;
@@ -520,48 +542,6 @@ body { padding-top: 42px; }
 }
 
 .nf-bio p { margin: 0; }
-
-.nf-env {
-  margin-top: 12px;
-  padding-top: 10px;
-  border-top: 1px dashed var(--line);
-  display: grid;
-  gap: 7px;
-}
-
-.nf-env__label {
-  font-size: 0.66rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
-.nf-env__list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-
-.nf-env__chip {
-  font-family: var(--sans);
-  font-size: 0.72rem;
-  font-weight: 600;
-  color: var(--text);
-  padding: 3px 10px;
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--ec) 16%, transparent);
-  border: 1px solid color-mix(in srgb, var(--ec) 45%, transparent);
-  transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
-}
-
-.nf-env__chip:hover {
-  transform: translateY(-2px);
-  background: color-mix(in srgb, var(--ec) 32%, transparent);
-  box-shadow: 0 4px 14px color-mix(in srgb, var(--ec) 40%, transparent);
-  color: #fff;
-  text-decoration: none;
-}
 
 .nf-social {
   display: flex;
@@ -665,9 +645,11 @@ body { padding-top: 42px; }
 .section__title::after {
   content: '';
   flex: 1;
-  height: 1px;
-  background: linear-gradient(90deg, var(--accent-dim), transparent);
+  height: 2px;
   min-width: 2rem;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #89b4fa, #f5c2e7, #fab387, transparent);
+  box-shadow: 0 0 12px rgba(137, 180, 250, 0.35);
 }
 
 .section__lede { margin: 0 0 1.75rem; color: var(--text-secondary); max-width: 60ch; }
@@ -704,7 +686,16 @@ body { padding-top: 42px; }
 .arsenal-card--violet::before { background: linear-gradient(90deg, #a49cfd, #f49cfd); }
 .arsenal-card--coral::before { background: linear-gradient(90deg, #f47466, #f6a15c); }
 
-.arsenal-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: transparent; }
+.arsenal-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: transparent;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 24px var(--card-glow, rgba(137, 180, 250, 0.18));
+}
+
+.arsenal-card--blue   { --card-glow: rgba(73, 177, 245, 0.28); }
+.arsenal-card--violet { --card-glow: rgba(164, 156, 253, 0.28); }
+.arsenal-card--coral  { --card-glow: rgba(244, 116, 102, 0.28); }
 
 .arsenal-card__icon {
   display: inline-flex;
