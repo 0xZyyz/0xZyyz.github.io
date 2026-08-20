@@ -1042,7 +1042,7 @@ body { padding-top: 42px; }
 .note__content { font-size: 1.02rem; }
 .note__content > :first-child { margin-top: 0; }
 .note__content h2, .note__content h3 { margin-top: 2.2rem; font-family: var(--mono); }
-.note__content h2 {
+.note__content h2.challenge-title {
   display: flex;
   align-items: baseline;
   gap: 0.6rem;
@@ -1056,7 +1056,7 @@ body { padding-top: 42px; }
   color: var(--gold);
   letter-spacing: 0.02em;
 }
-.note__content h2::before {
+.note__content h2.challenge-title::before {
   content: '▍';
   color: var(--terminal-green);
   font-weight: 700;
