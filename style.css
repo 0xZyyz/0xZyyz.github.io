@@ -375,8 +375,10 @@ body { padding-top: 42px; }
 .nf-social-btn:hover { background: color-mix(in srgb, var(--btn-color) 28%, transparent); box-shadow: 0 6px 20px color-mix(in srgb, var(--btn-color) 45%, transparent); transform: translateY(-3px); text-decoration: none; }
 .nf-social-btn:hover svg { transform: scale(1.08); }
 
-.nf-social-btn[data-kind="github"] { --btn-color: var(--accent); }
-.nf-social-btn[data-kind="medium"] { --btn-color: var(--terminal-green); }
+.nf-social-btn[data-kind="github"]   { --btn-color: var(--accent); }
+.nf-social-btn[data-kind="medium"]   { --btn-color: var(--terminal-green); }
+.nf-social-btn[data-kind="linkedin"] { --btn-color: #5aa7ff; }
+.nf-social-btn[data-kind="email"]    { --btn-color: #ffa03d; }
 
 /* ---- sections ---- */
 .section {
