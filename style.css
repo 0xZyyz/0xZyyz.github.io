@@ -1016,7 +1016,20 @@ body { padding-top: 42px; }
 .note__content { font-size: 1.02rem; }
 .note__content > :first-child { margin-top: 0; }
 .note__content h2, .note__content h3 { margin-top: 2.2rem; font-family: var(--mono); }
-.note__content img { max-width: 100%; border-radius: var(--radius); }
+.note__content img {
+  display: block;
+  max-width: 460px;
+  margin: 1.5rem auto;
+  box-shadow: var(--shadow);
+}
+
+.note__content img + p {
+  max-width: 460px;
+  margin: -1rem auto 1.75rem;
+  text-align: center;
+  font: 500 0.8rem var(--mono);
+  color: var(--muted);
+}
 .note__content pre {
   padding: 1.1rem 1.25rem;
   overflow-x: auto;
