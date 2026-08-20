@@ -387,6 +387,18 @@ body { padding-top: 42px; }
   max-width: 52ch;
 }
 
+.shell-line {
+  margin: 0 0 0.6rem;
+  font: 500 0.85rem var(--mono);
+  color: var(--text-secondary);
+  letter-spacing: 0.02em;
+}
+
+.shell-line__user {
+  color: var(--terminal-green);
+  font-weight: 700;
+}
+
 /* ---- neofetch (floating terminal window) ---- */
 .neofetch {
   display: grid;
