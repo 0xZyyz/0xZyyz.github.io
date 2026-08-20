@@ -991,10 +991,9 @@ body { padding-top: 42px; }
 .post-preview h3 a:hover { color: var(--brand); text-decoration: none; }
 .post-preview p { margin: 0.5rem 0 0.8rem; color: var(--muted); }
 
-.post-preview__read, .writeups__links { font: 500 0.82rem var(--mono); }
+.post-preview__read { font: 500 0.82rem var(--mono); }
 .post-preview__read { color: var(--brand); }
 .post-feed__empty { color: var(--muted); }
-.writeups__links { display: flex; flex-wrap: wrap; gap: 1.2rem; margin-top: 1.4rem; }
 
 /* ---- individual note ---- */
 .note {
