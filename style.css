@@ -370,6 +370,31 @@ body { padding-top: 42px; }
   padding: 1.75rem 0 2.5rem;
 }
 
+.hero__head {
+  margin-bottom: 1.4rem;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.hero__name {
+  margin: 0;
+  font: 700 clamp(2.2rem, 5vw, 3.2rem)/1.1 var(--sans);
+  letter-spacing: -0.03em;
+  color: var(--text-heading);
+}
+
+.hero__sub {
+  margin: 0.55rem 0 0;
+  font-size: 1.05rem;
+  color: var(--muted);
+}
+
+.hero__sub::before {
+  content: '❯ ';
+  color: var(--terminal-green);
+  font-weight: 700;
+}
+
 .hero__tag {
   margin: 0 0 1.6rem;
   color: var(--muted);
