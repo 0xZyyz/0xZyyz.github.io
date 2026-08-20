@@ -772,6 +772,11 @@ body { padding-top: 42px; }
   object-fit: cover;
 }
 
+.exp__logo img.exp__logo--fit {
+  object-fit: contain;
+  padding: 8%;
+}
+
 .exp__body { flex: 1; min-width: 0; }
 
 .exp__head {
