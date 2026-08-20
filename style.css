@@ -760,7 +760,6 @@ body { padding-top: 42px; }
   height: 2.25rem;
   border-radius: 50%;
   background: #fff;
-  border: 1px solid var(--line);
   padding: 0.2rem;
   display: flex;
   align-items: center;
@@ -773,21 +772,6 @@ body { padding-top: 42px; }
   width: 100%;
   max-width: 8rem;
   object-fit: cover;
-}
-
-.exp__logo--smart {
-  width: auto;
-  height: auto;
-  min-width: 2rem;
-  border-radius: 0.6rem;
-  padding: 0.15rem 0.7rem;
-  background: var(--bg-2);
-}
-.exp__logo--smart img { height: 1.5rem; width: auto; max-width: none; }
-
-.exp__logo--dark {
-  background: var(--bg-2);
-  padding: 0.15rem;
 }
 
 .exp__body { flex: 1; min-width: 0; }
