@@ -449,11 +449,6 @@ body { padding-top: 42px; }
 .nf-cava i:nth-child(7n)  { animation-delay: -0.15s; }
 .nf-cava i:nth-child(11n) { animation-delay: -0.45s; }
 
-.nf-cava.is-idle i {
-  animation-play-state: paused;
-  height: 3px;
-}
-
 @keyframes cava-bounce {
   0%, 100% { height: 4px; }
   35%      { height: 14px; }
