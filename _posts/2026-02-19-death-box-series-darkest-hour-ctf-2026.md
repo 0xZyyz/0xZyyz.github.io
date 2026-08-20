@@ -3,6 +3,7 @@ layout: post
 title: "Writeup for Death Box series — Darkest Hour CTF 2026"
 date: 2026-02-19 19:37:00 +0100
 categories: [ctf, forensics]
+role: author
 ---
 
 This write-up covers **Death Box Forensics**, a series of challenges I authored for **Darkest Hour CTF 2026 — Eclipse Edition **hosted by Securinets INSAT. The series consists of 26 interconnected tasks that blend a wide range of forensic techniques, reverse engineering concepts, network analysis, and exploitation scenarios into a cohesive investigative storyline.

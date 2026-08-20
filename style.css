@@ -979,6 +979,10 @@ body { padding-top: 42px; }
 }
 
 .post-preview__meta span { color: var(--brand-3); }
+.post-preview__role, .note__role {
+  color: var(--terminal-green);
+  font-weight: 700;
+}
 
 .post-preview h3 { margin: 0; font: 600 1.15rem var(--mono); }
 .post-preview h3 a { color: var(--text); }

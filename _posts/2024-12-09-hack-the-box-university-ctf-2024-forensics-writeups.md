@@ -3,6 +3,7 @@ layout: post
 title: "Hack The Box University CTF 2024 — Forensics Writeups"
 date: 2024-12-09 12:00:00 +0100
 categories: [ctf, forensics]
+role: player
 ---
 
 Full forensics writeups from my Hack The Box University CTF 2024 run — three challenges, three infection chains, zero quiet moments. All the artifacts and scripts I used are in the repo: [github.com/Zyyz2/Hack-The-Box-University-CTF-2024](https://github.com/Zyyz2/Hack-The-Box-University-CTF-2024).
