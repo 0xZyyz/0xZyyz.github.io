@@ -214,14 +214,6 @@ body { padding-top: 42px; }
   padding: 1.75rem 0 2.5rem;
 }
 
-.hero__role {
-  margin: 0 0 0.5rem;
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--text-heading);
-  width: fit-content;
-}
-
 .hero__tag {
   margin: 0 0 1.6rem;
   color: var(--muted);
@@ -392,15 +384,16 @@ body { padding-top: 42px; }
   align-items: center;
   gap: 12px;
   margin: 0 0 1.5rem;
-  font: 600 1.3rem var(--mono);
-  letter-spacing: -0.02em;
+  font: 700 1.6rem var(--sans);
+  letter-spacing: -0.03em;
   color: var(--text-heading);
+  line-height: 1.15;
 }
 
 .section__title::before {
   content: '▍';
   color: var(--accent);
-  font-size: 1.1em;
+  font-size: 1.35em;
   line-height: 1;
   transform: translateY(-1px);
 }
