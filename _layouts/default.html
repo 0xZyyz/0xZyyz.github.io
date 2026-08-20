@@ -172,6 +172,22 @@
           setTimeout(function () { boot.classList.add('is-hidden'); }, 850);
           setTimeout(function () { if (boot.parentNode) boot.parentNode.removeChild(boot); }, 1500);
         }
+
+        var cava = document.querySelector('.nf-cava');
+        if (cava) {
+          function cavaSync() {
+            var playing = false;
+            document.querySelectorAll('audio, video').forEach(function (m) {
+              if (!m.paused && !m.ended && m.currentTime > 0) playing = true;
+            });
+            if (!playing && navigator.mediaSession && navigator.mediaSession.playbackState === 'playing') playing = true;
+            cava.classList.toggle('is-idle', !playing);
+          }
+          document.addEventListener('play', cavaSync, true);
+          document.addEventListener('pause', cavaSync, true);
+          setInterval(cavaSync, 2000);
+          cavaSync();
+        }
       })();
     </script>
   </body>
