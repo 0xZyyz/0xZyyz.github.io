@@ -759,8 +759,6 @@ body { padding-top: 42px; }
   width: 2.25rem;
   height: 2.25rem;
   border-radius: 50%;
-  background: #fff;
-  padding: 0.2rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -770,7 +768,7 @@ body { padding-top: 42px; }
 .exp__logo img {
   height: 100%;
   width: 100%;
-  max-width: 8rem;
+  border-radius: 50%;
   object-fit: cover;
 }
 
