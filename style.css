@@ -556,7 +556,7 @@ body { padding-top: 42px; }
 /* ---- social dock (left sidebar) ---- */
 .social-dock {
   position: fixed;
-  left: 0;
+  left: max(10px, calc((100vw - 980px) / 2 - 80px));
   top: 50%;
   transform: translate(-110%, -50%);
   z-index: 900;
@@ -1022,7 +1022,7 @@ body { padding-top: 42px; }
 .footer b { color: var(--text); }
 
 /* ---- responsive ---- */
-@media (max-width: 1200px) {
+@media (max-width: 1080px) {
   .social-dock { display: none; }
 }
 
