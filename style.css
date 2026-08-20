@@ -642,6 +642,24 @@ body { padding-top: 42px; }
 .arsenal-card h3 { margin: 0 0 0.5rem; font: 600 1.02rem var(--mono); }
 .arsenal-card > p { margin: 0 0 1rem; color: var(--muted); font-size: 0.9rem; }
 
+.arsenal-card__areas {
+  list-style: none;
+  margin: 0 0 0.7rem;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  font: 600 0.78rem var(--sans);
+  color: var(--text-secondary);
+}
+
+.arsenal-card__areas li { white-space: nowrap; }
+.arsenal-card__areas li:not(:last-child)::after {
+  content: '·';
+  margin: 0 0.45rem;
+  color: var(--muted);
+  font-weight: 400;
+}
+
 .arsenal-card__tags {
   list-style: none;
   margin: 0;
@@ -702,12 +720,13 @@ body { padding-top: 42px; }
 
 .exp__logo--smart {
   width: auto;
-  height: 2rem;
+  height: auto;
   min-width: 2rem;
   border-radius: 0.6rem;
-  padding: 0 0.35rem;
+  padding: 0.15rem 0.7rem;
+  background: var(--bg-2);
 }
-.exp__logo--smart img { max-width: 7rem; }
+.exp__logo--smart img { height: 1.5rem; max-width: none; }
 
 .exp__logo--dark {
   background: var(--bg-2);
