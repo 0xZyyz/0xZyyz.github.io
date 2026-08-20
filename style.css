@@ -26,8 +26,8 @@
   --shadow: 0 4px 16px rgba(0, 0, 0, 0.28);
   --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.45);
 
-  --mono: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-  --sans: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  --mono: 'Space Grotesk', 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  --sans: 'Space Grotesk', 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
 
   --bar-bg: rgba(20, 17, 15, 0.72);
 
@@ -155,8 +155,9 @@ code {
 }
 
 .waybar__mod {
-  width: 22px;
+  min-width: 22px;
   height: 22px;
+  padding: 0 4px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -483,6 +484,22 @@ body { padding-top: 42px; }
   content: '·';
   color: var(--muted);
   font-weight: 400;
+  margin-right: 6px;
+}
+
+.nf-cmd-inline {
+  font-size: 0.8rem;
+  color: #ffd866;
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 1px 8px;
+  white-space: nowrap;
+}
+
+.nf-cmd-inline::before {
+  content: '❯';
+  color: var(--accent);
   margin-right: 6px;
 }
 
