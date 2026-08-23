@@ -35,11 +35,11 @@
         <span>Zyyz</span>
       </a>
       <nav class="waybar__nav" aria-label="Site sections">
-        <a href="#about">About</a>
-        <a href="#arsenal">Background</a>
-        <a href="#experience">Experience</a>
-        <a href="#achievements">Achievements</a>
-        <a href="#posts">Posts</a>
+        <a href="{% if page.url == '/' %}#about{% else %}/#about{% endif %}">About</a>
+        <a href="{% if page.url == '/' %}#arsenal{% else %}/#arsenal{% endif %}">Background</a>
+        <a href="{% if page.url == '/' %}#experience{% else %}/#experience{% endif %}">Experience</a>
+        <a href="{% if page.url == '/' %}#achievements{% else %}/#achievements{% endif %}">Achievements</a>
+        <a href="{{ '/blog/' | relative_url }}"{% if page.url == '/blog/' %} aria-current="page"{% endif %}>Blog</a>
       </nav>
       <div class="waybar__right">
         <button type="button" class="waybar__mod waybar__btn" id="waybar-wifi" title="Speedtest" aria-label="Run speedtest">

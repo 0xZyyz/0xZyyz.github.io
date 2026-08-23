@@ -200,8 +200,7 @@ image: /assets/icons/og.png
 
   <section id="posts" class="section">
     <h2 class="section__title">Posts</h2>
-    <p class="section__lede">Writeups, articles, and things worth remembering, published right here.</p>
-    <div class="post-feed">
+    <p class="section__lede">Writeups, articles, and things worth remembering, published right here.</p>    <div class="post-feed">
       {% for post in site.posts limit: 5 %}
       <article class="post-preview">
         <div class="post-preview__meta">
@@ -217,6 +216,7 @@ image: /assets/icons/og.png
       <p class="post-feed__empty">No posts published yet. Check back soon.</p>
       {% endfor %}
     </div>
+    <a class="post-feed__all" href="{{ '/blog/' | relative_url }}">browse the full blog — all categories <span aria-hidden="true">→</span></a>
     </section>
 
 </main>

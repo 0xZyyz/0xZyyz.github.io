@@ -1,0 +1,81 @@
+---
+layout: default
+title: Blog
+description: "CTF writeups, forensic deep-dives, and security articles by Mohamed Aziz Rahmouni."
+permalink: /blog/
+---
+<main class="layout">
+
+  <section id="blog" class="section">
+    <h2 class="section__title">~/blog</h2>
+    <p class="section__lede">Writeups, articles, and things worth remembering — everything published here, filterable by category.</p>
+
+    <p class="blog-cmd" aria-hidden="true"><span class="nf-prompt">root@arch:~$ </span><span class="nf-cmd-inline--plain">ls ~/blog --sort=time --group=category</span></p>
+
+    <nav class="blog-filters" aria-label="Filter posts by category">
+      <button type="button" class="chip is-active" data-filter="all">
+        all <span class="chip__count">{{ site.posts.size }}</span>
+      </button>
+      {% for cat in site.categories %}
+      <button type="button" class="chip" data-filter="{{ cat[0] }}">
+        {{ cat[0] }} <span class="chip__count">{{ cat[1].size }}</span>
+      </button>
+      {% endfor %}
+    </nav>
+
+    <p class="blog-status" id="blog-status" role="status" aria-live="polite"></p>
+
+    <div class="blog-list" id="blog-list">
+      {% for post in site.posts %}
+      <article class="blog-row" data-cats='{{ post.categories | jsonify }}'>
+        <time class="blog-row__date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y.%m.%d" }}</time>
+        <div class="blog-row__body">
+          <h3 class="blog-row__title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+          <p class="blog-row__excerpt">{{ post.excerpt | strip_html | truncatewords: 32 }}</p>
+          <ul class="blog-row__tags">
+            {% for cat in post.categories %}<li>{{ cat }}</li>{% endfor %}
+            {% if post.role %}<li class="blog-row__role">{{ post.role }}</li>{% endif %}
+          </ul>
+        </div>
+        <span class="blog-row__arrow" aria-hidden="true">→</span>
+      </article>
+      {% else %}
+      <p class="blog-empty">nothing here yet… check back soon.</p>
+      {% endfor %}
+    </div>
+  </section>
+
+</main>
+
+<script>
+  (function () {
+    var chips = Array.prototype.slice.call(document.querySelectorAll('.blog-filters .chip'));
+    var rows = Array.prototype.slice.call(document.querySelectorAll('#blog-list .blog-row'));
+    var empty = document.querySelector('.blog-empty');
+    var status = document.getElementById('blog-status');
+
+    function apply(filter) {
+      var shown = 0;
+      rows.forEach(function (row) {
+        var cats;
+        try { cats = JSON.parse(row.getAttribute('data-cats')) || []; } catch (e) { cats = []; }
+        var show = filter === 'all' || cats.indexOf(filter) !== -1;
+        row.classList.toggle('is-hidden', !show);
+        if (show) shown++;
+      });
+      chips.forEach(function (chip) {
+        chip.classList.toggle('is-active', chip.getAttribute('data-filter') === filter);
+      });
+      if (status) status.textContent = '❯ ' + shown + ' post' + (shown === 1 ? '' : 's') + ' matched';
+      if (empty) empty.classList.toggle('is-hidden', shown !== 0);
+      history.replaceState(null, '', filter === 'all' ? location.pathname : '#' + filter);
+    }
+
+    chips.forEach(function (chip) {
+      chip.addEventListener('click', function () { apply(chip.getAttribute('data-filter')); });
+    });
+
+    var hash = decodeURIComponent(location.hash.slice(1));
+    if (hash && chips.some(function (c) { return c.getAttribute('data-filter') === hash; })) apply(hash);
+  })();
+</script>
