@@ -1061,13 +1061,16 @@ body { padding-top: 42px; }
 
 .post-preview--card {
   flex: 0 0 auto;
-  width: clamp(270px, 32vw, 350px);
-  margin-right: 1.25rem;
+  width: clamp(225px, 22vw, 275px);
+  margin-right: 1rem;
+  padding: 1.05rem 1.15rem;
   display: flex;
   flex-direction: column;
 }
 
-.post-preview--card .post-preview__read { margin-top: auto; }
+.post-preview--card h3 { font-size: 0.98rem; line-height: 1.35; }
+.post-preview--card p { font-size: 0.85rem; margin-bottom: 0.65rem; }
+.post-preview--card .post-preview__read { margin-top: auto; font-size: 0.76rem; }
 
 /* ---- blog archive ---- */
 .blog-cmd {
