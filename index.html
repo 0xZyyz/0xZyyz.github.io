@@ -199,25 +199,34 @@ image: /assets/icons/og.png
   </section>
 
   <section id="posts" class="section">
-    <h2 class="section__title">Posts</h2>
-    <p class="section__lede">Writeups, articles, and things worth remembering, published right here.</p>    <div class="post-feed">
-      {% for post in site.posts limit: 5 %}
-      <article class="post-preview">
-        <div class="post-preview__meta">
-          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y.%m.%d" }}</time>
-          {% if post.categories.size > 0 %}<span>{{ post.categories | join: " · " }}</span>{% endif %}
-          {% if post.role %}<span class="post-preview__role">{{ post.role }}</span>{% endif %}
-        </div>
-        <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-        <p>{{ post.excerpt | strip_html | truncatewords: 28 }}</p>
-        <a class="post-preview__read" href="{{ post.url | relative_url }}">read post <span aria-hidden="true">→</span></a>
-      </article>
-      {% else %}
-      <p class="post-feed__empty">No posts published yet. Check back soon.</p>
-      {% endfor %}
+    <h2 class="section__title">Recent Posts</h2>
+    <p class="section__lede">Fresh writeups and articles, hot off the bench — hover to pause the feed, or open the full blog for everything.</p>
+    {% capture recent_cards %}
+    {% for post in site.posts limit: 8 %}
+    <article class="post-preview post-preview--card">
+      <div class="post-preview__meta">
+        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y.%m.%d" }}</time>
+        {% if post.categories.size > 0 %}<span>{{ post.categories | join: " · " }}</span>{% endif %}
+        {% if post.role %}<span class="post-preview__role">{{ post.role }}</span>{% endif %}
+      </div>
+      <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+      <p>{{ post.excerpt | strip_html | truncatewords: 22 }}</p>
+      <a class="post-preview__read" href="{{ post.url | relative_url }}">read post <span aria-hidden="true">→</span></a>
+    </article>
+    {% endfor %}
+    {% endcapture %}
+    {% if site.posts.size > 0 %}
+    <div class="marquee" role="region" aria-label="Recent posts carousel">
+      <div class="marquee__track">
+        {{ recent_cards }}
+        <div class="marquee__group" aria-hidden="true" inert>{{ recent_cards }}</div>
+      </div>
     </div>
-    <a class="post-feed__all" href="{{ '/blog/' | relative_url }}">browse the full blog — all categories <span aria-hidden="true">→</span></a>
-    </section>
+    {% else %}
+    <p class="post-feed__empty">No posts published yet. Check back soon.</p>
+    {% endif %}
+    <p class="posts-archive"><a class="post-feed__all" href="{{ '/blog/' | relative_url }}">browse the full blog — all categories <span aria-hidden="true">→</span></a></p>
+  </section>
 
 </main>
 
