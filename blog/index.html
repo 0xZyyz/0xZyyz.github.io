@@ -12,13 +12,16 @@ permalink: /blog/
 
     <p class="blog-cmd" aria-hidden="true"><span class="nf-prompt">root@arch:~$ </span><span class="nf-cmd-inline--plain">ls ~/blog --sort=time --group=category</span></p>
 
+    {% assign blog_cats = "" | split: "," %}
+    {% for c in site.blog_categories %}{% assign blog_cats = blog_cats | push: c %}{% endfor %}
+    {% for c in site.categories %}{% unless blog_cats contains c[0] %}{% assign blog_cats = blog_cats | push: c[0] %}{% endunless %}{% endfor %}
     <nav class="blog-filters" aria-label="Filter posts by category">
       <button type="button" class="chip is-active" data-filter="all">
         all <span class="chip__count">{{ site.posts.size }}</span>
       </button>
-      {% for cat in site.categories %}
-      <button type="button" class="chip" data-filter="{{ cat[0] }}">
-        {{ cat[0] }} <span class="chip__count">{{ cat[1].size }}</span>
+      {% for c in blog_cats %}
+      <button type="button" class="chip" data-filter="{{ c | slugify }}">
+        {{ c }} <span class="chip__count">{% if site.categories[c] %}{{ site.categories[c].size }}{% else %}0{% endif %}</span>
       </button>
       {% endfor %}
     </nav>
@@ -42,6 +45,7 @@ permalink: /blog/
       {% else %}
       <p class="blog-empty">nothing here yet… check back soon.</p>
       {% endfor %}
+      <div class="blog-empty is-hidden" id="blog-filtered-empty">no posts in this category yet — stay tuned.</div>
     </div>
   </section>
 
@@ -51,7 +55,7 @@ permalink: /blog/
   (function () {
     var chips = Array.prototype.slice.call(document.querySelectorAll('.blog-filters .chip'));
     var rows = Array.prototype.slice.call(document.querySelectorAll('#blog-list .blog-row'));
-    var empty = document.querySelector('.blog-empty');
+    var empty = document.getElementById('blog-filtered-empty');
     var status = document.getElementById('blog-status');
 
     function apply(filter) {

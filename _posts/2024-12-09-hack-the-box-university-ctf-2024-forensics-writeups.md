@@ -2,7 +2,7 @@
 layout: post
 title: "Hack The Box University CTF 2024 — Forensics Writeups"
 date: 2024-12-09 12:00:00 +0100
-categories: [ctf, forensics]
+categories: [ctf, forensics, writeups]
 role: player
 ---
 
