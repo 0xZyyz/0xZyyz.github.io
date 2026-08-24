@@ -675,17 +675,18 @@ body { padding-top: 42px; }
   list-style: none;
   margin: 0;
   padding: 0;
+  display: grid;
+  gap: 0.85rem;
 }
 
 .track {
   --tc: var(--accent);
   position: relative;
-  padding: 0.85rem 0.4rem 0.85rem 1.5rem;
-  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: baseline;
+  gap: 0.65rem;
+  padding-left: 1.5rem;
 }
-
-.track:first-child { padding-top: 0.2rem; }
-.track:last-child { border-bottom: none; }
 
 .track--blue   { --tc: #49b1f5; }
 .track--violet { --tc: #a49cfd; }
@@ -695,8 +696,8 @@ body { padding-top: 42px; }
   content: '';
   position: absolute;
   left: 0;
-  top: 18%;
-  bottom: 18%;
+  top: 15%;
+  bottom: 15%;
   width: 2px;
   border-radius: 2px;
   background: var(--tc);
@@ -706,15 +707,9 @@ body { padding-top: 42px; }
 
 .track:hover::before {
   opacity: 1;
-  top: 8%;
-  bottom: 8%;
+  top: 5%;
+  bottom: 5%;
   box-shadow: 0 0 12px var(--tc);
-}
-
-.track__head {
-  display: flex;
-  align-items: baseline;
-  gap: 0.65rem;
 }
 
 .track__mark {
@@ -733,46 +728,21 @@ body { padding-top: 42px; }
   font: 600 0.95rem var(--mono);
   letter-spacing: 0.02em;
   color: var(--text-heading);
-}
-
-.track__lead {
-  flex: 1;
-  min-width: 1.5rem;
-  align-self: center;
-  height: 0;
-  border-bottom: 1px dotted rgba(239, 232, 225, 0.22);
-  transition: border-color 0.25s ease;
-}
-
-.track:hover .track__lead { border-color: rgba(239, 232, 225, 0.38); }
-
-.track__tools {
-  font: 500 0.72rem var(--mono);
-  color: var(--muted);
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 45%;
-  transition: color 0.25s ease;
 }
-
-.track:hover .track__tools { color: var(--text-secondary); }
 
 .track__desc {
-  margin: 0.2rem 0 0;
-  padding-left: calc(0.8rem + 0.65rem); /* align under h3 */
   color: var(--muted);
   font-size: 0.84rem;
-  max-width: 68ch;
   transition: color 0.25s ease;
 }
 
 .track:hover .track__desc { color: var(--text-secondary); }
 
-@media (max-width: 640px) {
-  .track__head { flex-wrap: wrap; row-gap: 0.15rem; }
-  .track__lead { display: none; }
-  .track__tools { max-width: 100%; flex-basis: 100%; padding-left: calc(0.8rem + 0.65rem); order: 3; }
+@media (max-width: 720px) {
+  .track { flex-wrap: wrap; row-gap: 0.1rem; }
+  .track h3 { white-space: normal; }
+  .track__desc { flex-basis: 100%; padding-left: calc(0.8rem + 0.65rem); }
 }
 
 /* ---- experience ---- */
