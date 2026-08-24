@@ -9,7 +9,7 @@ image: /assets/icons/og.png
       <h1 class="hero__name">Mohamed Aziz Rahmouni</h1>
       <p class="hero__cmd" id="hero-cmd" aria-hidden="true"></p>
     </div>
-    <h2 class="section__title">whoami</h2>
+    <h2 class="section__title">~/whoami</h2>
     <div class="neofetch" aria-label="System profile">
       <div class="nf-titlebar">
         <span class="nf-dots" aria-hidden="true"><i class="nf-dot nf-dot--close"></i><i class="nf-dot nf-dot--minimize"></i><i class="nf-dot nf-dot--maximize"></i></span>
@@ -39,61 +39,72 @@ image: /assets/icons/og.png
   </section>
 
   <section id="arsenal" class="section">
-    <h2 class="section__title">Background</h2>
-    <p class="section__lede">Live process table of what I actually run — from incident response to Android internals.</p>
+    <h2 class="section__title">~/background</h2>
 
     <div class="htop" aria-label="Focus areas, presented as an htop process table">
       <div class="htop-titlebar" aria-hidden="true">
         <span class="nf-dots"><i class="nf-dot nf-dot--close"></i><i class="nf-dot nf-dot--minimize"></i><i class="nf-dot nf-dot--maximize"></i></span>
-        <span class="htop-title">htop — zyyz@arch</span>
-        <span class="htop-uptime">uptime: since 2023</span>
+        <span class="htop-title">htop - zyyz@arch</span>
       </div>
 
-      <div class="htop-meters" aria-hidden="true">
-        <span class="htop-meter"><span class="htop-meter__key">1</span><span class="htop-bar"><span class="htop-fill htop-fill--green" data-live style="width:37%"></span></span><span class="htop-meter__val">37.0%</span></span>
-        <span class="htop-meter"><span class="htop-meter__key">2</span><span class="htop-bar"><span class="htop-fill htop-fill--gold" data-live style="width:54%"></span></span><span class="htop-meter__val">54.0%</span></span>
-        <span class="htop-meter"><span class="htop-meter__key">Mem</span><span class="htop-bar"><span class="htop-fill htop-fill--accent" style="width:73%"></span></span><span class="htop-meter__val">73.2%</span></span>
-        <span class="htop-tasks">Tasks: <b>3</b> focus areas · <b>26+</b> challenges authored · thr: caffeinated</span>
+      <div class="htop-meters">
+        <div class="htop-meters__bars" aria-hidden="true">
+          <span class="htop-meter"><span class="htop-meter__key">1</span><span class="htop-bar"><span class="htop-fill htop-fill--cpu" data-live style="width:38%"></span></span><span class="htop-meter__val">38.6%</span></span>
+          <span class="htop-meter"><span class="htop-meter__key">2</span><span class="htop-bar"><span class="htop-fill htop-fill--cpu" data-live style="width:31%"></span></span><span class="htop-meter__val">31.2%</span></span>
+          <span class="htop-meter"><span class="htop-meter__key">Mem</span><span class="htop-bar"><span class="htop-fill htop-fill--mem" style="width:73%"></span></span><span class="htop-meter__val">9.4G/12.8G</span></span>
+          <span class="htop-meter"><span class="htop-meter__key">Swp</span><span class="htop-bar"></span><span class="htop-meter__val">0K/8.0G</span></span>
+        </div>
+        <div class="htop-meters__stats" aria-hidden="true">
+          <span>Tasks: 3, 91 thr; 2 running</span>
+          <span>Load average: 2.41 1.87 1.02</span>
+          <span>Uptime: up 402d, 04:19</span>
+        </div>
       </div>
 
       <div class="htop-table">
         <div class="htop-row htop-row--head" aria-hidden="true">
-          <span>PID</span><span>FOCUS AREA</span><span>S</span><span>LOAD</span><span>COMMAND</span>
+          <span>PID</span><span>AREA</span><span>S</span><span>CPU%</span><span>MEM%</span><span>TIME+</span><span>COMMAND</span>
         </div>
 
         <div class="htop-row">
-          <span class="htop-pid">0419</span>
+          <span class="htop-pid">21407</span>
           <span class="htop-name">Digital Forensics &amp; IR</span>
           <span class="htop-state htop-state--r" title="running">R</span>
-          <span class="htop-cpu"><span class="htop-cpu__track"><span class="htop-fill htop-fill--green" data-fill="92" style="width:92%"></span></span><b class="htop-cpu__val"><span data-count="92">92</span>%</b></span>
-          <span class="htop-cmd"><em>./dfir</em> <i>--memory</i> <i>--disk</i> <i>--network</i> <i>--timeline</i></span>
+          <span class="htop-cpu"><span class="htop-cpu__track"><span class="htop-fill htop-fill--cpu" data-fill="92" style="width:92%"></span></span><b class="htop-cpu__val"><span data-count="92">92</span></b></span>
+          <span class="htop-mem">11.4</span>
+          <span class="htop-time">1137:52.4</span>
+          <span class="htop-cmd">vol -f mem.raw pslist</span>
         </div>
 
         <div class="htop-row">
-          <span class="htop-pid">0666</span>
+          <span class="htop-pid">61853</span>
           <span class="htop-name">Mobile RE</span>
           <span class="htop-state htop-state--s" title="sleeping">S</span>
-          <span class="htop-cpu"><span class="htop-cpu__track"><span class="htop-fill htop-fill--gold" data-fill="84" style="width:84%"></span></span><b class="htop-cpu__val"><span data-count="84">84</span>%</b></span>
-          <span class="htop-cmd"><em>./apktool</em> <i>--static</i> <i>--dynamic</i> <i>--flutter-aot</i></span>
+          <span class="htop-cpu"><span class="htop-cpu__track"><span class="htop-fill htop-fill--cpu" data-fill="84" style="width:84%"></span></span><b class="htop-cpu__val"><span data-count="84">84</span></b></span>
+          <span class="htop-mem">8.2</span>
+          <span class="htop-time">864:17.9</span>
+          <span class="htop-cmd">objection -g com.victim.app explore</span>
         </div>
 
         <div class="htop-row">
-          <span class="htop-pid">2401</span>
+          <span class="htop-pid">77024</span>
           <span class="htop-name">Penetration Testing</span>
           <span class="htop-state htop-state--r" title="running">R</span>
-          <span class="htop-cpu"><span class="htop-cpu__track"><span class="htop-fill htop-fill--coral" data-fill="88" style="width:88%"></span></span><b class="htop-cpu__val"><span data-count="88">88</span>%</b></span>
-          <span class="htop-cmd"><em>./pwn</em> <i>--active-directory</i> <i>--web</i> <i>--api</i> <i>--lateral</i></span>
+          <span class="htop-cpu"><span class="htop-cpu__track"><span class="htop-fill htop-fill--cpu" data-fill="88" style="width:88%"></span></span><b class="htop-cpu__val"><span data-count="88">88</span></b></span>
+          <span class="htop-mem">6.7</span>
+          <span class="htop-time">923:05.6</span>
+          <span class="htop-cmd">cme smb 10.10.20.0/24 -u users.txt</span>
         </div>
       </div>
 
       <div class="htop-footer" aria-hidden="true">
-        <span><b>F1</b>Help</span><span><b>F2</b>Setup</span><span><b>F3</b>Search</span><span><b>F4</b>Filter</span><span><b>F5</b>Tree</span><span><b>F10</b>Quit</span>
+        <span><b>F1</b>Help</span><span><b>F2</b>Setup</span><span><b>F3</b>Search</span><span><b>F4</b>Filter</span><span><b>F5</b>Tree</span><span><b>F6</b>SortBy</span><span><b>F10</b>Quit</span>
       </div>
     </div>
   </section>
 
   <section id="experience" class="section">
-    <h2 class="section__title">Experience</h2>
+    <h2 class="section__title">~/experience</h2>
     <div class="exp-list">
 
       <article class="exp">
@@ -174,7 +185,7 @@ image: /assets/icons/og.png
   </section>
 
   <section id="achievements" class="section">
-    <h2 class="section__title">Achievements</h2>
+    <h2 class="section__title">~/achievements</h2>
     <p class="section__lede">Podium finishes and international finals, arranged by year.</p>
     <p class="captures-meta"><span class="captures-meta__prompt" aria-hidden="true">❯</span> 6 podiums · 4 international finals · 2025–2026</p>
     <div class="captures">
@@ -210,7 +221,7 @@ image: /assets/icons/og.png
   </section>
 
   <section id="posts" class="section">
-    <h2 class="section__title">Recent Posts</h2>
+    <h2 class="section__title">~/recent-posts</h2>
     <p class="section__lede">Fresh writeups and articles, hot off the bench — hover to pause the feed, or open the full blog for everything.</p>
     {% capture recent_cards %}
     {% for post in site.posts limit: 8 %}
