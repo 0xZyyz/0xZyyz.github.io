@@ -10,14 +10,6 @@ permalink: /:title/
 markdown: kramdown
 timezone: Africa/Tunis
 
-# Categories always shown on /blog/, even with zero posts.
-# New categories used in posts are added automatically.
-blog_categories:
-  - writeups
-  - articles
-  - mobile
-  - hardware
-
 exclude:
   - README.md
   - vendor
