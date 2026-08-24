@@ -668,14 +668,6 @@ body { padding-top: 42px; }
   line-height: 1.15;
 }
 
-.section__title::after {
-  content: '';
-  flex: 1;
-  height: 2px;
-  background: linear-gradient(90deg, rgba(224, 169, 92, 0.55), rgba(224, 169, 92, 0));
-  min-width: 2rem;
-}
-
 .section__lede { margin: 0 0 1.75rem; color: var(--text-secondary); max-width: 60ch; }
 
 /* ---- background (htop dashboard) ---- */
