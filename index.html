@@ -9,7 +9,7 @@ image: /assets/icons/og.png
       <h1 class="hero__name">Mohamed Aziz Rahmouni</h1>
       <p class="hero__cmd" id="hero-cmd" aria-hidden="true"></p>
     </div>
-    <h2 class="section__title">~/whoami</h2>
+    <h2 class="section__title">~/Whoami</h2>
     <div class="neofetch" aria-label="System profile">
       <div class="nf-titlebar">
         <span class="nf-dots" aria-hidden="true"><i class="nf-dot nf-dot--close"></i><i class="nf-dot nf-dot--minimize"></i><i class="nf-dot nf-dot--maximize"></i></span>
@@ -39,7 +39,7 @@ image: /assets/icons/og.png
   </section>
 
   <section id="arsenal" class="section">
-    <h2 class="section__title">~/background</h2>
+    <h2 class="section__title">~/Background</h2>
 
     <div class="htop" aria-label="Focus areas, presented as an htop process table">
       <div class="htop-titlebar" aria-hidden="true">
@@ -104,7 +104,7 @@ image: /assets/icons/og.png
   </section>
 
   <section id="experience" class="section">
-    <h2 class="section__title">~/experience</h2>
+    <h2 class="section__title">~/Experience</h2>
     <div class="exp-list">
 
       <article class="exp">
@@ -185,7 +185,7 @@ image: /assets/icons/og.png
   </section>
 
   <section id="achievements" class="section">
-    <h2 class="section__title">~/achievements</h2>
+    <h2 class="section__title">~/Achievements</h2>
     <p class="section__lede">Podium finishes and international finals, arranged by year.</p>
     <p class="captures-meta"><span class="captures-meta__prompt" aria-hidden="true">❯</span> 6 podiums · 4 international finals · 2025–2026</p>
     <div class="captures">
@@ -217,7 +217,7 @@ image: /assets/icons/og.png
   </section>
 
   <section id="posts" class="section">
-    <h2 class="section__title">~/recent-posts</h2>
+    <h2 class="section__title">~/Recent-Posts</h2>
     <p class="section__lede">Fresh writeups and articles, hot off the bench — hover to pause the feed, or open the full blog for everything.</p>
     {% capture recent_cards %}
     {% for post in site.posts limit: 8 %}
@@ -237,7 +237,7 @@ image: /assets/icons/og.png
     <div class="marquee" role="region" aria-label="Recent posts carousel">
       <div class="marquee__track">
         {{ recent_cards }}
-        <div class="marquee__group" aria-hidden="true" inert>{{ recent_cards }}</div>
+        <div class="marquee__group" aria-hidden="true">{{ recent_cards }}</div>
       </div>
     </div>
     {% else %}
@@ -250,6 +250,10 @@ image: /assets/icons/og.png
 
 <script>
   (function () {
+    document.querySelectorAll('.marquee__group a').forEach(function (a) {
+      a.setAttribute('tabindex', '-1');
+    });
+
     var htop = document.querySelector('.htop');
     if (!htop) return;
     var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;

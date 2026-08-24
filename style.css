@@ -703,16 +703,23 @@ body { padding-top: 42px; }
 .htop-meters {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  gap: 0.55rem 1.5rem;
-  padding: 0.8rem 2px 0.65rem;
+  align-items: flex-start;
+  gap: 0.7rem 2.2rem;
+  padding: 0.75rem 2px 0.7rem;
+}
+
+.htop-meters__bars {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
 }
 
 .htop-meter {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
+  gap: 8px;
   font-size: 0.68rem;
+  line-height: 1.55;
   color: var(--text-secondary);
 }
 
@@ -721,10 +728,9 @@ body { padding-top: 42px; }
 .htop-bar {
   position: relative;
   display: inline-block;
-  width: 108px;
-  height: 12px;
+  width: 118px;
+  height: 11px;
   background: rgba(239, 232, 225, 0.06);
-  border-radius: 2px;
   overflow: hidden;
   -webkit-mask-image: repeating-linear-gradient(90deg, #000 0 6px, transparent 6px 8px);
   mask-image: repeating-linear-gradient(90deg, #000 0 6px, transparent 6px 8px);
@@ -734,34 +740,38 @@ body { padding-top: 42px; }
   position: absolute;
   inset: 0 auto 0 0;
   display: block;
-  border-radius: 2px;
   transition: width 0.9s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.htop-fill--green  { background: linear-gradient(180deg, #63dd8b, var(--terminal-green)); }
-.htop-fill--gold   { background: linear-gradient(180deg, #f0c078, var(--gold)); }
-.htop-fill--coral  { background: linear-gradient(180deg, #f08a6d, #e2583b); }
-.htop-fill--accent { background: linear-gradient(180deg, var(--accent-hover), var(--accent)); }
+.htop-fill--cpu { background: var(--terminal-green); }
+.htop-fill--mem { background: var(--accent); }
 
 .htop-meter__val {
-  min-width: 5ch;
-  font-size: 0.68rem;
+  min-width: 6ch;
+  font-size: 0.66rem;
   font-weight: 600;
   color: var(--text);
   font-variant-numeric: tabular-nums;
 }
 
-.htop-tasks { margin-left: auto; font-size: 0.66rem; color: var(--muted); }
-.htop-tasks b { color: var(--text); font-weight: 600; }
+.htop-meters__stats {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  margin-left: auto;
+  font-size: 0.67rem;
+  line-height: 1.55;
+  color: var(--muted);
+}
 
 .htop-table { border-top: 1px dashed var(--line); padding-top: 0.4rem; }
 
 .htop-row {
   display: grid;
-  grid-template-columns: 48px minmax(140px, 205px) 18px 132px 1fr;
-  gap: 0.9rem;
+  grid-template-columns: 50px minmax(130px, 200px) 14px 124px 40px 72px 1fr;
+  gap: 0.85rem;
   align-items: center;
-  padding: 0.52rem 8px;
+  padding: 0.5rem 8px;
   border-radius: 6px;
   font-size: 0.78rem;
   transition: background 0.15s ease;
@@ -812,21 +822,15 @@ body { padding-top: 42px; }
   mask-image: repeating-linear-gradient(90deg, #000 0 5px, transparent 5px 7px);
 }
 
-.htop-fill::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.22), transparent);
-  transform: translateX(-101%);
-  animation: htop-shine 2.8s ease-in-out infinite;
-}
-
-@keyframes htop-shine {
-  0%, 55% { transform: translateX(-101%); }
-  100%    { transform: translateX(101%); }
-}
-
 .htop-cpu__val { font-size: 0.72rem; font-weight: 700; color: var(--text-heading); }
+
+.htop-mem,
+.htop-time {
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
 
 .htop-cmd {
   font-size: 0.72rem;
@@ -854,11 +858,11 @@ body { padding-top: 42px; }
 .htop-footer b {
   color: var(--gold);
   font-weight: 600;
-  background: rgba(239, 232, 225, 0.06);
-  border: 1px solid var(--line);
-  border-radius: 4px;
-  padding: 0 5px;
-  margin-right: 4px;
+}
+
+@media (max-width: 900px) {
+  .htop-row { grid-template-columns: 46px minmax(110px, 160px) 14px 116px 1fr; }
+  .htop-mem, .htop-time { display: none; }
 }
 
 /* ---- experience ---- */
@@ -1435,8 +1439,7 @@ body { padding-top: 42px; }
 
   .htop { padding: 0 0.9rem 0.75rem; }
   .htop-titlebar { margin: 0 -0.9rem; }
-  .htop-meters { gap: 0.45rem 0.9rem; }
-  .htop-tasks { flex-basis: 100%; margin-left: 0; }
+  .htop-meters__stats { margin-left: 0; }
   .htop-row {
     grid-template-columns: 1fr auto;
     grid-template-areas:
@@ -1445,7 +1448,7 @@ body { padding-top: 42px; }
       "cmd cmd";
     row-gap: 0.3rem;
   }
-  .htop-pid, .htop-row--head { display: none; }
+  .htop-pid, .htop-row--head, .htop-mem, .htop-time { display: none; }
   .htop-name { grid-area: name; }
   .htop-state { grid-area: state; }
   .htop-cpu { grid-area: cpu; }
@@ -1488,5 +1491,4 @@ body { padding-top: 42px; }
   .marquee__track { animation: none; }
   .marquee__group { display: none; }
   .htop-fill { transition: none; }
-  .htop-fill::after { animation: none; display: none; }
 }
