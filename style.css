@@ -668,14 +668,6 @@ body { padding-top: 42px; }
   line-height: 1.15;
 }
 
-.section__title::before {
-  content: '▍';
-  color: var(--accent);
-  font-size: 1.35em;
-  line-height: 1;
-  transform: translateY(-1px);
-}
-
 .section__title::after {
   content: '';
   flex: 1;
