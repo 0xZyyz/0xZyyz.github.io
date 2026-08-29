@@ -1354,3 +1354,45 @@ body { padding-top: 42px; }
   .marquee__track { animation: none; }
   .marquee__group { display: none; }
 }
+
+img[data-zoomable] {
+  cursor: zoom-in;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 4vw;
+  background: rgba(4, 6, 8, 0.92);
+  cursor: zoom-out;
+}
+
+.lightbox.is-open { display: flex; }
+
+.lightbox img {
+  display: block;
+  max-width: 100%;
+  max-height: 92vh;
+  width: auto;
+  height: auto;
+  border-radius: var(--radius);
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.6);
+  cursor: zoom-out;
+}
+
+.lightbox__close {
+  position: absolute;
+  top: 1rem;
+  right: 1.25rem;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font: 600 1.5rem var(--mono);
+  cursor: pointer;
+}
+
+.lightbox__close:hover { color: var(--gold); }

@@ -73,6 +73,11 @@
 
     {{ content }}
 
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image zoom">
+      <button type="button" class="lightbox__close" id="lightbox-close" aria-label="Close">✕</button>
+      <img id="lightbox-img" alt="">
+    </div>
+
     <script>
       (function () {
         if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
@@ -168,6 +173,38 @@
         }
 
         if (wifi) wifi.addEventListener('click', runSpeedtest);
+
+        var lightbox = document.getElementById('lightbox');
+        var lightboxImg = document.getElementById('lightbox-img');
+        var lightboxClose = document.getElementById('lightbox-close');
+        if (lightbox && lightboxImg) {
+          var zoomables = document.querySelectorAll('img');
+          zoomables.forEach(function (img) {
+            if (!img.closest('.lightbox')) img.setAttribute('data-zoomable', '');
+          });
+          function openZoom(e) {
+            if (e.target.closest('a')) return;
+            var img = e.target.closest('img[data-zoomable]');
+            if (!img) return;
+            lightboxImg.src = img.currentSrc || img.src;
+            lightboxImg.alt = img.alt || '';
+            lightbox.classList.add('is-open');
+            document.body.style.overflow = 'hidden';
+          }
+          function closeZoom() {
+            lightbox.classList.remove('is-open');
+            document.body.style.overflow = '';
+          }
+          document.addEventListener('click', openZoom);
+          lightbox.addEventListener('click', function () { closeZoom(); });
+          if (lightboxClose) lightboxClose.addEventListener('click', function (e) { e.stopPropagation(); closeZoom(); });
+          document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') closeZoom();
+          });
+          zoomables.forEach(function (img) {
+            img.addEventListener('dragstart', function (e) { e.preventDefault(); });
+          });
+        }
 
         var boot = document.getElementById('boot');
         if (boot) {
