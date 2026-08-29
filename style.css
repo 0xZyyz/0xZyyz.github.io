@@ -605,6 +605,7 @@ body { padding-top: 42px; }
 .nf-social-btn[data-kind="linkedin"] { --btn-color: #5aa7ff; }
 .nf-social-btn[data-kind="email"]    { --btn-color: #ffa03d; }
 .nf-social-btn[data-kind="discord"]  { --btn-color: #7289da; }
+.nf-social-btn[data-kind="x"]        { --btn-color: #e7e9ea; }
 
 /* ---- social dock (left sidebar) ---- */
 .social-dock {
@@ -646,6 +647,7 @@ body { padding-top: 42px; }
 .social-dock .nf-social-btn:nth-child(3) { animation-delay: 1.54s; }
 .social-dock .nf-social-btn:nth-child(4) { animation-delay: 1.66s; }
 .social-dock .nf-social-btn:nth-child(5) { animation-delay: 1.78s; }
+.social-dock .nf-social-btn:nth-child(6) { animation-delay: 1.9s; }
 
 @keyframes dock-btn {
   from { opacity: 0; transform: translateX(-12px) scale(0.85); }
