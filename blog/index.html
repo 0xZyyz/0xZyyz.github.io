@@ -10,8 +10,6 @@ permalink: /blog/
     <h2 class="section__title">~/Blog</h2>
     <p class="section__lede">Writeups, articles, and things worth remembering, everything published here, filterable by category.</p>
 
-    <p class="blog-cmd" aria-hidden="true"><span class="nf-prompt">root@arch:~$ </span><span class="nf-cmd-inline--plain">ls ~/blog --sort=time --group=category</span></p>
-
     {% assign blog_cats = "" | split: "," %}
     {% for c in site.blog_categories %}{% assign blog_cats = blog_cats | push: c %}{% endfor %}
     {% for c in site.categories %}{% unless blog_cats contains c[0] %}{% assign blog_cats = blog_cats | push: c[0] %}{% endunless %}{% endfor %}
