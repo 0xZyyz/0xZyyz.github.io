@@ -1238,7 +1238,10 @@ body { padding-top: 42px; }
 
 .note__header h1 { margin: 0; font: 700 clamp(1.8rem, 5vw, 2.8rem)/1.2 var(--mono); letter-spacing: -0.03em; }
 
-.note__content { font-size: 1.02rem; }
+.note__content { font-size: 1.18rem; line-height: 1.7; }
+.note__content h1, .note__content h2, .note__content h3, .note__content p, .note__content li {
+  font-family: var(--sans);
+}
 .note__content > :first-child { margin-top: 0; }
 .note__content h2, .note__content h3 { margin-top: 2.2rem; font-family: var(--mono); }
 .note__content h2.challenge-title {
