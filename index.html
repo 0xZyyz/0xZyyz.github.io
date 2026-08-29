@@ -182,6 +182,7 @@ image: /assets/icons/og.png
       <div class="post-preview__meta">
         <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y.%m.%d" }}</time>
         {% if post.categories.size > 0 %}<span>{{ post.categories | join: " · " }}</span>{% endif %}
+        <span>{% include reading_time.html content=post.content %}</span>
         {% if post.role %}<span class="post-preview__role">{{ post.role }}</span>{% endif %}
       </div>
       <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>

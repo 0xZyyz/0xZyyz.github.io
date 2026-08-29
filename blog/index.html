@@ -35,6 +35,7 @@ permalink: /blog/
           <p class="blog-row__excerpt">{{ post.excerpt | strip_html | truncatewords: 32 }}</p>
           <ul class="blog-row__tags">
             {% for cat in post.categories %}<li>{{ cat }}</li>{% endfor %}
+            <li class="blog-row__readtime">{% include reading_time.html content=post.content %}</li>
             {% if post.role %}<li class="blog-row__role">{{ post.role }}</li>{% endif %}
           </ul>
         </div>
