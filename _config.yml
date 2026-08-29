@@ -1,10 +1,10 @@
 title: Zyyz - Personal blog
-url: "https://zyyz2.github.io"
+url: "https://0xzyyz.github.io"
 baseurl: ""
 
 author:
   name: Mohamed Aziz Rahmouni
-  github: Zyyz2
+  github: 0xZyyz
 
 permalink: /:title/
 markdown: kramdown

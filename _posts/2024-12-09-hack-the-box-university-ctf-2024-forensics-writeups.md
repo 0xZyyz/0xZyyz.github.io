@@ -6,7 +6,7 @@ categories: [ctf, forensics, writeups]
 role: player
 ---
 
-Full forensics writeups from my Hack The Box University CTF 2024 run — three challenges, three infection chains, zero quiet moments. All the artifacts and scripts I used are in the repo: [github.com/Zyyz2/Hack-The-Box-University-CTF-2024](https://github.com/Zyyz2/Hack-The-Box-University-CTF-2024).
+Full forensics writeups from my Hack The Box University CTF 2024 run — three challenges, three infection chains, zero quiet moments. All the artifacts and scripts I used are in the repo: [github.com/0xZyyz/Hack-The-Box-University-CTF-2024](https://github.com/0xZyyz/Hack-The-Box-University-CTF-2024).
 
 ## Frontier Exposed
 {: .challenge-title}
@@ -235,4 +235,4 @@ By deobfuscating the JavaScript, reversing the XOR operation, and analyzing the 
 
 ## Final Thoughts
 
-Three challenges, three distinct evasion chains: open-directory credential leaks, a five-layer HTA dropper, and an MSC misused as an XOR-encrypted malware delivery vehicle. HTB University CTF 2024's forensics category was genuinely great practice for real-world malware triage. All artifacts — the obfuscated scripts, decoded payloads, and tooling — are attached in the repo: [github.com/Zyyz2/Hack-The-Box-University-CTF-2024](https://github.com/Zyyz2/Hack-The-Box-University-CTF-2024).
+Three challenges, three distinct evasion chains: open-directory credential leaks, a five-layer HTA dropper, and an MSC misused as an XOR-encrypted malware delivery vehicle. HTB University CTF 2024's forensics category was genuinely great practice for real-world malware triage. All artifacts — the obfuscated scripts, decoded payloads, and tooling — are attached in the repo: [github.com/0xZyyz/Hack-The-Box-University-CTF-2024](https://github.com/0xZyyz/Hack-The-Box-University-CTF-2024).

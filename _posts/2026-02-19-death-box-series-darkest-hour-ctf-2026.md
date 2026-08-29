@@ -656,7 +656,7 @@ Death Box 21
 Earlier we saw that the attacker tried to clone a repo
 
 ```
-git clone https://github.com/Zyyz2/Infiltrator.git
+git clone https://github.com/0xZyyz/Infiltrator.git
 ```
 
 This repository contains a binary packaged and obfuscated using PyInstaller. To analyze it, we first use pyinstxtractor to extract the embedded Python bytecode, and then leverage PyLingual to decompile the bytecode back into this readable Python source code :
