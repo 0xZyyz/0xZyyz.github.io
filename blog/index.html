@@ -28,20 +28,21 @@ permalink: /blog/
 
     <div class="blog-list" id="blog-list">
       {% for post in site.posts %}
-      <article class="blog-card" data-cats='{{ post.categories | jsonify }}'>
-        <div class="blog-card__meta">
-          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y.%m.%d" }}</time>
-          {% for cat in post.categories limit: 1 %}<span class="blog-card__cat">{{ cat }}</span>{% endfor %}
+      <article class="blog-row" data-cats='{{ post.categories | jsonify }}'>
+        <div class="blog-row__top">
+          <div class="blog-row__meta">
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y.%m.%d" }}</time>
+            {% if post.categories.size > 0 %}<span class="blog-row__cat">{{ post.categories | join: " · " }}</span>{% endif %}
+            {% if post.role %}<span class="blog-row__role">{{ post.role }}</span>{% endif %}
+          </div>
+          <span class="blog-row__arrow" aria-hidden="true">→</span>
         </div>
-        <h3 class="blog-card__title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-        <p class="blog-card__excerpt">{{ post.excerpt | strip_html | truncatewords: 20 }}</p>
-        <div class="blog-card__foot">
-          <ul class="blog-card__tags">
-            {% for cat in post.categories %}<li>{{ cat }}</li>{% endfor %}
-            <li class="blog-card__readtime">{% include reading_time.html content=post.content %}</li>
-            {% if post.role %}<li class="blog-card__role">{{ post.role }}</li>{% endif %}
-          </ul>
-          <span class="blog-card__arrow" aria-hidden="true">→</span>
+        <h3 class="blog-row__title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+        <div class="blog-row__reveal">
+          <div class="blog-row__reveal-inner">
+            <p class="blog-row__excerpt">{{ post.excerpt | strip_html | truncatewords: 26 }}</p>
+            {% include reading_time.html content=post.content %}<span class="blog-row__readtime"> · read</span>
+          </div>
         </div>
       </article>
       {% else %}
@@ -56,7 +57,7 @@ permalink: /blog/
 <script>
   (function () {
     var chips = Array.prototype.slice.call(document.querySelectorAll('.blog-filters .chip'));
-    var rows = Array.prototype.slice.call(document.querySelectorAll('#blog-list .blog-card'));
+    var rows = Array.prototype.slice.call(document.querySelectorAll('#blog-list .blog-row'));
     var empty = document.getElementById('blog-filtered-empty');
     var status = document.getElementById('blog-status');
 
