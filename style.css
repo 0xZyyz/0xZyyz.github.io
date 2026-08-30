@@ -750,11 +750,11 @@ body { padding-top: 42px; }
 
 .track__mark {
   flex: 0 0 auto;
-  width: 8px;
-  height: 8px;
-  margin-top: 0.15rem;
+  width: 7px;
+  height: 7px;
+  margin-top: 0.54rem;
   border-radius: 50%;
-  background: var(--tc);
+  background: var(--text-secondary);
 }
 
 .track:hover .track__mark {
