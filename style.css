@@ -834,23 +834,18 @@ body { padding-top: 42px; }
   position: absolute;
   left: -0.24rem;
   top: 0.9rem;
-  width: 11px;
-  height: 11px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, #f0b57a, var(--bronze));
-  box-shadow:
-    0 0 0 4px color-mix(in srgb, var(--bronze) 18%, transparent),
-    0 0 14px var(--bronze),
-    0 0 26px color-mix(in srgb, var(--bronze) 60%, transparent);
-  transition: box-shadow 0.25s ease, transform 0.25s ease;
+  background: var(--bronze);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  transition: transform 0.25s ease, background 0.25s ease;
 }
 
 .exp:hover::before {
-  transform: scale(1.35);
-  box-shadow:
-    0 0 0 6px color-mix(in srgb, var(--bronze) 24%, transparent),
-    0 0 20px #e0a95c,
-    0 0 40px color-mix(in srgb, var(--bronze) 85%, transparent);
+  transform: scale(1.2);
+  background: var(--gold);
+  box-shadow: 0 0 0 1px rgba(224, 169, 92, 0.35);
 }
 
 .exp:hover { transform: translateX(3px); }
@@ -920,13 +915,12 @@ body { padding-top: 42px; }
   height: 6px;
   border-radius: 50%;
   background: var(--bronze);
-  box-shadow: 0 0 6px var(--bronze), 0 0 12px color-mix(in srgb, var(--bronze) 55%, transparent);
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+  transition: transform 0.2s ease, background 0.2s ease;
 }
 .exp__points li:hover::before {
-  transform: scale(1.4);
+  transform: scale(1.3);
   background: var(--gold);
-  box-shadow: 0 0 10px var(--gold), 0 0 20px color-mix(in srgb, var(--gold) 65%, transparent);
 }
 .exp__points b { color: var(--text); font-weight: 600; }
 
