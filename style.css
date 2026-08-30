@@ -1388,16 +1388,11 @@ body { padding-top: 42px; }
 }
 
 .site-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 50;
   display: flex;
   justify-content: center;
-  padding: 0.9rem 1rem;
-  background: linear-gradient(180deg, transparent, color-mix(in srgb, var(--bg) 88%, transparent) 45%);
-  pointer-events: none;
+  padding: 1.1rem 1rem 1.4rem;
+  border-top: 1px solid var(--line);
+  background: linear-gradient(180deg, transparent, color-mix(in srgb, var(--bg) 60%, transparent) 45%);
 }
 
 .site-footer__line {
