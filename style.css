@@ -832,10 +832,11 @@ body { padding-top: 42px; }
 .exp::before {
   content: '';
   position: absolute;
-  left: -0.24rem;
+  left: 0.075rem;
   top: 1.25rem;
   width: 10px;
   height: 10px;
+  margin-left: -5px;
   border-radius: 50%;
   background: radial-gradient(circle at 40% 35%, #e8b27a, #b6683a 70%, #7e401f);
   box-shadow:
