@@ -810,16 +810,6 @@ body { padding-top: 42px; }
   padding-left: 0.5rem;
 }
 
-.exp-list::before {
-  content: '';
-  position: absolute;
-  left: 0.6rem;
-  top: 0.9rem;
-  bottom: 0.9rem;
-  width: 1px;
-  border-left: 1px dashed rgba(192, 125, 69, 0.35);
-}
-
 .exp {
   position: relative;
   display: flex;
@@ -827,6 +817,16 @@ body { padding-top: 42px; }
   align-items: flex-start;
   padding: 0.4rem 0 0.4rem 1.7rem;
   transition: transform 0.2s ease;
+}
+
+.exp::after {
+  content: '';
+  position: absolute;
+  left: 0.106rem;
+  top: 0;
+  height: 0.75rem;
+  width: 1px;
+  background: rgba(192, 125, 69, 0.35);
 }
 
 .exp::before {
