@@ -740,44 +740,32 @@ body { padding-top: 42px; }
   --tc: var(--accent);
   position: relative;
   display: flex;
-  align-items: baseline;
-  gap: 0.65rem;
-  padding-left: 1.5rem;
+  align-items: flex-start;
+  gap: 0.7rem;
 }
 
 .track--blue   { --tc: #49b1f5; }
 .track--violet { --tc: #a49cfd; }
 .track--coral  { --tc: #f47466; }
 
-.track::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 15%;
-  bottom: 15%;
-  width: 2px;
-  border-radius: 2px;
-  background: var(--tc);
-  opacity: 0.3;
-  transition: opacity 0.25s ease, box-shadow 0.25s ease, top 0.25s ease, bottom 0.25s ease;
-}
-
-.track:hover::before {
-  opacity: 1;
-  top: 5%;
-  bottom: 5%;
-  box-shadow: 0 0 12px var(--tc);
-}
-
 .track__mark {
-  font: 700 0.8rem var(--mono);
-  color: var(--tc);
-  transition: transform 0.25s ease, text-shadow 0.25s ease;
+  flex: 0 0 auto;
+  width: 9px;
+  height: 9px;
+  margin-top: 0.12rem;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 35%, color-mix(in srgb, var(--tc) 80%, #fff 60%), var(--tc) 70%);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.4),
+    0 0 6px var(--tc);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .track:hover .track__mark {
-  transform: translateX(3px);
-  text-shadow: 0 0 10px var(--tc);
+  transform: scale(1.25);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.4),
+    0 0 12px var(--tc);
 }
 
 .track h3 {
@@ -799,7 +787,7 @@ body { padding-top: 42px; }
 @media (max-width: 720px) {
   .track { flex-wrap: wrap; row-gap: 0.1rem; }
   .track h3 { white-space: normal; }
-  .track__desc { flex-basis: 100%; padding-left: calc(0.8rem + 0.65rem); }
+  .track__desc { flex-basis: 100%; }
 }
 
 /* ---- experience ---- */
