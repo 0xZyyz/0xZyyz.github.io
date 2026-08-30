@@ -466,9 +466,8 @@ body { padding-top: 42px; }
   width: 108px;
   height: 108px;
   border-radius: 50%;
-  padding: 0.6rem;
-  fill: var(--accent);
-  background: var(--bg-2);
+  object-fit: cover;
+  display: block;
   box-shadow:
     0 6px 24px rgba(0, 0, 0, 0.4),
     0 0 0 1px rgba(239, 232, 225, 0.06),
@@ -1323,7 +1322,7 @@ body { padding-top: 42px; }
   .hero { padding: 1.5rem 0 2.5rem; }
   .neofetch { grid-template-columns: 1fr; gap: 1.2rem; }
   .neofetch-avatar { gap: 0.5rem; }
-  .arch-logo { width: 84px; height: 84px; padding: 0.5rem; }
+  .arch-logo { width: 84px; height: 84px; }
   .nf-fields { gap: 2px 12px; font-size: 0.78rem; }
 
   .note { padding: 1.75rem 1.25rem; margin: 2rem 0 1.5rem; }
