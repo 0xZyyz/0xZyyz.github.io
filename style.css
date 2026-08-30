@@ -400,13 +400,7 @@ body { padding-top: 42px; }
   grid-template-columns: 120px 1fr;
   gap: 1.5rem;
   align-items: start;
-  background: rgba(20, 17, 15, 0.6);
-  border: 1px solid rgba(239, 232, 225, 0.08);
-  border-radius: 10px;
-  box-shadow: var(--shadow-lg), 0 0 32px var(--accent-dim);
-  backdrop-filter: blur(24px) saturate(160%);
-  -webkit-backdrop-filter: blur(24px) saturate(160%);
-  padding: 0 1.4rem 1.4rem;
+  padding: 0;
 }
 
 .nf-titlebar {
@@ -1327,8 +1321,7 @@ body { padding-top: 42px; }
   .waybar__mod { display: none; }
   .layout { padding: 2rem 1.1rem 4rem; }
   .hero { padding: 1.5rem 0 2.5rem; }
-  .neofetch { grid-template-columns: 1fr; gap: 1.2rem; padding: 0 1.1rem 1.3rem; }
-  .nf-titlebar { margin: 0 -1.1rem 1rem; }
+  .neofetch { grid-template-columns: 1fr; gap: 1.2rem; }
   .neofetch-avatar { gap: 0.5rem; }
   .arch-logo { width: 84px; height: 84px; padding: 0.5rem; }
   .nf-fields { gap: 2px 12px; font-size: 0.78rem; }
