@@ -803,24 +803,57 @@ body { padding-top: 42px; }
 }
 
 /* ---- experience ---- */
-/* ---- experience ---- */
-.exp-list { display: grid; gap: 1.2rem; }
+.exp-list {
+  position: relative;
+  display: grid;
+  gap: 1.5rem;
+  padding-left: 0.5rem;
+}
+
+.exp-list::before {
+  content: '';
+  position: absolute;
+  left: 0.6rem;
+  top: 0.9rem;
+  bottom: 0.9rem;
+  width: 1px;
+  border-left: 1px dashed rgba(167, 184, 179, 0.25);
+}
 
 .exp {
+  position: relative;
   display: flex;
   gap: 0.85rem;
   align-items: flex-start;
-  padding: 1.5rem 1.6rem;
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  padding: 0.4rem 0 0.4rem 1.9rem;
+  transition: transform 0.2s ease;
 }
 
-.exp:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); border-color: var(--brand); }
+.exp::before {
+  content: '';
+  position: absolute;
+  left: 0.05rem;
+  top: 0.45rem;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, var(--accent-hover), var(--accent));
+  box-shadow:
+    0 0 0 4px color-mix(in srgb, var(--accent) 18%, transparent),
+    0 0 14px var(--accent),
+    0 0 26px color-mix(in srgb, var(--accent) 60%, transparent);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.exp:hover::before {
+  transform: scale(1.35);
+  box-shadow:
+    0 0 0 6px color-mix(in srgb, var(--accent) 24%, transparent),
+    0 0 20px var(--accent-hover),
+    0 0 40px color-mix(in srgb, var(--accent-hover) 80%, transparent);
+}
+
+.exp:hover { transform: translateX(3px); }
 
 .exp__logo {
   flex: 0 0 auto;
@@ -831,6 +864,8 @@ body { padding-top: 42px; }
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  margin-top: 0.15rem;
+  box-shadow: 0 0 0 1px rgba(239, 232, 225, 0.08);
 }
 
 .exp__logo img {
@@ -875,12 +910,23 @@ body { padding-top: 42px; }
   list-style: none;
 }
 
-.exp__points li { position: relative; margin-bottom: 0.45rem; }
+.exp__points li { position: relative; margin-bottom: 0.55rem; padding-left: 0.35rem; }
 .exp__points li::before {
-  content: '▸';
+  content: '';
   position: absolute;
-  left: -1.1rem;
-  color: var(--brand);
+  left: -1.3rem;
+  top: 0.5rem;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 6px var(--accent), 0 0 12px color-mix(in srgb, var(--accent) 55%, transparent);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.exp__points li:hover::before {
+  transform: scale(1.4);
+  background: var(--accent-hover);
+  box-shadow: 0 0 10px var(--accent-hover), 0 0 20px color-mix(in srgb, var(--accent-hover) 65%, transparent);
 }
 .exp__points b { color: var(--text); font-weight: 600; }
 
