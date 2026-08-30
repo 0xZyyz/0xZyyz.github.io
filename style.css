@@ -817,7 +817,7 @@ body { padding-top: 42px; }
   top: 0.9rem;
   bottom: 0.9rem;
   width: 1px;
-  border-left: 1px dashed rgba(167, 184, 179, 0.25);
+  border-left: 1px dashed rgba(192, 125, 69, 0.35);
 }
 
 .exp {
@@ -825,32 +825,32 @@ body { padding-top: 42px; }
   display: flex;
   gap: 0.85rem;
   align-items: flex-start;
-  padding: 0.4rem 0 0.4rem 1.9rem;
+  padding: 0.4rem 0 0.4rem 1.7rem;
   transition: transform 0.2s ease;
 }
 
 .exp::before {
   content: '';
   position: absolute;
-  left: 0.05rem;
-  top: 0.45rem;
+  left: -0.24rem;
+  top: 0.9rem;
   width: 11px;
   height: 11px;
   border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, var(--accent-hover), var(--accent));
+  background: radial-gradient(circle at 35% 30%, #f0b57a, var(--bronze));
   box-shadow:
-    0 0 0 4px color-mix(in srgb, var(--accent) 18%, transparent),
-    0 0 14px var(--accent),
-    0 0 26px color-mix(in srgb, var(--accent) 60%, transparent);
+    0 0 0 4px color-mix(in srgb, var(--bronze) 18%, transparent),
+    0 0 14px var(--bronze),
+    0 0 26px color-mix(in srgb, var(--bronze) 60%, transparent);
   transition: box-shadow 0.25s ease, transform 0.25s ease;
 }
 
 .exp:hover::before {
   transform: scale(1.35);
   box-shadow:
-    0 0 0 6px color-mix(in srgb, var(--accent) 24%, transparent),
-    0 0 20px var(--accent-hover),
-    0 0 40px color-mix(in srgb, var(--accent-hover) 80%, transparent);
+    0 0 0 6px color-mix(in srgb, var(--bronze) 24%, transparent),
+    0 0 20px #e0a95c,
+    0 0 40px color-mix(in srgb, var(--bronze) 85%, transparent);
 }
 
 .exp:hover { transform: translateX(3px); }
@@ -919,14 +919,14 @@ body { padding-top: 42px; }
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 6px var(--accent), 0 0 12px color-mix(in srgb, var(--accent) 55%, transparent);
+  background: var(--bronze);
+  box-shadow: 0 0 6px var(--bronze), 0 0 12px color-mix(in srgb, var(--bronze) 55%, transparent);
   transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
 .exp__points li:hover::before {
   transform: scale(1.4);
-  background: var(--accent-hover);
-  box-shadow: 0 0 10px var(--accent-hover), 0 0 20px color-mix(in srgb, var(--accent-hover) 65%, transparent);
+  background: var(--gold);
+  box-shadow: 0 0 10px var(--gold), 0 0 20px color-mix(in srgb, var(--gold) 65%, transparent);
 }
 .exp__points b { color: var(--text); font-weight: 600; }
 
