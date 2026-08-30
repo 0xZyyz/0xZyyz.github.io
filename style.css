@@ -750,22 +750,15 @@ body { padding-top: 42px; }
 
 .track__mark {
   flex: 0 0 auto;
-  width: 9px;
-  height: 9px;
-  margin-top: 0.12rem;
+  width: 8px;
+  height: 8px;
+  margin-top: 0.15rem;
   border-radius: 50%;
-  background: radial-gradient(circle at 40% 35%, color-mix(in srgb, var(--tc) 80%, #fff 60%), var(--tc) 70%);
-  box-shadow:
-    0 1px 2px rgba(0, 0, 0, 0.4),
-    0 0 6px var(--tc);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  background: var(--tc);
 }
 
 .track:hover .track__mark {
-  transform: scale(1.25);
-  box-shadow:
-    0 1px 2px rgba(0, 0, 0, 0.4),
-    0 0 12px var(--tc);
+  transform: scale(1.2);
 }
 
 .track h3 {
