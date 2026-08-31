@@ -100,7 +100,7 @@ By filtering for HTTP traffic in server1.pcapng, we can see that the attacker at
 
 ![](/assets/posts/death-box/F7ZlKtWzzDoJFsEUb7tSCA.png)
 
-So the flag is Securinets{http://192.168.255.137:8080/shell/_2026-02-12](http://192.168.255.137:8080/shell/_2026-02-12) 21:31:08}
+So the flag is Securinets{http://192.168.255.137:8080/shell/ 2026-02-12 21:31:08}
 
 - Death Box 7
 
@@ -280,7 +280,7 @@ So the hostname will be : dev.test.local but what about the hostname alias ?
 
 The same exploit path was used from exploit.db :
 
-OffSec's Exploit Database Archive](https://www.exploit-db.com/exploits/52354)
+[OffSec's Exploit Database Archive](https://www.exploit-db.com/exploits/52354)
 
 So the flag is Securinets{dev.test.local_SERVERS}
 
@@ -936,7 +936,7 @@ Death Box 24
 
 Analysis of the previous screenshot indicates that the attacker attempted a buffer overflow via the username field, suggesting that the login endpoint may be vulnerable. Capture and extract the relevant payload from Wireshark for further investigation.
 
-Luckily , we got our flag : Securinets{hxxp://185[.]133.121[.]127:8099/Login[.]htm](http://185.133.121.127:8099/Login.htm)}
+Luckily , we got our flag : Securinets{hxxp://185[.]133.121[.]127:8099/Login[.]htm}
 
 - Death Box 25
 
@@ -973,4 +973,4 @@ In conclusion, this series allowed us to fully analyze and understand the attack
 
 ![](/assets/posts/death-box/njEOtMTKJ2LAgApvTQQNDg.jpeg)
 
-**See you soon!**Zyyz
+**See you soon!** — Zyyz
