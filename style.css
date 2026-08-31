@@ -1284,6 +1284,8 @@ body { padding-top: 42px; }
   padding: 2.5rem 0;
   margin: 3rem auto 2rem;
   max-width: 780px;
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
 }
 
 .note__back { display: inline-block; margin-bottom: 2rem; font: 500 0.82rem var(--mono); color: var(--accent-hover); }
