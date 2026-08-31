@@ -349,7 +349,7 @@ code {
 body { padding-top: 42px; }
 
 .layout {
-  max-width: 980px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 2rem 1.5rem 6rem;
 }
@@ -1283,7 +1283,7 @@ body { padding-top: 42px; }
 .note {
   padding: 2.5rem 0;
   margin: 3rem auto 2rem;
-  max-width: 780px;
+  max-width: 100%;
   backdrop-filter: blur(24px) saturate(160%);
   -webkit-backdrop-filter: blur(24px) saturate(160%);
 }
