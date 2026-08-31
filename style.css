@@ -1281,12 +1281,9 @@ body { padding-top: 42px; }
 
 /* ---- individual note ---- */
 .note {
-  background: rgba(24, 20, 18, 0.94);
-  border: 1px solid rgba(239, 232, 225, 0.14);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-lg);
-  padding: 2.5rem 2.75rem;
-  margin: 3rem 0 2rem;
+  padding: 2.5rem 0;
+  margin: 3rem auto 2rem;
+  max-width: 780px;
 }
 
 .note__back { display: inline-block; margin-bottom: 2rem; font: 500 0.82rem var(--mono); color: var(--accent-hover); }
@@ -1385,7 +1382,7 @@ body { padding-top: 42px; }
   .arch-logo { width: 84px; height: 84px; }
   .nf-fields { gap: 2px 12px; font-size: 0.78rem; }
 
-  .note { padding: 1.75rem 1.25rem; margin: 2rem 0 1.5rem; }
+  .note { padding: 1.5rem 1.25rem 0; margin: 2rem auto 1.5rem; }
   .footer { flex-direction: column; }
 }
 
