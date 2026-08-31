@@ -534,5 +534,3 @@ We exported the audio from the RTP stream and fed it into a Morse code decoder. 
 This challenge was a fantastic journey through multiple layers of cryptography, disk forensics, and network analysis. From extracting and reconstructing the master key of a LUKS-encrypted disk, to peeling apart Docker layers, leveraging subtle cryptographic vulnerabilities to recover private keys — every step tested a different skill.
 
 This challenge took me quite some time to set up and solve. I hope you enjoy the writeup — feel free to share your thoughts or questions!
-
-See you all in the next CTF! I’ll do my best to post the writeups for the remaining tasks there. Stay tuned and thanks for reading !Zyyz🔱
