@@ -1317,7 +1317,7 @@ body { padding-top: 42px; }
 }
 .note__content img {
   display: block;
-  max-width: min(100%, 640px);
+  max-width: min(100%, 560px);
   margin: 1.5rem auto;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
@@ -1325,7 +1325,7 @@ body { padding-top: 42px; }
 }
 
 .note__content img.img-wide {
-  max-width: min(100%, 780px);
+  max-width: 100%;
 }
 
 .note__content img[data-zoomable]:hover {
