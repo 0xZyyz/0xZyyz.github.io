@@ -55,6 +55,7 @@ body {
   background-attachment: fixed;
   color: var(--text);
   font-family: var(--sans);
+  font-weight: 500;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
@@ -758,6 +759,7 @@ body { padding-top: 42px; }
   font: 600 1.3rem var(--sans);
   letter-spacing: -0.02em;
   color: var(--text-heading);
+  white-space: nowrap;
   transition: color 0.3s ease;
 }
 
