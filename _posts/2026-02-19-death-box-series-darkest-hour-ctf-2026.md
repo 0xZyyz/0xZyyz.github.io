@@ -43,6 +43,9 @@ So the flag is : Securinets{c4d8c83c250c582e8398c63263f59ca2072394a8f88c22709da9
 
 ![](/assets/posts/death-box/fFdVoWbtpUcnVHmNXeAmXg.png)
 
+Death Box 2
+{: .img-caption}
+
 ```
 ╭─░▒▓ ~/Downloads/writeup death box ▓▒░──────────────────────────────────────────────░▒▓ ✔  took 10s  at 16:51:26 ▓▒░─╮
 ╰─ cat /etc/lsb-release                                                                                              ─╯
@@ -105,6 +108,9 @@ So the flag is Securinets{http://192.168.255.137:8080/shell/ 2026-02-12 21:31:08
 - Death Box 7
 
 ![](/assets/posts/death-box/wxa0yflclR5VPMJFKuLTXw.png)
+
+Death Box 7
+{: .img-caption}
 
 ```
 ╭─░▒▓ ~/Downloads/writeup death box ▓▒░────────────────────────────────────────────────────────░▒▓ ✔  at 17:21:26 ▓▒░─╮
@@ -239,6 +245,9 @@ We can simply use the **timestamp of the packet** to determine this. So the flag
 - Death Box 13
 
 ![](/assets/posts/death-box/Z063X2Z_MZgZdkD31YjzFA.png)
+
+Death Box 13
+{: .img-caption}
 
 Within the same stream, we can identify the command executed:
 
