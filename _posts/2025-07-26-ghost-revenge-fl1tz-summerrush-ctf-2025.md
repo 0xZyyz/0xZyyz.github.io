@@ -13,12 +13,14 @@ role: author
 ![](/assets/posts/ghost-revenge/13KlMmn3vcfHKtExLsyYBQ.png)
 
 Forensics — FL1TZ SummerRush CTF 2025
+{: .img-caption}
 
 So what’s the wait for, let’s get it !
 
 ![](/assets/posts/ghost-revenge/r-ljxXFYoo2o1iH2pmjWfw.png)
 
 Ghost Revenge
+{: .img-caption}
 
 We got a MEGA link, and after downloading it, found two files waiting to be explored .
 
