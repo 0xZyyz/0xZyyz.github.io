@@ -48,26 +48,12 @@ html { scroll-behavior: smooth; scroll-padding-top: 5.5rem; }
 body {
   margin: 0;
   min-height: 100vh;
-  background-color: var(--bg-0);
-  background-image: url('assets/wallhaven-7jeozo.jpg');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
+  background: linear-gradient(160deg, #141110 0%, #0d0b0a 55%, #080706 100%) fixed;
   color: var(--text);
   font-family: var(--sans);
   font-weight: 500;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-}
-
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(ellipse at 50% -10%, rgba(18, 15, 14, 0.25), transparent 60%),
-    linear-gradient(rgba(15, 12, 11, 0.92), rgba(8, 6, 5, 0.98));
 }
 
 a { color: var(--brand); text-decoration: none; }
