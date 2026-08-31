@@ -7,10 +7,10 @@
   --bg-3: #2a2420;      /* panel surface  */
   --bg-4: #332b27;      /* hover surface  */
 
-  --text-heading: #f6f1ea;
-  --text: #efe9e1;
-  --text-secondary: #b7b1a8;
-  --muted: #8a857d;
+  --text-heading: #ffffff;
+  --text: #f8f5f0;
+  --text-secondary: #c9c2b8;
+  --muted: #99938a;
 
   --accent: #a7b8b3;    /* sage          */
   --accent-hover: #c9d8d3;
@@ -67,7 +67,7 @@ body::before {
   pointer-events: none;
   background:
     radial-gradient(ellipse at 50% -10%, rgba(20, 17, 15, 0.22), transparent 60%),
-    linear-gradient(rgba(20, 17, 15, 0.78), rgba(10, 8, 7, 0.94));
+    linear-gradient(rgba(20, 17, 15, 0.82), rgba(9, 7, 6, 0.96));
 }
 
 a { color: var(--brand); text-decoration: none; }
@@ -1295,12 +1295,16 @@ body { padding-top: 42px; }
 
 .note__header h1 { margin: 0; font: 700 clamp(1.8rem, 5vw, 2.8rem)/1.2 var(--mono); letter-spacing: -0.03em; color: var(--text-heading); }
 
-.note__content { font-size: 1.18rem; line-height: 1.7; color: var(--text); }
+.note__content { font-size: 1.18rem; line-height: 1.7; color: var(--text-heading); }
 .note__content h1, .note__content h2, .note__content h3, .note__content p, .note__content li {
   font-family: var(--sans);
-  color: var(--text);
+  color: var(--text-heading);
 }
-.note__content strong { color: var(--text-heading); font-weight: 700; }
+.note__content p, .note__content li {
+  color: var(--text-heading);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9);
+}
+.note__content strong { color: #ffffff; font-weight: 700; }
 .note__content em { color: var(--accent-hover); }
 .note__content > :first-child { margin-top: 0; }
 .note__content h2, .note__content h3 { margin-top: 2.2rem; font-family: var(--mono); color: var(--text-heading); }
@@ -1332,7 +1336,7 @@ body { padding-top: 42px; }
   margin: -0.7rem auto 1.75rem;
   text-align: center;
   font: 500 0.8rem var(--mono);
-  color: var(--muted);
+  color: var(--text-secondary);
 }
 .note__content pre {
   padding: 1.1rem 1.25rem;
