@@ -1325,7 +1325,7 @@ body { padding-top: 42px; }
 }
 
 .note__content img.img-wide {
-  max-width: min(100%, 680px);
+  max-width: min(100%, 560px);
 }
 
 .note__content img[data-zoomable]:hover {
