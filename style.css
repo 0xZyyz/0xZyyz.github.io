@@ -1281,28 +1281,32 @@ body { padding-top: 42px; }
 
 /* ---- individual note ---- */
 .note {
-  background: var(--panel);
-  border: 1px solid var(--line);
+  background: rgba(24, 20, 18, 0.94);
+  border: 1px solid rgba(239, 232, 225, 0.14);
   border-radius: var(--radius);
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow-lg);
   padding: 2.5rem 2.75rem;
   margin: 3rem 0 2rem;
 }
 
-.note__back { display: inline-block; margin-bottom: 2rem; font: 500 0.82rem var(--mono); }
+.note__back { display: inline-block; margin-bottom: 2rem; font: 500 0.82rem var(--mono); color: var(--accent-hover); }
+.note__back:hover { color: var(--gold); }
 
 .note__header { padding-bottom: 1.5rem; margin-bottom: 1.75rem; border-bottom: 1px solid var(--line); }
 
-.note__meta { margin: 0 0 0.5rem; color: var(--brand-3); font: 500 0.78rem var(--mono); text-transform: uppercase; letter-spacing: 0.05em; }
+.note__meta { margin: 0 0 0.5rem; color: var(--accent-hover); font: 500 0.78rem var(--mono); text-transform: uppercase; letter-spacing: 0.05em; }
 
-.note__header h1 { margin: 0; font: 700 clamp(1.8rem, 5vw, 2.8rem)/1.2 var(--mono); letter-spacing: -0.03em; }
+.note__header h1 { margin: 0; font: 700 clamp(1.8rem, 5vw, 2.8rem)/1.2 var(--mono); letter-spacing: -0.03em; color: var(--text-heading); }
 
-.note__content { font-size: 1.18rem; line-height: 1.7; }
+.note__content { font-size: 1.18rem; line-height: 1.7; color: var(--text); }
 .note__content h1, .note__content h2, .note__content h3, .note__content p, .note__content li {
   font-family: var(--sans);
+  color: var(--text);
 }
+.note__content strong { color: var(--text-heading); font-weight: 700; }
+.note__content em { color: var(--accent-hover); }
 .note__content > :first-child { margin-top: 0; }
-.note__content h2, .note__content h3 { margin-top: 2.2rem; font-family: var(--mono); }
+.note__content h2, .note__content h3 { margin-top: 2.2rem; font-family: var(--mono); color: var(--text-heading); }
 .note__content h2.challenge-title {
   margin-top: 2.8rem;
   font-size: 1.32rem;
