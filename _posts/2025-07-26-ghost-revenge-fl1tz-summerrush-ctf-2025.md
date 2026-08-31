@@ -55,7 +55,7 @@ For this step, we used PowerShell instead of WSL to run the VBoxManage command d
 disk.raw: LUKS encrypted file, ver 2, header size 16384, ID 3, algo sha256, salt 0x535b71eb3f7ba569..., UUID: b7ed56b9-3064-4d51-aad8-7977b5216776, crc 0xbd6934bfb7cfbf63..., at 0x1000 {"keyslots":{"0":{"type":"luks2","key_size":64,"af":{"type":"luks1","stripes":4000,"hash":"sha256"},"area":{"type":"raw","offse
 ```
 
-The file command showing disk.raw as a **LUKS encrypted file version 2 **means the raw disk image you got contains a **LUKS (Linux Unified Key Setup) encrypted partition** rather than a plain unencrypted filesystem or disk image. If you’re not familiar with LUKS or encrypted disk images, you can read more about how full & partial disk encryption works in Linux and how LUKS fits into it here:
+The file command showing disk.raw as a **LUKS encrypted file version 2** means the raw disk image you got contains a **LUKS (Linux Unified Key Setup) encrypted partition** rather than a plain unencrypted filesystem or disk image. If you’re not familiar with LUKS or encrypted disk images, you can read more about how full & partial disk encryption works in Linux and how LUKS fits into it here:
 
 [How LUKS works with Full Disk Encryption in Linux](https://infosecwriteups.com/how-luks-works-with-full-disk-encryption-in-linux-6452ad1a42e8)
 
@@ -505,7 +505,7 @@ capture.pcap.pgp  decrypted_capture.pcap  pgp_private_decrypted.asc
 decrypted_capture.pcap: pcap capture file, microsecond ts (little-endian) - version 2.4 (Ethernet, capture length 65535)
 ```
 
-💥 **We finally recovered the ****capture.pcap file!** 💥
+💥 **We finally recovered the capture.pcap file!** 💥
 
 This was the final encrypted piece — the last lock guarding the truth. With the decrypted PCAP now in our hands, we’re ready to dive into network analysis and uncover whatever secrets it holds.
 
