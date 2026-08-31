@@ -66,8 +66,8 @@ body::before {
   inset: 0;
   pointer-events: none;
   background:
-    radial-gradient(ellipse at 50% -10%, rgba(20, 17, 15, 0.22), transparent 60%),
-    linear-gradient(rgba(20, 17, 15, 0.82), rgba(9, 7, 6, 0.96));
+    radial-gradient(ellipse at 50% -10%, rgba(18, 15, 14, 0.25), transparent 60%),
+    linear-gradient(rgba(15, 12, 11, 0.92), rgba(8, 6, 5, 0.98));
 }
 
 a { color: var(--brand); text-decoration: none; }
