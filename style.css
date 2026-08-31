@@ -1281,9 +1281,15 @@ body { padding-top: 42px; }
 
 /* ---- individual note ---- */
 .note {
-  padding: 2.5rem 0;
+  padding: 2.5rem 1.6rem;
   margin: 3rem auto 2rem;
   max-width: 780px;
+  background: rgba(20, 17, 15, 0.42);
+  border: 1px solid rgba(239, 232, 225, 0.08);
+  border-radius: 10px;
+  box-shadow: var(--shadow-lg);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
 }
 
 .note__back { display: inline-block; margin-bottom: 2rem; font: 500 0.82rem var(--mono); color: var(--accent-hover); }
