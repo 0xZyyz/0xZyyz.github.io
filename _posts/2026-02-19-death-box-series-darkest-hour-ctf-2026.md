@@ -104,7 +104,7 @@ By filtering for HTTP traffic in server1.pcapng, we can see that the attacker at
 ![](/assets/posts/death-box/F7ZlKtWzzDoJFsEUb7tSCA.png)
 {: .img-wide}
 
-So the flag is Securinets{http://192.168.255.137:8080/shell/ 2026-02-12 21:31:08}
+So the flag is Securinets{http://192.168.255.137:8080/shell/_2026-02-12 21:31:08}
 
 - Death Box 7
 
