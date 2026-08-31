@@ -102,6 +102,7 @@ Death Box 6
 By filtering for HTTP traffic in server1.pcapng, we can see that the attacker attempted to request /shell from the host.
 
 ![](/assets/posts/death-box/F7ZlKtWzzDoJFsEUb7tSCA.png)
+{: .img-wide}
 
 So the flag is Securinets{http://192.168.255.137:8080/shell/ 2026-02-12 21:31:08}
 
@@ -185,6 +186,7 @@ Death Box 8
 For this task, I used a **Wireshark feature that can reveal credentials**. You can access it by navigating to **Tools → Credentials**.
 
 ![](/assets/posts/death-box/cHNsU9foqjxx_KTRkgn8tQ.png)
+{: .img-wide}
 
 From this view, we could read the credentials used so the flag is : Securinets{Zyyz_Darkest-Hour-2026}
 
@@ -198,6 +200,7 @@ Death Box 9
 After uploading the malicious shell, the attacker obtained a reverse shell on the host. They executed several commands and eventually invoked a command to upgrade it to an interactive shell.
 
 ![](/assets/posts/death-box/PPrXSoRQSpZQ4hbqpdHWLw.png)
+{: .img-wide}
 
 So the command used is :
 
@@ -217,6 +220,7 @@ Death Box 10
 So this is about apache tomcat 7.0.79 file upload vulnerability
 
 ![](/assets/posts/death-box/g9jeRCmCCWGFTIiG-UQ41A.png)
+{: .img-wide}
 
 Then our flag is Securinets{CVE-2017–12615}
 
@@ -230,6 +234,7 @@ Death Box 11
 From the first tcp stream upon obtaining the reverse shell :
 
 ![](/assets/posts/death-box/_JK2ojFVQjjJO11_WQRCOA.png)
+{: .img-wide}
 
 Then our flag is : Securinets{id}
 
@@ -252,6 +257,7 @@ Death Box 13
 Within the same stream, we can identify the command executed:
 
 ![](/assets/posts/death-box/4rb_Qqd4hmruMlF_hQO4aA.png)
+{: .img-wide}
 
 So the command is :
 
@@ -271,6 +277,7 @@ Death Box 14
 We can quickly identify relevant entries by **grepping for ****"sudo"** in the linpeas output.
 
 ![](/assets/posts/death-box/YSfTxyUEv_lRMzoFKEFuzA.png)
+{: .img-wide}
 
 So the flag is : Securinets{1.9.17}
 
@@ -284,6 +291,7 @@ Death Box 15
 Inside the server1.pcapng we found this :
 
 ![](/assets/posts/death-box/D2VpxeSsb8njDF0rJ64KYA.png)
+{: .img-wide}
 
 So the hostname will be : dev.test.local but what about the hostname alias ?
 
@@ -368,6 +376,7 @@ Death Box 19
 After gaining root access, the attacker downloaded the encryptor binary and attempted to load a kernel module named lkm_rootkit.ko :
 
 ![](/assets/posts/death-box/ltCzAzXaXZiCMrBK_2s74Q.png)
+{: .img-wide}
 
 You could eventually read about rootkits here : [Rootkit](https://attack.mitre.org/techniques/T1014/)
 
@@ -383,6 +392,7 @@ Death Box 20
 We now shift our focus to **Reverse Engineering**.
 
 ![](/assets/posts/death-box/o_o_D0ijhBVgdgQz9hr14Q.png)
+{: .img-wide}
 
 Upon inspecting the binary, we observed that it communicates with a server running on localhost. Each system call corresponds either to the binary sending data to the server or receiving data from it.
 The binary establishes a TCP connection to a server hosted on 127.0.0.1:13337. The interaction follows a structured handshake protocol.
@@ -918,6 +928,7 @@ Death Box 22
 Moving now to server2.pcap . We can find the flag by filtering with http.
 
 ![](/assets/posts/death-box/xISona6V4i2l4HSe1wl5HA.png)
+{: .img-wide}
 
 FLAG > Securinets{146.190.198.112_185.133.121.127}
 
@@ -933,6 +944,7 @@ The first server was a honeypot.
 The second server was our target server . so filter with http && ip.addr == 185.133.121.127
 
 ![](/assets/posts/death-box/MIgben2Yz2xLK3cdcZLgtw.png)
+{: .img-wide}
 
 then the flag is Securinets{uc-httpd 1.0.0}
 
@@ -958,6 +970,7 @@ This question also involves reverse engineering the Go (Golang) malware to fully
 Our target server is uc-httpd . so we will be exploring this function : main_infectFunctionUchttpd
 
 ![](/assets/posts/death-box/Ahvz8gs6p2dJ_R-6vK1sSA.png)
+{: .img-wide}
 
 In this function, the malware connects to the target and sends the request GET ../../proc/ HTTP\r\n\r\n, which represents a directory traversal attempt against uchttpd. It then reads the HTTP response, searches for the string “Index of /mnt/web/”, parses the returned directory listing, and extracts potential process IDs. For each candidate PID discovered, it calls ucSofiaCheck to validate the target. If the check is successful, the malware proceeds with further exploitation steps by invoking main_ucGuessSmaps to infer memory layout details and finally main_ucSendBof to deliver the buffer overflow payload.
 
@@ -973,6 +986,7 @@ Death Box 26
 Just search for this vulnerability online.
 
 ![](/assets/posts/death-box/o-DLKcGd-LCBpEHqSm39ww.png)
+{: .img-wide}
 
 Then the flag is Securinets{CVE-2018–10088}
 
@@ -981,5 +995,3 @@ In conclusion, this series allowed us to fully analyze and understand the attack
 **Thank you to everyone who played and enjoyed the series and special thanks for The Hood restaurant for the inspiration.**
 
 ![](/assets/posts/death-box/njEOtMTKJ2LAgApvTQQNDg.jpeg)
-
-**See you soon!** — Zyyz

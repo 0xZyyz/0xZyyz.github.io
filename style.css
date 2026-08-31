@@ -1324,6 +1324,10 @@ body { padding-top: 42px; }
   transition: transform 0.15s ease;
 }
 
+.note__content img.img-wide {
+  max-width: min(100%, 780px);
+}
+
 .note__content img[data-zoomable]:hover {
   transform: scale(1.01);
 }
