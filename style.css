@@ -332,6 +332,81 @@ code {
   85%, 100% { opacity: 1; }
 }
 
+.boot__loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  margin-top: 1.6rem;
+  animation: boot-flash 0.6s 0.3s ease both;
+}
+
+.boot__pac {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  margin-right: 3px;
+}
+
+.boot__pac::before,
+.boot__pac::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 20px;
+  height: 10px;
+  background: var(--accent);
+  transform-origin: center;
+}
+
+.boot__pac::before {
+  top: 0;
+  border-radius: 10px 10px 0 0;
+  animation: pac-bite-top 0.5s ease-in-out infinite;
+}
+
+.boot__pac::after {
+  bottom: 0;
+  border-radius: 0 0 10px 10px;
+  animation: pac-bite-bot 0.5s ease-in-out infinite;
+}
+
+@keyframes pac-bite-top {
+  0%, 100% { transform: rotate(0deg); }
+  50%      { transform: rotate(-36deg); }
+}
+
+@keyframes pac-bite-bot {
+  0%, 100% { transform: rotate(0deg); }
+  50%      { transform: rotate(36deg); }
+}
+
+.boot__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: dot-flow 1.6s ease-in infinite;
+}
+
+.boot__dot:nth-child(2) { animation-delay: 0.4s; }
+.boot__dot:nth-child(3) { animation-delay: 0.8s; }
+.boot__dot:nth-child(4) { animation-delay: 1.2s; }
+
+@keyframes dot-flow {
+  0%    { transform: translateX(0) scale(1); opacity: 1; }
+  70%   { transform: translateX(-30px) scale(0.4); opacity: 0.7; }
+  100%  { transform: translateX(-46px) scale(0); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .boot__loader,
+  .boot__loader::before,
+  .boot__loader::after,
+  .boot__loader * { animation: none !important; }
+  .boot__loader { opacity: 1; }
+}
+
 /* ---- neofetch (floating terminal window) ---- */
 
 .waybar__mod svg { width: 13px; height: 13px; }
