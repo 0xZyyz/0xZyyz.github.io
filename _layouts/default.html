@@ -42,13 +42,22 @@
         <span>Zyyz</span>
       </a>
       <nav class="waybar__nav" aria-label="Site sections">
-        <a href="{% if page.url == '/' %}#about{% else %}/#about{% endif %}">About</a>
-        <a href="{% if page.url == '/' %}#arsenal{% else %}/#arsenal{% endif %}">Background</a>
-        <a href="{% if page.url == '/' %}#experience{% else %}/#experience{% endif %}">Experience</a>
-        <a href="{% if page.url == '/' %}#achievements{% else %}/#achievements{% endif %}">Achievements</a>
-        <a href="{{ '/blog/' | relative_url }}"{% if page.url == '/blog/' %} aria-current="page"{% endif %}>Blog</a>
+        <a href="{% if page.url == '/' %}#about{% else %}/#about{% endif %}" data-target="about"><span class="waybar__ws-num">1</span>About</a>
+        <a href="{% if page.url == '/' %}#arsenal{% else %}/#arsenal{% endif %}" data-target="arsenal"><span class="waybar__ws-num">2</span>Background</a>
+        <a href="{% if page.url == '/' %}#experience{% else %}/#experience{% endif %}" data-target="experience"><span class="waybar__ws-num">3</span>Experience</a>
+        <a href="{% if page.url == '/' %}#achievements{% else %}/#achievements{% endif %}" data-target="achievements"><span class="waybar__ws-num">4</span>Achievements</a>
+        <a href="{{ '/blog/' | relative_url }}"{% if page.url == '/blog/' %} aria-current="page"{% endif %}><span class="waybar__ws-num">5</span>Blog</a>
       </nav>
       <div class="waybar__right">
+        <div class="waybar__mod waybar__battery" id="waybar-battery" title="Battery" hidden>
+          <svg class="waybar__battery-icon" viewBox="0 0 24 12" aria-hidden="true">
+            <rect x="1" y="1" width="19" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.4"/>
+            <rect x="21" y="4" width="2" height="4" rx="1" fill="currentColor"/>
+            <rect class="waybar__battery-fill" id="waybar-battery-fill" x="3" y="3" width="0" height="6" rx="0.6" fill="currentColor"/>
+            <path class="waybar__battery-bolt" d="M11 2 6.5 7h3l-1 3L13 5h-3z" fill="currentColor"/>
+          </svg>
+          <span class="waybar__battery-pct" id="waybar-battery-pct"></span>
+        </div>
         <button type="button" class="waybar__mod waybar__btn" id="waybar-wifi" title="Speedtest" aria-label="Run speedtest">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1.4" fill="currentColor" stroke="none"/></svg>
         </button>
@@ -205,6 +214,53 @@
         }
 
         if (wifi) wifi.addEventListener('click', runSpeedtest);
+
+        function updateNetworkStatus() {
+          if (!wifi) return;
+          wifi.classList.toggle('is-offline', !navigator.onLine);
+          wifi.title = navigator.onLine ? 'Speedtest' : 'Offline';
+        }
+        updateNetworkStatus();
+        window.addEventListener('online', updateNetworkStatus);
+        window.addEventListener('offline', updateNetworkStatus);
+
+        var wsLinks = Array.prototype.slice.call(document.querySelectorAll('.waybar__nav a[data-target]'));
+        var wsSections = wsLinks
+          .map(function (a) { return document.getElementById(a.getAttribute('data-target')); })
+          .filter(Boolean);
+        if (wsSections.length && 'IntersectionObserver' in window) {
+          var wsById = {};
+          wsLinks.forEach(function (a) { wsById[a.getAttribute('data-target')] = a; });
+          var wsObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+              if (!entry.isIntersecting) return;
+              wsLinks.forEach(function (a) { a.classList.remove('is-active'); });
+              var link = wsById[entry.target.id];
+              if (link) link.classList.add('is-active');
+            });
+          }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
+          wsSections.forEach(function (s) { wsObserver.observe(s); });
+        }
+
+        var battery = document.getElementById('waybar-battery');
+        var batteryFill = document.getElementById('waybar-battery-fill');
+        var batteryPct = document.getElementById('waybar-battery-pct');
+        if (battery && navigator.getBattery) {
+          navigator.getBattery().then(function (bat) {
+            function render() {
+              var pct = Math.round(bat.level * 100);
+              batteryFill.setAttribute('width', Math.max(0, Math.round(pct / 100 * 15)));
+              batteryPct.textContent = pct + '%';
+              battery.classList.toggle('is-charging', bat.charging);
+              battery.classList.toggle('is-low', pct <= 15 && !bat.charging);
+              battery.title = 'Battery: ' + pct + '%' + (bat.charging ? ' (charging)' : '');
+            }
+            render();
+            battery.hidden = false;
+            bat.addEventListener('levelchange', render);
+            bat.addEventListener('chargingchange', render);
+          }).catch(function () {});
+        }
 
         var lightbox = document.getElementById('lightbox');
         var lightboxImg = document.getElementById('lightbox-img');

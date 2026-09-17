@@ -161,6 +161,28 @@ code {
   background: rgba(167, 184, 179, 0.14);
 }
 
+.waybar__ws-num {
+  display: inline-block;
+  min-width: 12px;
+  margin-right: 5px;
+  padding: 0 3px;
+  border-radius: 3px;
+  font-size: 0.66rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--muted);
+  background: rgba(239, 232, 225, 0.05);
+}
+
+.waybar__nav a.is-active,
+.waybar__nav a[aria-current="page"] { color: var(--text-heading); }
+
+.waybar__nav a.is-active .waybar__ws-num,
+.waybar__nav a[aria-current="page"] .waybar__ws-num {
+  color: var(--bg-0);
+  background: var(--accent);
+}
+
 .waybar__right {
   display: flex;
   align-items: center;
@@ -191,6 +213,26 @@ code {
 }
 
 .waybar__btn:hover { color: var(--text-heading); background: rgba(239, 232, 225, 0.07); }
+
+.waybar__btn.is-offline { color: var(--bronze); }
+
+.waybar__battery {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--muted);
+}
+
+.waybar__battery-icon { width: 18px; height: 9px; display: block; }
+.waybar__battery-bolt { display: none; }
+.waybar__battery-pct { font-size: 0.72rem; }
+
+.waybar__battery.is-charging { color: var(--terminal-green); }
+.waybar__battery.is-charging .waybar__battery-bolt { display: block; }
+.waybar__battery.is-charging .waybar__battery-fill { fill: var(--terminal-green); }
+
+.waybar__battery.is-low { color: var(--bronze); }
+.waybar__battery.is-low .waybar__battery-fill { fill: var(--bronze); }
 
 .waybar__key {
   margin-left: 4px;
