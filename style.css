@@ -1023,6 +1023,7 @@ body { padding-top: 42px; }
 .captures-rule {
   display: flex;
   align-items: baseline;
+  justify-content: center;
   gap: 10px;
   font-family: var(--sans);
   font-size: 0.95rem;
