@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 390" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" role="img" aria-label="A 5 V supply feeds a shared VBUS rail through its source resistance. A transmitter and a listener both hang off the same rail, and the logic analyzer probes VBUS and GND at the port.">
+<rect width="900" height="390" fill="#191512"/>
+<g fill="none" stroke-linejoin="round" stroke-linecap="round">
+<polyline stroke="#e0a95c" stroke-width="2.5" points="105,150 105,90 200,90"/>
+<polyline stroke="#e0a95c" stroke-width="2.5" points="200,90 208,90 214,80 226,100 238,80 250,100 262,80 274,100 280,90 290,90"/>
+<polyline stroke="#e0a95c" stroke-width="2.5" points="290,90 560,90"/>
+<polyline stroke="#c07d45" stroke-width="3" points="560,90.0 562,90.0 564,90.1 566,90.2 568,90.5 570,90.9 572,91.5 574,92.5 576,93.8 578,95.5 580,97.3 582,98.9 584,99.8 586,99.3 588,97.0 590,92.8 592,86.9 594,80.2 596,74.0 598,69.6 600,68.0 602,69.6 604,74.0 606,80.2 608,86.9 610,92.8 612,97.0 614,99.3 616,99.8 618,98.9 620,97.3 622,95.5 624,93.8 626,92.5 628,91.5 630,90.9 632,90.5 634,90.2 636,90.1 638,90.0 640,90.0"/>
+<polyline stroke="#e0a95c" stroke-width="2.5" points="640,90 845,90"/>
+<polyline stroke="#a7b8b3" stroke-width="2.5" points="105,240 105,300 560,300"/>
+<polyline stroke="#a7b8b3" stroke-width="2.5" points="560,300.0 562,298.1 564,296.5 566,295.1 568,294.3 570,294.0 572,294.3 574,295.1 576,296.5 578,298.1 580,300.0 582,301.9 584,303.5 586,304.9 588,305.7 590,306.0 592,305.7 594,304.9 596,303.5 598,301.9 600,300.0 602,298.1 604,296.5 606,295.1 608,294.3 610,294.0 612,294.3 614,295.1 616,296.5 618,298.1 620,300.0 622,301.9 624,303.5 626,304.9 628,305.7 630,306.0 632,305.7 634,304.9 636,303.5 638,301.9 640,300.0"/>
+<polyline stroke="#a7b8b3" stroke-width="2.5" points="640,300 845,300"/>
+<polyline stroke="#e0a95c" stroke-width="2.5" points="490,90 490,106"/>
+<polyline stroke="#e0a95c" stroke-width="2.5" points="490,106 490,112 481,116 499,122 481,128 499,134 481,140 490,144 490,150"/>
+<polyline stroke="#e0a95c" stroke-width="2.5" points="490,150 490,165"/>
+<polyline stroke="#a7b8b3" stroke-width="2.5" points="490,245 490,300"/>
+<polyline stroke="#e0a95c" stroke-width="2.5" points="740,90 740,106"/>
+<polyline stroke="#e0a95c" stroke-width="2.5" points="740,106 740,112 731,116 749,122 731,128 749,134 731,140 740,144 740,150"/>
+<polyline stroke="#e0a95c" stroke-width="2.5" points="740,150 740,165"/>
+<polyline stroke="#a7b8b3" stroke-width="2.5" points="740,245 740,300"/>
+</g>
+<g stroke="#f8f5f0" stroke-width="1.5" stroke-dasharray="5 4" fill="none"><line x1="330" y1="84" x2="330" y2="46"/><line x1="330" y1="306" x2="330" y2="340"/></g>
+<g fill="#f8f5f0"><circle cx="330" cy="90" r="5"/><circle cx="330" cy="300" r="5"/></g>
+<g fill="#e0a95c"><circle cx="490" cy="90" r="4"/><circle cx="740" cy="90" r="4"/></g>
+<g fill="#a7b8b3"><circle cx="490" cy="300" r="4"/><circle cx="740" cy="300" r="4"/></g>
+<rect x="40" y="150" width="130" height="90" rx="6" fill="#211c19" stroke="#99938a" stroke-width="1.5"/>
+<rect x="415" y="165" width="150" height="80" rx="6" fill="#211c19" stroke="#c07d45" stroke-width="1.5"/>
+<rect x="660" y="165" width="160" height="80" rx="6" fill="#211c19" stroke="#4bd373" stroke-width="1.5"/>
+<text x="105" y="190" font-size="14" fill="#f8f5f0" text-anchor="middle" font-weight="bold">5 V supply</text>
+<text x="105" y="212" font-size="12" fill="#99938a" text-anchor="middle" font-weight="normal">host / hub</text>
+<text x="490" y="198" font-size="14" fill="#f8f5f0" text-anchor="middle" font-weight="bold">TX &quot;keyboard&quot;</text>
+<text x="490" y="220" font-size="12" fill="#99938a" text-anchor="middle" font-weight="normal">+ capacitor bank</text>
+<text x="740" y="198" font-size="14" fill="#f8f5f0" text-anchor="middle" font-weight="bold">listener</text>
+<text x="740" y="220" font-size="12" fill="#99938a" text-anchor="middle" font-weight="normal">any device on</text>
+<text x="740" y="236" font-size="12" fill="#99938a" text-anchor="middle" font-weight="normal">the same rail</text>
+<text x="245" y="66" font-size="13" fill="#e0a95c" text-anchor="middle" font-weight="normal">R_src</text>
+<text x="245" y="120" font-size="11" fill="#99938a" text-anchor="middle" font-weight="normal">regulator + switch</text>
+<text x="245" y="134" font-size="11" fill="#99938a" text-anchor="middle" font-weight="normal">+ traces</text>
+<text x="503" y="132" font-size="11" fill="#99938a" text-anchor="start" font-weight="normal">R_cable</text>
+<text x="753" y="132" font-size="11" fill="#99938a" text-anchor="start" font-weight="normal">R_cable</text>
+<text x="330" y="34" font-size="12" fill="#f8f5f0" text-anchor="middle" font-weight="normal">Ch2 probe: VBUS</text>
+<text x="330" y="358" font-size="12" fill="#f8f5f0" text-anchor="middle" font-weight="normal">Ch3 probe: GND</text>
+<text x="853" y="95" font-size="13" fill="#e0a95c" text-anchor="start" font-weight="normal">VBUS</text>
+<text x="853" y="305" font-size="13" fill="#a7b8b3" text-anchor="start" font-weight="normal">GND</text>
+<text x="600" y="50" font-size="12" fill="#c07d45" text-anchor="middle" font-weight="normal">charge pulse on the shared rail</text>
+<text x="600" y="336" font-size="12" fill="#a7b8b3" text-anchor="middle" font-weight="normal">mains hum on both rails</text>
+</svg>
