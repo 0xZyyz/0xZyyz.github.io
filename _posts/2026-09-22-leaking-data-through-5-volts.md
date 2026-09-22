@@ -71,7 +71,7 @@ A clean 5 V line doesn't exist. On a real rail you typically find:
 - **Switching-regulator ripple**: usually hundreds of kHz or more, too fast for a 10 kS/s channel to see.
 - **Plain noise** from the ADC and everything around it.
 
-TX keeps the two that matter at its time scale: 50 Hz hum on both VBUS and GND, and random noise. The pulses are about the same size as the noise, and the whole challenge comes from that.
+At TX's time scale, two of these matter: 50 Hz hum on both VBUS and GND, and random noise. The pulses are about the same size as the noise, and the whole challenge comes from that.
 
 ---
 
@@ -100,7 +100,7 @@ The signal has three layers, from the voltage up to the flag.
 One symbol per 10 ms slot. The pulse is a Ricker wavelet (τ = 1 ms, 30 mV)
 {: .img-caption}
 
-The pulse shape is a **Ricker wavelet** (the "Mexican hat"): a smooth bump with a small undershoot on each side and zero net area. It's a standard model pulse in seismology, and it's a reasonable stand-in for a short burst on a rail where decoupling capacitors smooth the edges and a regulator pulls the voltage back.
+The pulse shape is a **Ricker wavelet** (the "Mexican hat"): a smooth bump with a small undershoot on each side and zero net area. It's a standard model pulse in seismology, and it's close to what a short burst looks like on a rail where decoupling capacitors smooth the edges and a regulator pulls the voltage back.
 
 ```python
 def ricker_pulse(t, t_centre):
@@ -146,7 +146,7 @@ all your base are belong to us
 
 No flag. The keyboard really is a keyboard. There's one useful detail: the host polls it **every 10 ms**, the same length as a PPM slot.
 
-**The digital channels (Ch0/Ch1).** They're D+ and D−, carrying packets that look like USB: SYNC, SOF, and an IN / DATA / ACK every 16 frames with an all-zero payload. It's decoration. Also worth noticing: 1 MS/s is far too slow to capture real full-speed USB (12 Mb/s), so these lines were never going to be a faithful bus capture.
+**The digital channels (Ch0/Ch1).** They're D+ and D−, carrying packets that look like USB: SYNC, SOF, and an IN / DATA / ACK every 16 frames with an all-zero payload. Nothing to find there. Also worth noticing: 1 MS/s is far too slow to properly capture full-speed USB (12 Mb/s), so these lines were never the place to look.
 
 The data is in the analog channels.
 
@@ -230,7 +230,7 @@ def apply_cmr(vbus, gnd):
 
 This is why the GND channel is in the capture: it's the reference, the same idea as a differential probe.
 
-There's a subtle catch. I generated the capture, so I know VBUS actually contains **0.6×** the hum, but the estimate comes out at **0.40**. GND carries its own noise, and least squares shrinks the estimate by *hum power / (hum power + noise power)*. With a 30 mV hum and 15 mV of GND noise, that's (0.03²/2) / (0.03²/2 + 0.015²) = 2/3, and 0.6 × 2/3 = 0.40. So about a third of the hum survives step 1.
+There's a subtle catch. VBUS really carries **0.6×** the hum that's on GND, but the estimate comes out at **0.40**. GND carries its own noise, and least squares shrinks the estimate by *hum power / (hum power + noise power)*. With a 30 mV hum and 15 mV of GND noise, that's (0.03²/2) / (0.03²/2 + 0.015²) = 2/3, and 0.6 × 2/3 = 0.40. So about a third of the hum survives step 1.
 
 **Step 2: a 50 Hz notch.** A narrow IIR notch (Q = 30, about 1.7 Hz wide) removes what's left of the hum without touching the ~1 ms pulses:
 
@@ -277,18 +277,6 @@ eb 90  Securinets{usb_p0w3r_l1n3_3xf1ltr4t10n}  a4
 Zero symbol errors out of 800.
 
 **An alternative: Kalman + matched filter.** My solver has a second path. On the cleaned signal, a small 2-state Kalman filter (level and slope) tracks whatever slow baseline is left, and its normalised innovation, meaning the part the model didn't predict, goes into the same matched filter. It works like an adaptive high-pass filter and also gets zero errors. TX doesn't need it, but it helps when the interference isn't a neat 50 Hz tone.
-
----
-
-## Behind the scenes: faking a Saleae capture
-
-The capture is synthetic. The signals are generated in Python with numpy and written into Logic 2's `.sal` format by a small writer, `sigrok2sal.py`. The goal was a handout that behaves like a real Logic 2 capture, so here is what's inside the format:
-
-- A ZIP with `meta.json` and one `.bin` file per channel.
-- Each `.bin` starts with a `<SALEAE>` magic, a version, and a type (100 = digital, 101 = analog).
-- **Digital channels store run lengths**, the number of samples between transitions, as variable-length integers, not individual samples, so they only cost space where the signal changes.
-- **Analog channels store raw `int16` samples** in chunks, each followed by a **min/max pyramid**: the min and max of every 16 samples, then every 32, 64, and so on. That lets Logic 2 draw a zoomed-out view without reading every sample.
-- Samples are scaled to ±2047, so **12-bit**, like the analog inputs on Saleae's Pro analyzers. On the 0–5.5 V VBUS range, one step is about 1.3 mV, so a 30 mV pulse is only about 22 steps tall.
 
 ---
 
