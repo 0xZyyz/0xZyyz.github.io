@@ -2,7 +2,7 @@
 layout: post
 title: "Leaking Data Through 5 Volts: The USB Power Line as a Covert Channel"
 date: 2026-09-22 21:00:00 +0100
-categories: [ctf, forensics, signals, hardware, side-channels, writeups]
+categories: [ctf, forensics, signals, side-channels, writeups]
 role: author
 ---
 
