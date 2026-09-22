@@ -6,11 +6,15 @@ categories: [ctf, forensics, signals, hardware, side-channels, writeups]
 role: author
 ---
 
+Ever noticed how many signal forensics challenges in CTFs an AI can break in seconds? I made one that held out against AI for almost **7 hours**.
+
+It's called **TX**, an old **forensics** challenge of mine from **GCUP 2.0 CTF**, organized by **Securinets** in collaboration with the **Institut français de Tunisie (IFT)**. It was finally solved with **Codex**. The flag leaks through the one part of a USB port nobody watches: the power line.
+
 Every USB port gives a device two things: a data connection and 5 volts. Security people spend almost all their attention on the first one. We block mass storage, allowlist keyboards, and hand out "charge-only" cables and data blockers. The power pins get ignored, because power isn't data.
 
 It can be. The voltage on a power line depends on how much current every device on it draws, and anything that shares the line can measure that voltage. So a device that controls its current can **send**, and a device that watches its supply voltage can **receive**, with no data connection between them.
 
-**TX** is an old **forensics** challenge of mine built around this idea. I authored it for **GCUP 2.0 CTF**, organized by **Securinets** in collaboration with the **Institut français de Tunisie (IFT)**, and it ended up being solved after **7 hours**, with **Codex**. This post starts with the phenomenon: why power lines leak, what published research has done with it, and why the usual USB defenses miss it. Then it goes into how TX was built and how to solve it.
+This post starts with that phenomenon: why power lines leak, what published research has done with it, and why the usual USB defenses miss it. Then it goes into how TX was built and how to solve it.
 
 ---
 
