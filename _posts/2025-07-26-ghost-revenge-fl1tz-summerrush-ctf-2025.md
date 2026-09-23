@@ -427,6 +427,7 @@ We follow modern cryptographic practices — padding schemes designed to resist 
 ---
 
  *Only those who understand the trust chain can break the cipher.*
+```
 
 The README gives us a crucial hint about the encryption: it mentions modern cryptographic practices and padding schemes designed to resist chosen ciphertext attacks. This strongly suggests the AES key is encrypted using RSA with OAEP padding. So let’s give it a shot then !OAEP is widely used because it adds randomness and security against certain attacks, unlike older padding methods.
 
@@ -461,6 +462,7 @@ You know what to do !
 ---
 
 ## No more hints in the next phases, you are on your own from now on , GLHF !
+```
 
 Well, no worries. We’ve come too far to stop here — we’re getting the revenge, hint or no hint 😤.
 

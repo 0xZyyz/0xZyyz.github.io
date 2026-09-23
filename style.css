@@ -1415,7 +1415,7 @@ body { padding-top: 42px; }
 
 .note__header h1 { margin: 0; font: 700 clamp(1.8rem, 5vw, 2.8rem)/1.2 var(--mono); letter-spacing: -0.03em; color: var(--text-heading); }
 
-.note__content { font-size: 1.18rem; line-height: 1.7; color: var(--text-heading); }
+.note__content { font-size: 1.18rem; line-height: 1.7; color: var(--text-heading); overflow-wrap: break-word; }
 .note__content h1, .note__content h2, .note__content h3, .note__content p, .note__content li {
   font-family: var(--sans);
   color: var(--text-heading);
@@ -1427,6 +1427,7 @@ body { padding-top: 42px; }
 .note__content em { color: var(--accent-hover); }
 .note__content > :first-child { margin-top: 0; }
 .note__content h2, .note__content h3 { margin-top: 2.2rem; font-family: var(--mono); color: var(--text-heading); }
+.note__content h4 { margin: 1.9rem 0 0.4rem; font: 700 1.1rem var(--mono); color: var(--gold); }
 .note__content h2.challenge-title {
   margin-top: 2.8rem;
   font-size: 1.32rem;
@@ -1472,6 +1473,23 @@ body { padding-top: 42px; }
 }
 
 .note__content pre code { padding: 0; background: transparent; border: 0; color: inherit; }
+
+/* wide tables scroll inside the column instead of stretching the page */
+.note__content table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+.note__content th, .note__content td {
+  padding: 0.5rem 0.85rem;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+.note__content th { font-family: var(--mono); color: var(--accent-hover); white-space: nowrap; }
 
 /* ---- footer ---- */
 .footer {
