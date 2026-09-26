@@ -4,6 +4,7 @@ title: "Leaking Data Through 5 Volts: The USB Power Line as a Covert Channel"
 date: 2026-09-22 21:00:00 +0100
 categories: [ctf, forensics, signals, side-channels, writeups]
 role: author
+published: false
 ---
 
 Ever noticed how many signal forensics challenges in CTFs an AI can break in seconds? I made one that held out against AI for almost **7 hours**.
