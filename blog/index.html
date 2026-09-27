@@ -8,7 +8,7 @@ permalink: /blog/
 
   <section id="blog" class="section">
     <h2 class="section__title">~/Blog</h2>
-    <p class="section__lede">Writeups, articles, and things worth remembering, everything published here, filterable by category.</p>
+    <p class="section__lede">Writeups, articles, and things worth remembering, everything published here.</p>
 
     {% assign blog_cats = "" | split: "," %}
     {% for c in site.blog_categories %}{% assign blog_cats = blog_cats | push: c %}{% endfor %}
