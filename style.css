@@ -327,6 +327,7 @@ code {
   align-items: center;
   justify-content: center;
   padding: 1rem;
+  overflow: hidden;
   background: #141110;
   opacity: 1;
   transition: opacity 0.35s ease, transform 0.35s ease;
@@ -376,97 +377,120 @@ code {
 
 .boot__loader {
   position: relative;
-  width: 100%;
-  max-width: 640px;
-  height: 58px;
+  width: 300px;
+  max-width: 100%;
+  height: 96px;
   margin: 2.4rem auto 0;
   animation: boot-flash 0.6s 0.3s ease both;
 }
 
-/* ---- pac-man: solid disc with an animated mouth wedge cut out of it ---- */
+.boot__maze {
+  position: absolute;
+  top: 50%;
+  left: -46px;
+  right: -46px;
+  height: 92px;
+  transform: translateY(-50%);
+  border: 2px solid rgba(167, 184, 179, 0.13);
+  border-radius: 46px;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 20%, #000 80%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 20%, #000 80%, transparent);
+}
+
+/* ---- pac-man: walks the row, mouth cycled through three frames ---- */
 .boot__pac {
   position: absolute;
-  top: 0;
-  left: 50%;
-  width: 58px;
-  height: 58px;
-  margin-left: -29px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 34% 28%, var(--accent-hover) 0%, var(--accent) 58%, #8b9c97 100%);
-  box-shadow: 0 0 24px var(--accent-dim), 0 0 70px rgba(167, 184, 179, 0.16);
-  animation: pac-chomp 0.34s ease-in-out infinite;
+  top: 50%;
+  left: 20px;
+  width: 64px;
+  height: 64px;
+  margin-top: -32px;
+  filter: drop-shadow(0 0 14px rgba(167, 184, 179, 0.28));
+  animation: pac-walk 2.35s linear forwards;
 }
 
-.boot__pac::before {
-  content: "";
-  position: absolute;
-  inset: -1px;
-  background: var(--bg-0);
-  clip-path: polygon(50% 50%, 100% 37%, 100% 63%);
-  animation: pac-mouth 0.34s ease-in-out infinite;
+@keyframes pac-walk {
+  from { transform: translateX(0); }
+  to   { transform: translateX(167px); }
 }
 
-.boot__pac::after {
-  content: "";
-  position: absolute;
-  top: 16%;
-  left: 62%;
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: var(--bg-0);
+@keyframes pac-walk-sm {
+  from { transform: translateX(0); }
+  to   { transform: translateX(142px); }
 }
 
-@keyframes pac-mouth {
-  0%, 100% { clip-path: polygon(50% 50%, 100% 48.5%, 100% 51.5%); }
-  50%      { clip-path: polygon(50% 50%, 100% 25%, 100% 75%); }
+.boot__pac-bob {
+  animation: pac-bob 0.4225s ease-in-out infinite;
 }
 
-@keyframes pac-chomp {
-  0%, 100% { transform: scale(1); }
-  50%      { transform: scale(1.06); }
+@keyframes pac-bob {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-2px); }
 }
 
-/* ---- pellet train ---- */
+.boot__pac-frame {
+  fill: var(--accent);
+  opacity: 0;
+  animation: pac-frame 0.9s linear infinite;
+}
+
+.boot__pac-frame:nth-child(1) { animation-delay: 0s; }
+.boot__pac-frame:nth-child(2) { animation-delay: 0.3s; }
+.boot__pac-frame:nth-child(3) { animation-delay: 0.6s; }
+
+.boot__eye { fill: var(--bg-0); }
+
+@keyframes pac-frame {
+  0%, 33%    { opacity: 1; }
+  33.4%, 100% { opacity: 0; }
+}
+
+/* ---- steady pellet row, popped as he reaches them ---- */
 .boot__tube {
   position: absolute;
   top: 50%;
-  left: calc(50% + 42px);
-  width: 178px;
-  height: 9px;
-  margin-top: -4.5px;
+  left: 100px;
+  width: 130px;
+  height: 10px;
+  margin-top: -5px;
 }
 
 .boot__dot {
   position: absolute;
   top: 0;
-  left: calc(var(--i) * 26px);
-  width: 9px;
-  height: 9px;
+  left: calc(var(--i) * 30px);
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   background: var(--accent);
   box-shadow: 0 0 8px rgba(167, 184, 179, 0.45);
-  transform-origin: 100% 50%;
-  animation: dot-eat var(--dur) linear var(--t) infinite;
+  animation: dot-eat 0.16s linear var(--t) both;
 }
 
-.boot__dot:nth-child(1) { --i: 0; --d: 18;  --dur: 0.092s; --t: 0s; }
-.boot__dot:nth-child(2) { --i: 1; --d: 44;  --dur: 0.226s; --t: 0.13s; }
-.boot__dot:nth-child(3) { --i: 2; --d: 70;  --dur: 0.359s; --t: 0.26s; }
-.boot__dot:nth-child(4) { --i: 3; --d: 96;  --dur: 0.492s; --t: 0.39s; }
-.boot__dot:nth-child(5) { --i: 4; --d: 122; --dur: 0.626s; --t: 0.52s; }
-.boot__dot:nth-child(6) { --i: 5; --d: 148; --dur: 0.759s; --t: 0.65s; }
-.boot__dot:nth-child(7) { --i: 6; --d: 174; --dur: 0.892s; --t: 0.78s; }
+.boot__dot-power {
+  top: -2px;
+  left: calc(var(--i) * 30px - 2px);
+  width: 14px;
+  height: 14px;
+  box-shadow: 0 0 14px rgba(167, 184, 179, 0.6);
+}
+
+.boot__dot:nth-child(1) { --i: 0; --t: 0.32s; }
+.boot__dot:nth-child(2) { --i: 1; --t: 0.75s; }
+.boot__dot:nth-child(3) { --i: 2; --t: 1.17s; }
+.boot__dot:nth-child(4) { --i: 3; --t: 1.59s; }
+.boot__dot:nth-child(5) { --i: 4; --t: 2.01s; }
 
 @keyframes dot-eat {
-  0%   { transform: translateX(0) scale(1); opacity: 1; }
-  70%  { transform: translateX(calc(var(--d) * -0.7px)) scale(1); opacity: 1; }
-  88%  { transform: translateX(calc(var(--d) * -0.88px)) scale(0.8); opacity: 1; }
-  100% { transform: translateX(calc(var(--d) * -1px)) scale(0.1); opacity: 0; }
+  0%   { transform: scale(1); opacity: 1; }
+  55%  { transform: scale(0.72); opacity: 1; }
+  100% { transform: scale(0.1); opacity: 0; }
 }
 
 @media (max-width: 420px) {
-  .boot__tube { width: 104px; }
+  .boot__loader { width: 220px; }
+  .boot__maze { left: -22px; right: -22px; }
+  .boot__pac { animation-name: pac-walk-sm; animation-duration: 2.05s; }
   .boot__dot:nth-child(n + 5) { display: none; }
 }
 
@@ -474,10 +498,10 @@ code {
   .boot__loader,
   .boot__loader::before,
   .boot__loader::after,
-  .boot__pac::before,
-  .boot__pac::after,
   .boot__loader * { animation: none !important; }
   .boot__loader { opacity: 1; }
+  .boot__pac-frame { opacity: 0; }
+  .boot__pac-frame:nth-child(2) { opacity: 1; }
   .boot__dot { opacity: 0.85; }
 }
 
