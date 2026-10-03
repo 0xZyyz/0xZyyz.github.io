@@ -327,7 +327,6 @@ code {
   align-items: center;
   justify-content: center;
   padding: 1rem;
-  overflow: hidden;
   background: #141110;
   opacity: 1;
   transition: opacity 0.35s ease, transform 0.35s ease;
@@ -377,80 +376,66 @@ code {
 
 .boot__loader {
   position: relative;
-  width: 300px;
+  width: 212px;
   max-width: 100%;
   height: 96px;
-  margin: 2.4rem auto 0;
+  margin: 2.6rem auto 0;
   animation: boot-flash 0.6s 0.3s ease both;
 }
 
-.boot__maze {
-  position: absolute;
-  top: 50%;
-  left: -46px;
-  right: -46px;
-  height: 92px;
-  transform: translateY(-50%);
-  border: 2px solid rgba(167, 184, 179, 0.13);
-  border-radius: 46px;
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 20%, #000 80%, transparent);
-  mask-image: linear-gradient(90deg, transparent, #000 20%, #000 80%, transparent);
-}
-
-/* ---- pac-man: walks the row, mouth cycled through three frames ---- */
+/* ---- pac-man: walks the row, chomp synced to every bite ---- */
 .boot__pac {
   position: absolute;
   top: 50%;
-  left: 20px;
+  left: 9px;
   width: 64px;
   height: 64px;
   margin-top: -32px;
-  filter: drop-shadow(0 0 14px rgba(167, 184, 179, 0.28));
+  filter: drop-shadow(0 0 16px rgba(167, 184, 179, 0.3));
   animation: pac-walk 2.35s linear forwards;
 }
 
 @keyframes pac-walk {
   from { transform: translateX(0); }
-  to   { transform: translateX(167px); }
+  to   { transform: translateX(132px); }
 }
 
 @keyframes pac-walk-sm {
   from { transform: translateX(0); }
-  to   { transform: translateX(142px); }
+  to   { transform: translateX(124px); }
 }
 
 .boot__pac-bob {
-  animation: pac-bob 0.4225s ease-in-out infinite;
+  animation: pac-bob 0.43s ease-in-out infinite;
 }
 
 @keyframes pac-bob {
-  0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-2px); }
+  0%, 100% { transform: translateY(0) scale(1); }
+  50%      { transform: translateY(-2.5px) scale(1.025); }
 }
 
 .boot__pac-frame {
   fill: var(--accent);
   opacity: 0;
-  animation: pac-frame 0.9s linear infinite;
+  animation: pac-frame 0.43s linear infinite;
 }
 
 .boot__pac-frame:nth-child(1) { animation-delay: 0s; }
-.boot__pac-frame:nth-child(2) { animation-delay: 0.3s; }
-.boot__pac-frame:nth-child(3) { animation-delay: 0.6s; }
+.boot__pac-frame:nth-child(2) { animation-delay: 0.215s; }
 
 .boot__eye { fill: var(--bg-0); }
 
 @keyframes pac-frame {
-  0%, 33%    { opacity: 1; }
-  33.4%, 100% { opacity: 0; }
+  0%, 49.9%  { opacity: 1; }
+  50%, 100%  { opacity: 0; }
 }
 
 /* ---- steady pellet row, popped as he reaches them ---- */
 .boot__tube {
   position: absolute;
   top: 50%;
-  left: 100px;
-  width: 130px;
+  left: 84px;
+  width: 106px;
   height: 10px;
   margin-top: -5px;
 }
@@ -458,38 +443,51 @@ code {
 .boot__dot {
   position: absolute;
   top: 0;
-  left: calc(var(--i) * 30px);
+  left: calc(var(--i) * 24px);
   width: 10px;
   height: 10px;
   border-radius: 50%;
   background: var(--accent);
-  box-shadow: 0 0 8px rgba(167, 184, 179, 0.45);
-  animation: dot-eat 0.16s linear var(--t) both;
+  box-shadow: 0 0 9px rgba(167, 184, 179, 0.5);
+  animation: dot-eat 0.22s linear var(--t) both;
 }
 
 .boot__dot-power {
   top: -2px;
-  left: calc(var(--i) * 30px - 2px);
+  left: calc(var(--i) * 24px - 2px);
   width: 14px;
   height: 14px;
-  box-shadow: 0 0 14px rgba(167, 184, 179, 0.6);
+  box-shadow: 0 0 15px rgba(167, 184, 179, 0.65);
+}
+
+.boot__dot-power::after {
+  content: "";
+  position: absolute;
+  inset: -7px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(167, 184, 179, 0.32), rgba(167, 184, 179, 0) 70%);
+  animation: power-pulse 1.7s ease-in-out infinite;
+}
+
+@keyframes power-pulse {
+  0%, 100% { transform: scale(0.72); opacity: 0.45; }
+  50%      { transform: scale(1.15); opacity: 1; }
 }
 
 .boot__dot:nth-child(1) { --i: 0; --t: 0.32s; }
 .boot__dot:nth-child(2) { --i: 1; --t: 0.75s; }
-.boot__dot:nth-child(3) { --i: 2; --t: 1.17s; }
-.boot__dot:nth-child(4) { --i: 3; --t: 1.59s; }
-.boot__dot:nth-child(5) { --i: 4; --t: 2.01s; }
+.boot__dot:nth-child(3) { --i: 2; --t: 1.18s; }
+.boot__dot:nth-child(4) { --i: 3; --t: 1.61s; }
+.boot__dot:nth-child(5) { --i: 4; --t: 2.04s; }
 
 @keyframes dot-eat {
-  0%   { transform: scale(1); opacity: 1; }
-  55%  { transform: scale(0.72); opacity: 1; }
-  100% { transform: scale(0.1); opacity: 0; }
+  0%   { transform: scale(1);    filter: brightness(1);   opacity: 1; }
+  45%  { transform: scale(1.28); filter: brightness(1.7); opacity: 1; }
+  100% { transform: scale(0.1);  filter: brightness(1);   opacity: 0; }
 }
 
 @media (max-width: 420px) {
-  .boot__loader { width: 220px; }
-  .boot__maze { left: -22px; right: -22px; }
+  .boot__loader { width: 200px; }
   .boot__pac { animation-name: pac-walk-sm; animation-duration: 2.05s; }
   .boot__dot:nth-child(n + 5) { display: none; }
 }
