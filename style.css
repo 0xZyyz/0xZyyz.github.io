@@ -375,78 +375,111 @@ code {
 }
 
 .boot__loader {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 7px;
-  margin-top: 1.6rem;
+  position: relative;
+  width: 100%;
+  max-width: 640px;
+  height: 58px;
+  margin: 2.4rem auto 0;
   animation: boot-flash 0.6s 0.3s ease both;
 }
 
+/* ---- pac-man: solid disc with an animated mouth wedge cut out of it ---- */
 .boot__pac {
-  position: relative;
-  width: 20px;
-  height: 20px;
-  margin-right: 3px;
-}
-
-.boot__pac::before,
-.boot__pac::after {
-  content: "";
   position: absolute;
-  left: 0;
-  width: 20px;
-  height: 10px;
+  top: 0;
+  left: 50%;
+  width: 58px;
+  height: 58px;
+  margin-left: -29px;
+  border-radius: 50%;
   background: var(--accent);
-  transform-origin: center;
+  box-shadow: 0 0 24px var(--accent-dim), 0 0 70px rgba(167, 184, 179, 0.16);
+  animation: pac-chomp 0.34s ease-in-out infinite;
 }
 
 .boot__pac::before {
-  top: 0;
-  border-radius: 10px 10px 0 0;
-  animation: pac-bite-top 0.5s ease-in-out infinite;
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: var(--bg-0);
+  clip-path: polygon(50% 50%, 100% 30%, 100% 70%);
+  animation: pac-mouth 0.34s ease-in-out infinite;
 }
 
 .boot__pac::after {
-  bottom: 0;
-  border-radius: 0 0 10px 10px;
-  animation: pac-bite-bot 0.5s ease-in-out infinite;
+  content: "";
+  position: absolute;
+  top: 16%;
+  left: 62%;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--bg-0);
+  animation: pac-chomp 0.34s ease-in-out infinite;
 }
 
-@keyframes pac-bite-top {
-  0%, 100% { transform: rotate(0deg); }
-  50%      { transform: rotate(-36deg); }
+@keyframes pac-mouth {
+  0%, 100% { clip-path: polygon(50% 50%, 100% 49.5%, 100% 50.5%); }
+  50%      { clip-path: polygon(50% 50%, 100% 4%, 100% 96%); }
 }
 
-@keyframes pac-bite-bot {
-  0%, 100% { transform: rotate(0deg); }
-  50%      { transform: rotate(36deg); }
+@keyframes pac-chomp {
+  0%, 100% { transform: translateX(0) scale(1); }
+  50%      { transform: translateX(-3px) scale(1.05); }
+}
+
+/* ---- pellet train ---- */
+.boot__tube {
+  position: absolute;
+  top: 50%;
+  left: calc(50% + 42px);
+  width: 178px;
+  height: 9px;
+  margin-top: -4.5px;
 }
 
 .boot__dot {
-  width: 6px;
-  height: 6px;
+  position: absolute;
+  top: 0;
+  left: calc(var(--i) * 26px);
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
   background: var(--accent);
-  animation: dot-flow 1.6s ease-in infinite;
+  box-shadow: 0 0 8px rgba(167, 184, 179, 0.45);
+  transform-origin: 100% 50%;
+  animation: dot-eat var(--dur) linear var(--t) infinite;
 }
 
-.boot__dot:nth-child(2) { animation-delay: 0.4s; }
-.boot__dot:nth-child(3) { animation-delay: 0.8s; }
-.boot__dot:nth-child(4) { animation-delay: 1.2s; }
+.boot__dot:nth-child(1) { --i: 0; --d: 18;  --dur: 0.092s; --t: 0s; }
+.boot__dot:nth-child(2) { --i: 1; --d: 44;  --dur: 0.226s; --t: 0.13s; }
+.boot__dot:nth-child(3) { --i: 2; --d: 70;  --dur: 0.359s; --t: 0.26s; }
+.boot__dot:nth-child(4) { --i: 3; --d: 96;  --dur: 0.492s; --t: 0.39s; }
+.boot__dot:nth-child(5) { --i: 4; --d: 122; --dur: 0.626s; --t: 0.52s; }
+.boot__dot:nth-child(6) { --i: 5; --d: 148; --dur: 0.759s; --t: 0.65s; }
+.boot__dot:nth-child(7) { --i: 6; --d: 174; --dur: 0.892s; --t: 0.78s; }
 
-@keyframes dot-flow {
-  0%    { transform: translateX(0) scale(1); opacity: 1; }
-  70%   { transform: translateX(-30px) scale(0.4); opacity: 0.7; }
-  100%  { transform: translateX(-46px) scale(0); opacity: 0; }
+@keyframes dot-eat {
+  0%   { transform: translateX(0) scale(1); opacity: 1; }
+  70%  { transform: translateX(calc(var(--d) * -0.7px)) scale(1); opacity: 1; }
+  88%  { transform: translateX(calc(var(--d) * -0.88px)) scale(0.8); opacity: 1; }
+  100% { transform: translateX(calc(var(--d) * -1px)) scale(0.1); opacity: 0; }
+}
+
+@media (max-width: 420px) {
+  .boot__tube { width: 104px; }
+  .boot__dot:nth-child(n + 5) { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .boot__loader,
   .boot__loader::before,
   .boot__loader::after,
+  .boot__pac::before,
+  .boot__pac::after,
   .boot__loader * { animation: none !important; }
   .boot__loader { opacity: 1; }
+  .boot__dot { opacity: 0.85; }
 }
 
 /* ---- neofetch (floating terminal window) ---- */
