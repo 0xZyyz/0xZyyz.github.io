@@ -392,7 +392,7 @@ code {
   height: 58px;
   margin-left: -29px;
   border-radius: 50%;
-  background: var(--accent);
+  background: radial-gradient(circle at 34% 28%, var(--accent-hover) 0%, var(--accent) 58%, #8b9c97 100%);
   box-shadow: 0 0 24px var(--accent-dim), 0 0 70px rgba(167, 184, 179, 0.16);
   animation: pac-chomp 0.34s ease-in-out infinite;
 }
@@ -400,9 +400,9 @@ code {
 .boot__pac::before {
   content: "";
   position: absolute;
-  inset: -2px;
+  inset: -1px;
   background: var(--bg-0);
-  clip-path: polygon(50% 50%, 100% 30%, 100% 70%);
+  clip-path: polygon(50% 50%, 100% 37%, 100% 63%);
   animation: pac-mouth 0.34s ease-in-out infinite;
 }
 
@@ -415,17 +415,16 @@ code {
   height: 9px;
   border-radius: 50%;
   background: var(--bg-0);
-  animation: pac-chomp 0.34s ease-in-out infinite;
 }
 
 @keyframes pac-mouth {
-  0%, 100% { clip-path: polygon(50% 50%, 100% 49.5%, 100% 50.5%); }
-  50%      { clip-path: polygon(50% 50%, 100% 4%, 100% 96%); }
+  0%, 100% { clip-path: polygon(50% 50%, 100% 48.5%, 100% 51.5%); }
+  50%      { clip-path: polygon(50% 50%, 100% 25%, 100% 75%); }
 }
 
 @keyframes pac-chomp {
-  0%, 100% { transform: translateX(0) scale(1); }
-  50%      { transform: translateX(-3px) scale(1.05); }
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.06); }
 }
 
 /* ---- pellet train ---- */
