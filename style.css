@@ -388,6 +388,8 @@ code {
   width: 28px;
   height: 28px;
   margin-right: 4px;
+  filter: drop-shadow(0 0 11px rgba(167, 184, 179, 0.34))
+          drop-shadow(0 0 32px rgba(167, 184, 179, 0.16));
 }
 
 .boot__pac::before,
@@ -411,6 +413,16 @@ code {
   bottom: 0;
   border-radius: 0 0 14px 14px;
   animation: pac-bite-bot 0.5s ease-in-out infinite;
+}
+
+.boot__eye {
+  position: absolute;
+  top: 5px;
+  left: 17px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--bg-0);
 }
 
 @keyframes pac-bite-top {
