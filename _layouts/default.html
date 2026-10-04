@@ -27,23 +27,11 @@
         </svg>
         <div class="boot__title">Zyyz - Personal blog & portfolio</div>
         <div class="boot__loader" aria-hidden="true">
-          <svg class="boot__pac" viewBox="0 0 100 100">
-            <g class="boot__pac-bob">
-              <path class="boot__pac-frame" d="M97.97 48.32A48 48 0 1 0 97.97 51.68L54 50Z"/>
-              <path class="boot__pac-frame" d="M79.55 12.18A48 48 0 1 0 79.55 87.82L54 50Z"/>
-              <circle class="boot__eye" cx="65" cy="27" r="5.2"/>
-            </g>
-          </svg>
-          <span class="boot__tube">
-            <span class="boot__dot"></span>
-            <span class="boot__dot"></span>
-            <span class="boot__dot boot__dot-power"></span>
-            <span class="boot__dot"></span>
-            <span class="boot__dot"></span>
-            <span class="boot__dot"></span>
-            <span class="boot__dot boot__dot-power"></span>
-            <span class="boot__dot"></span>
-          </span>
+          <span class="boot__pac"></span>
+          <span class="boot__dot"></span>
+          <span class="boot__dot"></span>
+          <span class="boot__dot"></span>
+          <span class="boot__dot"></span>
         </div>
       </div>
     </div>
@@ -308,8 +296,8 @@
 
         var boot = document.getElementById('boot');
         if (boot) {
-          setTimeout(function () { boot.classList.add('is-hidden'); }, 2700);
-          setTimeout(function () { if (boot.parentNode) boot.parentNode.removeChild(boot); }, 3250);
+          setTimeout(function () { boot.classList.add('is-hidden'); }, 1350);
+          setTimeout(function () { if (boot.parentNode) boot.parentNode.removeChild(boot); }, 2000);
         }
       })();
     </script>

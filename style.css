@@ -375,124 +375,70 @@ code {
 }
 
 .boot__loader {
-  position: relative;
-  width: 160px;
-  max-width: 100%;
-  height: 60px;
-  margin: 2.6rem auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  margin-top: 1.6rem;
   animation: boot-flash 0.6s 0.3s ease both;
 }
 
-/* ---- pac-man: walks the row, chomp synced to every bite ---- */
 .boot__pac {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  margin-right: 3px;
+}
+
+.boot__pac::before,
+.boot__pac::after {
+  content: "";
   position: absolute;
-  top: 50%;
-  left: 5px;
-  width: 36px;
-  height: 36px;
-  margin-top: -18px;
-  filter: drop-shadow(0 0 9px rgba(167, 184, 179, 0.3));
-  animation: pac-walk 2.65s linear forwards;
+  left: 0;
+  width: 20px;
+  height: 10px;
+  background: var(--accent);
+  transform-origin: center;
 }
 
-@keyframes pac-walk {
-  from { transform: translateX(0); }
-  to   { transform: translateX(115px); }
+.boot__pac::before {
+  top: 0;
+  border-radius: 10px 10px 0 0;
+  animation: pac-bite-top 0.5s ease-in-out infinite;
 }
 
-@keyframes pac-walk-sm {
-  from { transform: translateX(0); }
-  to   { transform: translateX(102px); }
+.boot__pac::after {
+  bottom: 0;
+  border-radius: 0 0 10px 10px;
+  animation: pac-bite-bot 0.5s ease-in-out infinite;
 }
 
-.boot__pac-bob {
-  animation: pac-bob 0.6s ease-in-out infinite;
+@keyframes pac-bite-top {
+  0%, 100% { transform: rotate(0deg); }
+  50%      { transform: rotate(-36deg); }
 }
 
-@keyframes pac-bob {
-  0%, 100% { transform: translateY(0) scale(1); }
-  50%      { transform: translateY(-1.2px) scale(1.02); }
-}
-
-.boot__pac-frame {
-  fill: var(--accent);
-  opacity: 0;
-  animation: pac-frame 0.3s linear infinite;
-}
-
-.boot__pac-frame:nth-child(1) { animation-delay: 0s; }
-.boot__pac-frame:nth-child(2) { animation-delay: 0.15s; }
-
-.boot__eye { fill: var(--bg-0); }
-
-@keyframes pac-frame {
-  0%, 49.9%  { opacity: 1; }
-  50%, 100%  { opacity: 0; }
-}
-
-/* ---- steady pellet row, popped as he reaches them ---- */
-.boot__tube {
-  position: absolute;
-  top: 50%;
-  left: 47px;
-  width: 97px;
-  height: 6px;
-  margin-top: -3px;
+@keyframes pac-bite-bot {
+  0%, 100% { transform: rotate(0deg); }
+  50%      { transform: rotate(36deg); }
 }
 
 .boot__dot {
-  position: absolute;
-  top: 0;
-  left: calc(var(--i) * 13px);
   width: 6px;
   height: 6px;
   border-radius: 50%;
   background: var(--accent);
-  box-shadow: 0 0 5px rgba(167, 184, 179, 0.5);
-  animation: dot-eat 0.15s linear var(--t) both;
+  animation: dot-flow 1.6s ease-in infinite;
 }
 
-.boot__dot-power {
-  top: -1px;
-  left: calc(var(--i) * 13px - 1px);
-  width: 8px;
-  height: 8px;
-  box-shadow: 0 0 8px rgba(167, 184, 179, 0.65);
-}
+.boot__dot:nth-child(2) { animation-delay: 0.4s; }
+.boot__dot:nth-child(3) { animation-delay: 0.8s; }
+.boot__dot:nth-child(4) { animation-delay: 1.2s; }
 
-.boot__dot-power::after {
-  content: "";
-  position: absolute;
-  inset: -4px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(167, 184, 179, 0.32), rgba(167, 184, 179, 0) 70%);
-  animation: power-pulse 1.7s ease-in-out infinite;
-}
-
-@keyframes power-pulse {
-  0%, 100% { transform: scale(0.72); opacity: 0.45; }
-  50%      { transform: scale(1.15); opacity: 1; }
-}
-
-.boot__dot:nth-child(1) { --i: 0; --t: 0.23s; }
-.boot__dot:nth-child(2) { --i: 1; --t: 0.53s; }
-.boot__dot:nth-child(3) { --i: 2; --t: 0.83s; }
-.boot__dot:nth-child(4) { --i: 3; --t: 1.13s; }
-.boot__dot:nth-child(5) { --i: 4; --t: 1.43s; }
-.boot__dot:nth-child(6) { --i: 5; --t: 1.73s; }
-.boot__dot:nth-child(7) { --i: 6; --t: 2.03s; }
-.boot__dot:nth-child(8) { --i: 7; --t: 2.33s; }
-
-@keyframes dot-eat {
-  0%   { transform: scale(1);    filter: brightness(1);   opacity: 1; }
-  45%  { transform: scale(1.3);  filter: brightness(1.7); opacity: 1; }
-  100% { transform: scale(0.1);  filter: brightness(1);   opacity: 0; }
-}
-
-@media (max-width: 420px) {
-  .boot__loader { width: 150px; }
-  .boot__pac { animation-name: pac-walk-sm; animation-duration: 2.35s; }
-  .boot__dot:nth-child(n + 7) { display: none; }
+@keyframes dot-flow {
+  0%    { transform: translateX(0) scale(1); opacity: 1; }
+  70%   { transform: translateX(-30px) scale(0.4); opacity: 0.7; }
+  100%  { transform: translateX(-46px) scale(0); opacity: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -501,9 +447,6 @@ code {
   .boot__loader::after,
   .boot__loader * { animation: none !important; }
   .boot__loader { opacity: 1; }
-  .boot__pac-frame { opacity: 0; }
-  .boot__pac-frame:nth-child(2) { opacity: 1; }
-  .boot__dot { opacity: 0.85; }
 }
 
 /* ---- neofetch (floating terminal window) ---- */
