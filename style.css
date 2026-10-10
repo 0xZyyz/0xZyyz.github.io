@@ -963,6 +963,10 @@ body { padding-top: 42px; }
 
 .exp__body { flex: 1; min-width: 0; }
 
+.exp__logo--vamisec {
+  background: #fff;
+}
+
 .exp__logo--vamisec img {
   object-fit: contain;
   border-radius: 0;
