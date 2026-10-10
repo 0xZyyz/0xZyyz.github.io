@@ -963,7 +963,8 @@ body { padding-top: 42px; }
 
 .exp__body { flex: 1; min-width: 0; }
 
-.exp__logo--vamisec {
+.exp__logo--vamisec,
+.exp__logo--smartskills {
   background: #fff;
 }
 
