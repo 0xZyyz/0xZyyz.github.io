@@ -968,7 +968,8 @@ body { padding-top: 42px; }
   background: #fff;
 }
 
-.exp__logo--vamisec img {
+.exp__logo--vamisec img,
+.exp__logo--smartskills img {
   object-fit: contain;
   border-radius: 0;
   padding: 0.25rem;
