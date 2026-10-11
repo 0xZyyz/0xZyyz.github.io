@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Writeup for Ghost Revenge — FL1TZ SummerRush CTF 2025"
+published: false
 date: 2025-07-26 00:28:00 +0100
 categories: [ctf, forensics, writeups]
 role: author
